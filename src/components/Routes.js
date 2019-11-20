@@ -44,7 +44,7 @@ function Routes(){
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path={'/'} component={Main} />
+          <Route exact path={'/kyushu/'} component={Main} />
           <Route render={PageNotFound} />
         </Switch>
       </BrowserRouter>
