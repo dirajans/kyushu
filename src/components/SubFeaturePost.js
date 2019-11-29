@@ -54,7 +54,7 @@ function SubFeaturePost(){
                 <Hidden xsDown>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image=""
                     title="Image title"
                   />
                 </Hidden>

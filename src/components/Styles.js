@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.grey[800],
       color: theme.palette.common.white,
       marginBottom: theme.spacing(4),
-      backgroundImage: 'url(https://source.unsplash.com/user/erondu)',
+      // backgroundImage: 'url(https://source.unsplash.com/user/erondu)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(6),
         paddingRight: 0,
       },
+      height: 300,
     },
     mainGrid: {
       marginTop: theme.spacing(3),

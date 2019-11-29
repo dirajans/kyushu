@@ -6,7 +6,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Main from './Main';
+import Utama from './Utama';
+import Pengenalan from './Pengenalan';
+import Galeri from './Galeri';
 import PageNotFound from './PageNotFound';
 import Loading from './Loading';
 
@@ -44,7 +46,10 @@ function Routes(){
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path={'/kyushu/'} component={Main} />
+          <Route exact path={'/'} component={Utama} />
+          <Route exact path={'/utama'} component={Utama} />
+          <Route exact path={'/galeri'} component={Galeri} />
+          <Route exact path={'/pengenalan'} component={Pengenalan} />
           <Route render={PageNotFound} />
         </Switch>
       </BrowserRouter>

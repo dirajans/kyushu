@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
 
 import SearchIcon from '@material-ui/icons/Search';
 import GoIcon from '@material-ui/icons/ChevronRight';
@@ -15,79 +16,87 @@ function Navbar(){
     const classes = useStyles();
 
     const [searchClicked, setSearchClicked] = React.useState(false);
-    const [values, setValues] = React.useState('');
+    const [search, setSearch] = React.useState(null);
 
     const sections = [
-        'Utama',
-        'Pengenalan',
-        'Galeri',
+        { name: 'Utama', href: '/utama' },
+        { name: 'Pengenalan', href: '/pengenalan'},
+        { name: 'Galeri', href: '/galeri'},
     ];
 
     const handleSearchClick = () => {
         setSearchClicked(!searchClicked)
     }
 
-    const handleChangeInput = name => event => {
-        setValues({ ...values, [name]: event.target.value })
+    const handleChangeSearch = (event) => {
+        setSearch(event.target.value)
     }
 
     const handleSubmitSearch = (event) => {
         event.preventDefault();
-        const { search } = values;
-
-        alert(search)
+        if (search === null || '') {
+            return
+        } else {
+            alert(search)
+        }
     }
 
     return (
         <div>
-            <Toolbar className={classes.toolbar}>
-                <Typography
-                component="h2"
-                variant="h5"
-                color="inherit"
-                align="flex-start"
-                noWrap
-                className={classes.toolbarTitle}
-                >
-                Blog
-                </Typography>
-
-                {searchClicked && (
-                    <>
-                        <TextField
-                            margin="normal"
-                            id="search"
-                            label="Search"
-                            name="search"
-                            onChange={handleChangeInput('search')}
-                        />
-                        <IconButton onClick={handleSubmitSearch}>
-                            <GoIcon />
-                        </IconButton>
-                    </>
-                )}
-
-                {!searchClicked && (
-                    <IconButton onClick={handleSearchClick}>
-                        <SearchIcon />
-                    </IconButton>
-                )}
-                
-            </Toolbar>
-            <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-                {sections.map(section => (
-                <Link
+            <Container>
+                <Toolbar>
+                    <Typography
+                    component="h2"
+                    variant="h5"
                     color="inherit"
+                    align="flex-start"
                     noWrap
-                    key={section}
-                    variant="body2"
-                    href="#"
-                    className={classes.toolbarLink}
-                >
-                    {section}
-                </Link>
-                ))}
-            </Toolbar>
+                    className={classes.toolbarTitle}
+                    >
+                    Portal
+                    </Typography>
+
+                    {searchClicked && (
+                        <div>
+                            <TextField
+                                margin="normal"
+                                id="search"
+                                label="Search"
+                                name="search"
+                                onChange={handleChangeSearch}
+                            />
+                            <IconButton onClick={handleSubmitSearch}>
+                                <GoIcon />
+                            </IconButton>
+                        </div>
+                    )}
+
+                    {!searchClicked && (
+                        <IconButton onClick={handleSearchClick}>
+                            <SearchIcon />
+                        </IconButton>
+                    )}
+                </Toolbar>
+            </Container>
+
+            <div className={classes.toolbar} />
+            
+            <Container>
+                <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+                    {sections.map(section => (
+                        <Link
+                            color="inherit"
+                            noWrap
+                            key={section.name}
+                            variant="body2"
+                            href={section.href}
+                            className={classes.toolbarLink}
+                        >
+                            {section.name}
+                        </Link>
+                    ))}
+                </Toolbar>
+            </Container>
         </div>
     )
 }
