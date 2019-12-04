@@ -8,20 +8,38 @@ import {
 import Utama from './utama/IndexUtama';
 import Pengenalan from './pengenalan/IndexPengenalan';
 import Galeri from './galeri/IndexGaleri';
-import PageNotFound from './shared/PageNotFound';
 import Pertanyaan from './pertanyaan/IndexPertanyaan';
+import Pentadbiran from './pentadbiran/IndexPentadbiran';
+
+import PageNotFound from './shared/PageNotFound';
 import Test from './test/Test';
+
+import pages from './Pages';
+
+const imports = {
+  Utama,
+  Pengenalan,
+  Pentadbiran,
+  Galeri,
+  Pertanyaan,
+}
+
+const getImports = (name) => {
+  return imports[name]
+}
 
 function Routes(){
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={'/'} component={Utama} />
-        <Route exact path={'/utama'} component={Utama} />
-        <Route exact path={'/galeri'} component={Galeri} />
-        <Route exact path={'/pengenalan'} component={Pengenalan} />
-        <Route exact path={'/pertanyaan'} component={Pertanyaan} />
-        <Route exact path={'/test'} component={Test} />
+
+        {pages.map( (page) => {
+          return (
+            <Route exact path={`/${page.name}`} component={getImports(page.name)} />
+          )
+        })}
+
         <Route render={PageNotFound} />
       </Switch>
     </BrowserRouter>

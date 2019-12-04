@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Grid,
   Container,
   Typography,
   Divider,
@@ -10,7 +9,10 @@ import {
 
 import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
-import GaleriCard from './GaleriCard';
+import MobileNavbar from './../shared/MobileNavbar';
+import {
+  Hidden,
+} from '@material-ui/core';
 
 import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
@@ -29,7 +31,12 @@ export default function IndexGaleri(){
 
     return (
         <>
-        <Navbar />
+        <Hidden smUp>
+          <MobileNavbar />
+        </Hidden>
+        <Hidden xsDown>
+          <Navbar />
+        </Hidden>
         <AutoplaySlider
             play={true}
             cancelOnInteraction={false}
@@ -47,26 +54,19 @@ export default function IndexGaleri(){
         <br />
 
         <Container style={styles.container}>
-            <Grid container justify={'space-between'}>
-                <Grid item>
-                <Typography variant={'h5'} component={'h2'}>
-                    Majlis
-                </Typography>
-                </Grid>
-                <Grid item>
-                    December 1st, 2019
-                </Grid>
-            </Grid>
-            <br/>
-            <Divider />
-            <br/>
-            <GridList cellHeight={160} cols={3}>
-              {tileData.map(tile => (
-                <GridListTile key={tile.img} cols={tile.cols || 1}>
-                  <img src={tile.img} alt={tile.title} />
-                </GridListTile>
-              ))}
-            </GridList>
+          <Typography variant={'h5'} component={'h2'}>
+            Majlis
+          </Typography>
+          <br/>
+          <Divider />
+          <br/>
+          <GridList cellHeight={160} cols={3}>
+            {tileData.map(tile => (
+              <GridListTile key={tile.img} cols={tile.cols || 1}>
+                <img src={tile.img} alt={tile.title} />
+              </GridListTile>
+            ))}
+          </GridList>
         </Container>
 
         <Footer />

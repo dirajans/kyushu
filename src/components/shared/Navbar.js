@@ -7,15 +7,9 @@ import {
   Grid
 } from '@material-ui/core';
 import NavbarLink from './NavbarLink';
+import pages from './../Pages';
 
 export default function Navbar(){
-    const pages = [
-        { name: 'Utama', href: '/utama' },
-        { name: 'Pengenalan', href: '/pengenalan'},
-        { name: 'Galeri', href: '/galeri'},
-        { name: 'Pertanyaan', href: '/pertanyaan'},
-        // { name: 'Test Page', href: '/test'},
-    ];
 
     return (
         <div>

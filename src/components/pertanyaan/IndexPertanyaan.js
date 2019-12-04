@@ -1,16 +1,23 @@
 import React from 'react';
 import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
+import MobileNavbar from './../shared/MobileNavbar';
 import {
   Container,
   Card,
   CardMedia,
+  Hidden,
 } from '@material-ui/core';
 
 export default function IndexPertanyaan() {
   return (
     <>
-    <Navbar / >
+    <Hidden smUp>
+      <MobileNavbar />
+    </Hidden>
+    <Hidden xsDown>
+      <Navbar />
+    </Hidden>
 
     <Container style={styles.container}>
       <Card style={styles.card}>

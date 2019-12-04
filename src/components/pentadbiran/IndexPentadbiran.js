@@ -7,7 +7,7 @@ import {
   Hidden,
 } from '@material-ui/core';
 
-export default function IndexPengenalan(){
+export default function IndexPentadbiran(){
     return (
       <>
       <Hidden smUp>

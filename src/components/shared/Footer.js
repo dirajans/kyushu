@@ -7,6 +7,8 @@ import {
 import FooterLink from './FooterLink';
 import FooterTitle from './FooterTitle';
 
+import pages from './../Pages';
+
 export default function Footer() {
   return (
     <footer style={styles.container}>
@@ -14,10 +16,9 @@ export default function Footer() {
       <Grid container spacing={2}>
         <Grid item lg={3} xs={12}>
           <FooterTitle title={'Pautan'} />
-          <FooterLink title={'Utama'} url={'/utama'} />
-          <FooterLink title={'Pengenalan'} url={'/pengenalan'} />
-          <FooterLink title={'Galeri'} url={'/galeri'} />
-          <FooterLink title={'Pertanyaan'} url={'/pertanyaan'} />
+          {pages.map( (page) => (
+            <FooterLink title={page.name} url={page.href} />
+          ))}
         </Grid>
         <Grid item lg={3} xs={12}>
           <FooterTitle title={'Portal Berkenaan'} />
@@ -39,7 +40,7 @@ export default function Footer() {
 
       <Typography variant={"body2"} align={"center"}>
         <span style={{ color: 'white'}}>
-          Hak Cipta Kerajaan Negeri Sembilan Darul Khusus
+          Hakcipta Kerajaan Negeri Sembilan Darul Khusus
           {' © '}
           {new Date().getFullYear()}
         </span>
