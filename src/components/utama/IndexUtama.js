@@ -6,27 +6,39 @@ import Container from '@material-ui/core/Container';
 import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
 
-import useStyles from './Styles';
-
 export default function IndexUtama() {
-  const classes = useStyles();
 
   return (
-    <div>
+    <>
       <Navbar />
-
+      <div style={styles.container}>
+      <div style={styles.content}>
       <Container maxWidth="lg">
-        <Grid container spacing={5} className={classes.mainGrid}>
-          {/* Main content */}
-          <Grid item xs={12} md={8}>
-
-          </Grid>
-          {/* End main content */}
-        </Grid>
 
       </Container>
 
+      </div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
+}
+
+const background = '/images/bg.jpg';
+
+const styles = {
+  container: {
+    backgroundImage: `url(${background})`,
+    height: '70vh',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  },
+
+  content: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    color: 'white',
+  }
 }

@@ -1,36 +1,68 @@
 import React from 'react';
-
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import {
+  Container,
+  Typography,
+  Grid,
+} from '@material-ui/core';
+import FooterLink from './FooterLink';
+import FooterTitle from './FooterTitle';
 
 function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-            Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-        </Typography>
-    );
+  return (
+    <Typography
+    variant = "body2"
+    color = "textSecondary"
+    align = "center"
+    > {'Copyright © '}
+    Your Website
+    {' '} {new Date().getFullYear()}
+    </Typography>
+  );
 }
 
-function Footer(){
-    return (
-        <footer>
-            <Container maxWidth="lg">
-            <Typography variant="h6" align="center" gutterBottom>
-                Footer
-            </Typography>
-            <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                Something here to give the footer a purpose!
-            </Typography>
-            <Copyright />
-            </Container>
-        </footer>
-    )
+export default function Footer() {
+  return (
+    <footer style={styles.container}>
+    <Container maxWidth = "lg" >
+      <Grid container spacing={2}>
+        <Grid item lg={3}>
+          <FooterTitle title={'Pautan'} />
+          <FooterLink title={'Utama'} url={'/utama'} />
+          <FooterLink title={'Pengenalan'} url={'/pengenalan'} />
+          <FooterLink title={'Galeri'} url={'/galeri'} />
+          <FooterLink title={'Pertanyaan'} url={'/pertanyaan'} />
+        </Grid>
+        <Grid item lg={3}>
+          <FooterTitle title={'Pautan'} />
+          <FooterLink title={'Utama'} url={'/utama'} />
+          <FooterLink title={'Pengenalan'} url={'/utama'} />
+          <FooterLink title={'Galeri'} url={'/utama'} />
+          <FooterLink title={'Pertanyaan'} url={'/utama'} />
+        </Grid>
+        <Grid item lg={3}>
+          <FooterTitle title={'Pautan'} />
+          <FooterLink title={'Utama'} url={'/utama'} />
+          <FooterLink title={'Pengenalan'} url={'/utama'} />
+          <FooterLink title={'Galeri'} url={'/utama'} />
+          <FooterLink title={'Pertanyaan'} url={'/utama'} />
+        </Grid>
+        <Grid item lg={3}>
+          <img src={'/images/ns.png'} width={300} />
+        </Grid>
+      </Grid>
+
+      <Copyright />
+
+    </Container>
+    </footer>
+  )
 }
 
-export default Footer;
+const styles = {
+  container: {
+    paddingTop: 30,
+    paddingBottom: 30,
+    backgroundColor: 'black',
+    color: 'white'
+  }
+}

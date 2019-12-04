@@ -1,14 +1,16 @@
 import React from 'react';
-
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
+import {
+  Toolbar,
+  Typography,
+  Link,
+  Container,
+  Divider,
+  Grid
+} from '@material-ui/core';
+import NavbarLink from './NavbarLink';
 
 export default function Navbar(){
-    const sections = [
+    const pages = [
         { name: 'Utama', href: '/utama' },
         { name: 'Pengenalan', href: '/pengenalan'},
         { name: 'Galeri', href: '/galeri'},
@@ -17,8 +19,10 @@ export default function Navbar(){
 
     return (
         <div>
-            <Container>
+        <Grid container justify={'center'}>
+
                 <Toolbar>
+                <img src={'/images/ns.png'} width={100}/>
                     <Typography
                     component="h2"
                     variant="h5"
@@ -26,35 +30,29 @@ export default function Navbar(){
                     align="flex-start"
                     noWrap
                     >
-                    Portal
+                    Portal DiRaja Negeri Sembilan
                     </Typography>
+                    <img src={'/images/ns.png'} width={100}/>
                 </Toolbar>
-            </Container>
+      </Grid>
 
             <Divider />
-            
+
             <Container>
                 <Toolbar component="nav" variant="dense">
-                    <Grid container justify={'space-between'}>
-                    {sections.map(section => (
+                    <Grid container justify={'space-around'}>
+                    {pages.map(page => (
                         <Grid item>
-                            <Link
-                                color="inherit"
-                                noWrap
-                                key={section.name}
-                                variant="body2"
-                                href={section.href}
-                            >
-                                {section.name}
-                            </Link>
+                          <NavbarLink
+                            key={page.name}
+                            title={page.name}
+                            url={page.href}
+                          />
                         </Grid>
                     ))}
                     </Grid>
                 </Toolbar>
             </Container>
-            
-            <Divider />
         </div>
     )
 }
-
