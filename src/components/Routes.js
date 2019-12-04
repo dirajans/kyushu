@@ -10,6 +10,7 @@ import Pengenalan from './pengenalan/IndexPengenalan';
 import Galeri from './galeri/IndexGaleri';
 import Pertanyaan from './pertanyaan/IndexPertanyaan';
 import Pentadbiran from './pentadbiran/IndexPentadbiran';
+import Terkini from './terkini/IndexTerkini';
 
 import PageNotFound from './shared/PageNotFound';
 import Test from './test/Test';
@@ -22,6 +23,7 @@ const imports = {
   Pentadbiran,
   Galeri,
   Pertanyaan,
+  Terkini,
 }
 
 const getImports = (name) => {
@@ -36,7 +38,7 @@ function Routes(){
 
         {pages.map( (page) => {
           return (
-            <Route exact path={`/${page.name}`} component={getImports(page.name)} />
+            <Route key={page.name} exact path={`/${page.name}`} component={getImports(page.name)} />
           )
         })}
 

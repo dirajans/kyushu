@@ -21,7 +21,7 @@ export default function MobileNavbar(){
 
   return (
     <>
-    <AppBar position="static">
+    <AppBar position="static" color={'default'}>
       <Toolbar>
         <IconButton
           edge="start"
@@ -41,6 +41,7 @@ export default function MobileNavbar(){
       <List>
         {pages.map( (page) => (
           <ListItem
+            key={page.name+'navbar'}
             button
             onClick={toggleDrawer}
             component={'a'}

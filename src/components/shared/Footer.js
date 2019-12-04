@@ -17,7 +17,7 @@ export default function Footer() {
         <Grid item lg={3} xs={12}>
           <FooterTitle title={'Pautan'} />
           {pages.map( (page) => (
-            <FooterLink title={page.name} url={page.href} />
+            <FooterLink key={page.name+'footer'} title={page.name} url={page.href} />
           ))}
         </Grid>
         <Grid item lg={3} xs={12}>
@@ -31,7 +31,7 @@ export default function Footer() {
           <FooterLink title={'Twitter'} url={'http://www.twitter.com'}  newTab/>
           <FooterLink title={'Instagram'} url={'http://www.instagram.com'}  newTab/>
         </Grid>
-        <Grid item lg={3} xs={12}>
+        <Grid item lg={3} xs={12} align={'center'}>
           <img src={'/images/ns.png'} width={300} alt={''}/>
         </Grid>
       </Grid>

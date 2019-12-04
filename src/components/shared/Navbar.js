@@ -29,9 +29,8 @@ export default function Navbar(){
                 <Toolbar component="nav" variant="dense">
                     <Grid container justify={'space-around'}>
                     {pages.map(page => (
-                        <Grid item>
+                        <Grid item key={page.name+'navbar'}>
                           <NavbarLink
-                            key={page.name}
                             title={page.name}
                             url={page.href}
                           />

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Container,
   Typography,
-  Divider,
   GridList,
   GridListTile
 } from '@material-ui/core';
@@ -23,10 +22,10 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function IndexGaleri(){
     const [tileData] = useState([
-        { title: 'image-1', img: '/images/backdrop.png', cols: 2 },
-        { title: 'image-2', img: '/images/bendera.png' },
         { title: 'image-3', img: '/images/bg.jpg', cols: 3 },
-        { title: 'image-4', img: '/images/ns.png' },
+        { title: 'image-1', img: '/images/backdrop.png', cols: 2 },
+        { title: 'image-2', img: '/images/bendera.png', cols: 1 },
+        { title: 'image-4', img: '/images/ns.png', cols: 2 },
     ]);
 
     return (
@@ -46,21 +45,21 @@ export default function IndexGaleri(){
             infinite={true}
             cssModule={AwesomeSliderStyles}
         >
-            <div data-src="/images/bendera.png" />
-            <div data-src="/images/bg.jpg" />
-            <div data-src="/images/ns.png" />
+        {tileData.map( (data) => (
+          <div data-src={data.img} />
+        ))}
         </AutoplaySlider>
 
-        <br />
+        <Typography
+          variant={'h4'}
+          align={'center'}
+          style={styles.title}
+        >
+          Galeri
+        </Typography>
 
         <Container style={styles.container}>
-          <Typography variant={'h5'} component={'h2'}>
-            Majlis
-          </Typography>
-          <br/>
-          <Divider />
-          <br/>
-          <GridList cellHeight={160} cols={3}>
+          <GridList cellHeight={160} cols={5}>
             {tileData.map(tile => (
               <GridListTile key={tile.img} cols={tile.cols || 1}>
                 <img src={tile.img} alt={tile.title} />
@@ -78,4 +77,8 @@ const styles = {
   container: {
     paddingBottom: 30,
   },
+  title: {
+    paddingTop: 30,
+    paddingBottom: 30,
+  }
 }
