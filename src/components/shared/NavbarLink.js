@@ -15,7 +15,7 @@ const styles = {
   },
   font: {
     fontWeight: 'bold',
-    fontSize: 13,
+    fontSize: 14,
     color: 'grey'
   }
 }

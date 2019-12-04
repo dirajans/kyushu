@@ -21,8 +21,8 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://picsum.photos/400/300"
-          title="Contemplative Reptile"
+          image={'#'}
+          title={'Title for image'}
         />
       </CardActionArea>
     </Card>

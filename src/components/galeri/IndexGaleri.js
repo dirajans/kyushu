@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
+import {
+  Grid,
+  Container,
+  Typography,
+  Divider,
+  GridList,
+  GridListTile
+} from '@material-ui/core';
+
 import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
+import GaleriCard from './GaleriCard';
+
 import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import './galeri.scss';
-import { Grid, Container, Typography, Divider } from '@material-ui/core';
-import GaleriCard from './GaleriCard';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function IndexGaleri(){
-    const [images] = useState([
-        { name: 'image-1', url: 'url1' },
-        { name: 'image-2', url: 'url2' },
-        { name: 'image-1', url: 'url1' },
-        { name: 'image-2', url: 'url2' },
-        { name: 'image-1', url: 'url1' },
-        { name: 'image-2', url: 'url2' },
-        { name: 'image-1', url: 'url1' },
-        { name: 'image-2', url: 'url2' },
+    const [tileData] = useState([
+        { title: 'image-1', img: '/images/backdrop.png', cols: 2 },
+        { title: 'image-2', img: '/images/bendera.png' },
+        { title: 'image-3', img: '/images/bg.jpg', cols: 3 },
+        { title: 'image-4', img: '/images/ns.png' },
     ]);
 
     return (
@@ -34,14 +39,14 @@ export default function IndexGaleri(){
             infinite={true}
             cssModule={AwesomeSliderStyles}
         >
-            <div data-src="/path/to/image-0.png" />
-            <div data-src="/path/to/image-1.png" />
-            <div data-src="/path/to/image-2.jpg" />
+            <div data-src="/images/bendera.png" />
+            <div data-src="/images/bg.jpg" />
+            <div data-src="/images/ns.png" />
         </AutoplaySlider>
 
         <br />
 
-        <Container>
+        <Container style={styles.container}>
             <Grid container justify={'space-between'}>
                 <Grid item>
                 <Typography variant={'h5'} component={'h2'}>
@@ -55,18 +60,22 @@ export default function IndexGaleri(){
             <br/>
             <Divider />
             <br/>
-            <Grid container spacing={2}>
-                {images.map(
-                    (image) => (
-                        <Grid item lg={3}>
-                            <GaleriCard />
-                        </Grid>
-                    )
-                )}
-            </Grid>
+            <GridList cellHeight={160} cols={3}>
+              {tileData.map(tile => (
+                <GridListTile key={tile.img} cols={tile.cols || 1}>
+                  <img src={tile.img} alt={tile.title} />
+                </GridListTile>
+              ))}
+            </GridList>
         </Container>
-        
+
         <Footer />
         </>
     )
+}
+
+const styles = {
+  container: {
+    paddingBottom: 30,
+  },
 }

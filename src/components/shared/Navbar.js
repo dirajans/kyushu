@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Toolbar,
   Typography,
-  Link,
   Container,
   Divider,
   Grid
@@ -15,29 +14,23 @@ export default function Navbar(){
         { name: 'Pengenalan', href: '/pengenalan'},
         { name: 'Galeri', href: '/galeri'},
         { name: 'Pertanyaan', href: '/pertanyaan'},
+        // { name: 'Test Page', href: '/test'},
     ];
 
     return (
         <div>
         <Grid container justify={'center'}>
+          <Toolbar>
+            <img src={'/images/ns.png'} width={100} alt={''}/>
+            <Typography variant={'h5'}>
+            Portal DiRaja Negeri Sembilan
+            </Typography>
+            <img src={'/images/ns.png'} width={100} alt={''}/>
+          </Toolbar>
+        </Grid>
 
-                <Toolbar>
-                <img src={'/images/ns.png'} width={100}/>
-                    <Typography
-                    component="h2"
-                    variant="h5"
-                    color="inherit"
-                    align="flex-start"
-                    noWrap
-                    >
-                    Portal DiRaja Negeri Sembilan
-                    </Typography>
-                    <img src={'/images/ns.png'} width={100}/>
-                </Toolbar>
-      </Grid>
-
-            <Divider />
-
+        <Divider />
+        <div>
             <Container>
                 <Toolbar component="nav" variant="dense">
                     <Grid container justify={'space-around'}>
@@ -53,6 +46,7 @@ export default function Navbar(){
                     </Grid>
                 </Toolbar>
             </Container>
+            </div>
         </div>
     )
 }

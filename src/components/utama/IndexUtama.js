@@ -1,10 +1,15 @@
 import React from 'react';
-
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import {
+  Grid,
+  Container,
+  Typography
+} from '@material-ui/core';
 
 import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
+
+const background = '/images/bg.jpg';
+const backdrop = '/images/backdrop.png';
 
 export default function IndexUtama() {
 
@@ -12,33 +17,83 @@ export default function IndexUtama() {
     <>
       <Navbar />
       <div style={styles.container}>
-      <div style={styles.content}>
-      <Container maxWidth="lg">
+        <div style={styles.content}>
+        <Container maxWidth="lg">
 
-      </Container>
+        </Container>
+        </div>
+      </div>
+      <div style={styles.sectionIntro}>
 
       </div>
+      <div style={styles.sectionOne} />
+      <div style={styles.sectionTwo} />
+      <div style={styles.sectionThree}>
+
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{ minHeight: '100%' }}
+      >
+        <Grid item lg={12}>
+          <Typography variant={'h1'}>
+            Daulat Tuanku
+          </Typography>
+        </Grid>
+      </Grid>
+
       </div>
       <Footer />
     </>
   );
 }
 
-const background = '/images/bg.jpg';
-
 const styles = {
   container: {
     backgroundImage: `url(${background})`,
-    height: '70vh',
+    height: '90vh',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
   },
-
   content: {
     height: '100%',
     width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     color: 'white',
-  }
+  },
+  sectionIntro: {
+    height: 600,
+    backgroundImage: `url(${backdrop})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'white',
+    backgroundAttachment: 'fixed',
+  },
+  sectionOne: {
+    height: 600,
+    backgroundImage: `url(${backdrop})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: '#cf0820',
+    backgroundAttachment: 'fixed',
+  },
+  sectionTwo: {
+    height: 600,
+    backgroundImage: `url(${backdrop})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'black',
+    backgroundAttachment: 'fixed',
+  },
+  sectionThree: {
+    height: 600,
+    backgroundImage: `url(${backdrop})`,
+    backgroundPosition: 'left',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: '#fcd20e',
+  },
 }
