@@ -4,8 +4,6 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-import useStyles from './Styles';
-
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -20,10 +18,8 @@ function Copyright() {
 }
 
 function Footer(){
-    const classes = useStyles();
-    
     return (
-        <footer className={classes.footer}>
+        <footer>
             <Container maxWidth="lg">
             <Typography variant="h6" align="center" gutterBottom>
                 Footer

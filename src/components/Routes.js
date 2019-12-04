@@ -1,60 +1,31 @@
 import React from 'react';
 import {
   BrowserRouter,
-  Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
 
-import Utama from './Utama';
-import Pengenalan from './Pengenalan';
-import Galeri from './Galeri';
-import PageNotFound from './PageNotFound';
-import Loading from './Loading';
-
-// function PrivateRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === true
-//         ? <Component {...props} />
-//         : <Redirect to={{pathname: '/auth/signin', state: {from: props.location}}} />}
-//     />
-//   )
-// }
-
-// function PublicRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === false
-//         ? <Component {...props} />
-//         : <Redirect to='/' />}
-//     />
-//   )
-// }
+import Utama from './utama/IndexUtama';
+import Pengenalan from './pengenalan/IndexPengenalan';
+import Galeri from './galeri/IndexGaleri';
+import PageNotFound from './shared/PageNotFound';
+import Pertanyaan from './pertanyaan/IndexPertanyaan';
+import Test from './test/Test';
 
 function Routes(){
-  const [ isAuthed, setIsAuthed ] = React.useState(false);
-  const [ loading, setLoading ] = React.useState(false);
-
-  if (loading) {
-    return (
-      <Loading />
-    )
-  } else {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={'/'} component={Utama} />
-          <Route exact path={'/utama'} component={Utama} />
-          <Route exact path={'/galeri'} component={Galeri} />
-          <Route exact path={'/pengenalan'} component={Pengenalan} />
-          <Route render={PageNotFound} />
-        </Switch>
-      </BrowserRouter>
-    )
-  }
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={'/'} component={Utama} />
+        <Route exact path={'/utama'} component={Utama} />
+        <Route exact path={'/galeri'} component={Galeri} />
+        <Route exact path={'/pengenalan'} component={Pengenalan} />
+        <Route exact path={'/pertanyaan'} component={Pertanyaan} />
+        <Route exact path={'/test'} component={Test} />
+        <Route render={PageNotFound} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default Routes;
