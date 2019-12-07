@@ -13,7 +13,7 @@ import Pentadbiran from './pentadbiran/IndexPentadbiran';
 import Terkini from './terkini/IndexTerkini';
 
 import PageNotFound from './shared/PageNotFound';
-import Test from './test/Test';
+// import Test from './test/Test';
 
 import pages from './Pages';
 

@@ -18,7 +18,7 @@ import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import './galeri.scss';
 
-import { bg, backdrop, bendera, ns } from './../../images/IndexImages';
+import { bg, backdrop, ns } from './../../images/IndexImages';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -26,7 +26,6 @@ export default function IndexGaleri(){
     const [tileData] = useState([
         { title: 'image-3', img: bg, cols: 3 },
         { title: 'image-1', img: backdrop, cols: 2 },
-        { title: 'image-2', img: bendera, cols: 1 },
         { title: 'image-4', img: ns, cols: 2 },
     ]);
 
