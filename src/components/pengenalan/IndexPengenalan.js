@@ -9,7 +9,7 @@ import {
   Grid
 } from '@material-ui/core';
 
-const peta = '/images/peta.png';
+import { peta } from './../../images/IndexImages';
 
 export default function IndexPengenalan(){
     return (

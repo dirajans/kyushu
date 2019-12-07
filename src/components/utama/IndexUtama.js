@@ -10,8 +10,7 @@ import Navbar from './../shared/Navbar';
 import Footer from './../shared/Footer';
 import MobileNavbar from './../shared/MobileNavbar';
 
-const background = '/images/bg.jpg';
-const backdrop = '/images/backdrop.png';
+import { bg, backdrop } from './../../images/IndexImages';
 
 export default function IndexUtama() {
 
@@ -60,7 +59,7 @@ export default function IndexUtama() {
 
 const styles = {
   container: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(${bg})`,
     height: '90vh',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

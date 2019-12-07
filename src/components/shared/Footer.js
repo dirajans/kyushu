@@ -9,6 +9,8 @@ import FooterTitle from './FooterTitle';
 
 import pages from './../Pages';
 
+const ns = require('./../../images/ns.png')
+
 export default function Footer() {
   return (
     <footer style={styles.container}>
@@ -32,7 +34,7 @@ export default function Footer() {
           <FooterLink title={'Instagram'} url={'http://www.instagram.com'}  newTab/>
         </Grid>
         <Grid item lg={3} xs={12} align={'center'}>
-          <img src={'/images/ns.png'} width={300} alt={''}/>
+          <img src={ns} width={300} alt={''}/>
         </Grid>
       </Grid>
 
