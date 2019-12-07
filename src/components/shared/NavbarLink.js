@@ -3,7 +3,7 @@ import { Link, MenuItem } from '@material-ui/core';
 
 export default function NavbarLink({ title, url }){
   return (
-    <Link href={url} style={styles.link}>
+    <Link href={'#/'+url} style={styles.link}>
       <MenuItem style={styles.font}>{title}</MenuItem>
     </Link>
   )

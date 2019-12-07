@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -32,19 +32,19 @@ const getImports = (name) => {
 
 function Routes(){
   return (
-    <BrowserRouter>
+    <HashRouter basename={'/'}>
       <Switch>
         <Route exact path={'/'} component={Utama} />
 
         {pages.map( (page) => {
           return (
-            <Route key={page.name} exact path={`/${page.name}`} component={getImports(page.name)} />
+            <Route key={page.name} path={`/${page.name}`} component={getImports(page.name)} />
           )
         })}
 
         <Route render={PageNotFound} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
