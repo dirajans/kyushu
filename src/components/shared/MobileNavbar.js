@@ -45,7 +45,7 @@ export default function MobileNavbar(){
             button
             onClick={toggleDrawer}
             component={'a'}
-            href={page.href}
+            href={'#/'+page.href}
           >
             <ListItemText primary={page.name} />
           </ListItem>
