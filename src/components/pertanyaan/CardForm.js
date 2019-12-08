@@ -65,7 +65,7 @@ export default function CardForm() {
           value={nama}
           label={'Nama'}
           onChange={handleChangeNama}
-          style={{ marginBottom: 10 }}
+          style={{ marginBottom: 15 }}
         />
         <TextField
           fullWidth
@@ -74,7 +74,7 @@ export default function CardForm() {
           value={email}
           label={'Email'}
           onChange={handleChangeEmail}
-          style={{ marginBottom: 10 }}
+          style={{ marginBottom: 15 }}
         />
         <TextField
           fullWidth
@@ -83,7 +83,7 @@ export default function CardForm() {
           value={pertanyaan}
           label={'Pertanyaan / Cadangan'}
           onChange={handleChangePertanyaan}
-          style={{ marginBottom: 10 }}
+          style={{ marginBottom: 15 }}
           multiline
           rows={5}
         />

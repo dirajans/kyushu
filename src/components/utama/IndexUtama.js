@@ -21,10 +21,14 @@ export default function IndexUtama() {
         </Container>
         </div>
       </div>
-      <div style={styles.sectionIntro} />
-      <div style={styles.sectionOne} />
-      <div style={styles.sectionTwo} />
-      <div style={styles.sectionThree}>
+
+      <div style={{ backgroundColor: '#cf0820' }}>
+        <div style={styles.sectionRed} />
+        <div style={styles.sectionBlack} />
+        <div style={styles.sectionYellow} />
+      </div>
+
+      <div style={styles.sectionLast}>
         <Grid
           container
           spacing={0}
