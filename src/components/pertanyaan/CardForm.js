@@ -51,13 +51,14 @@ export default function CardForm() {
         <Typography variant={'h5'}>
         Pertanyaan
         </Typography>
+        <br/>
+        <Divider />
+        <br/>
         <Typography variant={'subtitle2'}>
         Untuk sebarang pertanyaan atau cadangan, sila isi borang di bawah:
         </Typography>
-        <br />
-        <Divider />
-        <br />
-        <TextField 
+        <br/>
+        <TextField
           fullWidth
           variant={'outlined'}
           name={'nama'}
@@ -66,7 +67,7 @@ export default function CardForm() {
           onChange={handleChangeNama}
           style={{ marginBottom: 10 }}
         />
-        <TextField 
+        <TextField
           fullWidth
           variant={'outlined'}
           name={'email'}
@@ -75,7 +76,7 @@ export default function CardForm() {
           onChange={handleChangeEmail}
           style={{ marginBottom: 10 }}
         />
-        <TextField 
+        <TextField
           fullWidth
           variant={'outlined'}
           name={'pertanyaan'}
@@ -88,8 +89,9 @@ export default function CardForm() {
         />
         <br/><br/>
         <Button
+          fullWidth
           variant={'outlined'}
-          color={'primary'} 
+          color={'primary'}
           onClick={handleFormSubmit}
         >
         Hantar

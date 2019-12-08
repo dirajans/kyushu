@@ -17,31 +17,11 @@ export default function IndexUtama() {
       <div style={styles.container}>
         <div style={styles.content}>
         <Container maxWidth="lg">
-          
+
         </Container>
         </div>
       </div>
-      <div style={styles.sectionIntro}>
-        <Container>
-        <Grid 
-          container 
-          spacing={2}
-          justify={'space-between'} 
-          alignItems={'center'}
-        >
-          <Grid item align={'center'}>
-            <Typography>
-              Portal
-            </Typography>
-          </Grid>
-          <Grid item align={'center'}>
-            <Typography>
-              Portal
-            </Typography>
-          </Grid>
-        </Grid>
-        </Container>
-      </div>
+      <div style={styles.sectionIntro} />
       <div style={styles.sectionOne} />
       <div style={styles.sectionTwo} />
       <div style={styles.sectionThree}>
@@ -63,5 +43,3 @@ export default function IndexUtama() {
     </PageContainer>
   );
 }
-
-

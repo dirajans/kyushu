@@ -16,6 +16,7 @@ import PageNotFound from './shared/PageNotFound';
 // import Test from './test/Test';
 
 import pages from './Pages';
+import capitalize from './Helpers';
 
 const imports = {
   Utama,
@@ -24,6 +25,7 @@ const imports = {
   Galeri,
   Pertanyaan,
   Terkini,
+  // Test
 }
 
 const getImports = (name) => {
@@ -38,7 +40,11 @@ function Routes(){
 
         {pages.map( (page) => {
           return (
-            <Route key={page.name} path={`/${page.name}`} component={getImports(page.name)} />
+            <Route
+              key={page.name}
+              path={`/${page.href}`}
+              component={getImports(capitalize(page.href))}
+            />
           )
         })}
 

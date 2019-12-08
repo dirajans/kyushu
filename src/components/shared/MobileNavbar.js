@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  AppBar,
   Toolbar,
   IconButton,
   Typography,
@@ -21,21 +20,19 @@ export default function MobileNavbar(){
 
   return (
     <>
-    <AppBar position="static" color={'default'}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          onClick={toggleDrawer}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6">
-          Portal DiRaja Negeri Sembilan
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <Toolbar>
+      <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        onClick={toggleDrawer}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Typography variant="h6">
+        Portal DiRaja Negeri Sembilan
+      </Typography>
+    </Toolbar>
 
     <Drawer anchor="top" open={state} onClose={toggleDrawer}>
       <List>
