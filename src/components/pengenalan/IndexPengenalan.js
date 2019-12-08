@@ -1,25 +1,15 @@
 import React from 'react';
-
-import Navbar from './../shared/Navbar';
-import Footer from './../shared/Footer';
-import MobileNavbar from './../shared/MobileNavbar';
 import {
-  Hidden,
   Typography,
   Grid
 } from '@material-ui/core';
 
 import { peta } from './../../images/IndexImages';
+import PageContainer from '../shared/PageContainer';
 
 export default function IndexPengenalan(){
     return (
-      <>
-        <Hidden smUp>
-          <MobileNavbar />
-        </Hidden>
-        <Hidden xsDown>
-          <Navbar />
-        </Hidden>
+      <PageContainer>
 
         <Grid container style={styles.container}>
           <Grid item xs={12} lg={6}>
@@ -35,9 +25,8 @@ export default function IndexPengenalan(){
             </Typography>
           </Grid>
         </Grid>
-
-        <Footer />
-      </>
+        
+      </PageContainer>
     )
 }
 

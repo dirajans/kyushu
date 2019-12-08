@@ -6,12 +6,7 @@ import {
   GridListTile
 } from '@material-ui/core';
 
-import Navbar from './../shared/Navbar';
-import Footer from './../shared/Footer';
-import MobileNavbar from './../shared/MobileNavbar';
-import {
-  Hidden,
-} from '@material-ui/core';
+import PageContainer from './../shared/PageContainer';
 
 import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
@@ -30,13 +25,7 @@ export default function IndexGaleri(){
     ]);
 
     return (
-        <>
-        <Hidden smUp>
-          <MobileNavbar />
-        </Hidden>
-        <Hidden xsDown>
-          <Navbar />
-        </Hidden>
+        <PageContainer>
         <AutoplaySlider
             play={true}
             cancelOnInteraction={false}
@@ -69,8 +58,7 @@ export default function IndexGaleri(){
           </GridList>
         </Container>
 
-        <Footer />
-        </>
+        </PageContainer>
     )
 }
 

@@ -3,25 +3,16 @@ import {
   Grid,
   Container,
   Typography,
-  Hidden,
 } from '@material-ui/core';
 
-import Navbar from './../shared/Navbar';
-import Footer from './../shared/Footer';
-import MobileNavbar from './../shared/MobileNavbar';
-
 import { bg, backdrop } from './../../images/IndexImages';
+import PageContainer from '../shared/PageContainer';
 
 export default function IndexUtama() {
 
   return (
-    <>
-    <Hidden smUp>
-      <MobileNavbar />
-    </Hidden>
-    <Hidden xsDown>
-      <Navbar />
-    </Hidden>
+    <PageContainer>
+
       <div style={styles.container}>
         <div style={styles.content}>
         <Container maxWidth="lg">
@@ -52,8 +43,7 @@ export default function IndexUtama() {
       </Grid>
 
       </div>
-      <Footer />
-    </>
+    </PageContainer>
   );
 }
 

@@ -1,22 +1,11 @@
 import React from 'react';
 
-import Navbar from './../shared/Navbar';
-import Footer from './../shared/Footer';
-import MobileNavbar from './../shared/MobileNavbar';
-import {
-  Hidden,
-} from '@material-ui/core';
+import PageContainer from './../shared/PageContainer';
 
 export default function IndexPentadbiran(){
     return (
-      <>
-      <Hidden smUp>
-        <MobileNavbar />
-      </Hidden>
-      <Hidden xsDown>
-        <Navbar />
-      </Hidden>
-        <Footer />
-      </>
+      <PageContainer>
+
+      </PageContainer>
     )
 }
