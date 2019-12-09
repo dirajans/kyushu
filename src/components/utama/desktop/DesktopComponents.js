@@ -3,15 +3,16 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
-import {styles} from './Styles';
+import { styles } from './Styles';
+import { css } from 'aphrodite';
 
 export default function DesktopComponents(){
   return (
     <>
-    <div style={styles.sectionBlack} />
-    <div style={styles.sectionRed} />
-    <div style={styles.sectionYellow} />
-    <div style={styles.sectionLast}>
+    <div className={css(styles.sectionBlack)} />
+    <div className={css(styles.sectionRed)} />
+    <div className={css(styles.sectionYellow)} />
+    <div className={css(styles.sectionLast)}>
       <Grid
         container
         spacing={0}

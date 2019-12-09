@@ -32,7 +32,7 @@ const getImports = (name) => {
   return imports[name]
 }
 
-function Routes(){
+export default function Routes(){
   return (
     <HashRouter basename={'/'}>
       <Switch>
@@ -53,5 +53,3 @@ function Routes(){
     </HashRouter>
   )
 }
-
-export default Routes;

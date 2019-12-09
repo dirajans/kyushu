@@ -4,16 +4,21 @@ import {
   GridList,
   GridListTile,
   GridListTileBar,
+  CircularProgress,
+  Grid,
 } from '@material-ui/core';
-
+import { css } from 'aphrodite';
+import { styles } from './Styles';
 import axios from 'axios';
 import PageContainer from './../shared/PageContainer';
 
 export default function IndexGaleri(){
     const [tileData, setTileData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    const fetchImages = () => {
-      axios.get('https://picsum.photos/v2/list').then(
+    const fetchImages = async () => {
+      setLoading(true);
+      await axios.get('https://picsum.photos/v2/list').then(
         response => {
           const dataArr = [];
           response.data.slice(0,5).map( res => {
@@ -29,7 +34,8 @@ export default function IndexGaleri(){
         }
       ).catch( error => {
         console.log(error);
-      })
+      });
+      setLoading(false);
     }
 
     useEffect( () => {
@@ -42,48 +48,47 @@ export default function IndexGaleri(){
         <Typography
           variant={'h4'}
           align={'center'}
-          style={styles.title}
+          className={css(styles.title)}
         >
           Galeri
         </Typography>
 
-        <GridList
-          cellHeight={160}
-          spacing={1}
-          cols={3}
-          style={{ paddingBottom: 1 }}
-        >
-          {tileData.map(tile => (
-            <GridListTile key={tile.img} cols={tile.cols || 1} rows={tile.rows || 1}>
-              <img src={tile.img} alt={tile.title} />
-              <GridListTileBar
-                title={tile.title}
-                titlePosition={'top'}
-                actionPosition="left"
-                style={styles.titleBar}
-              />
-            </GridListTile>
-          ))}
-        </GridList>
+        {loading && (
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            className={css(styles.circular)}
+          >
+            <Grid item lg={12} align={'center'}>
+              <CircularProgress />
+            </Grid>
+          </Grid>
+        )}
+
+        {!loading && (
+          <GridList
+            cellHeight={160}
+            spacing={1}
+            cols={3}
+            style={{ paddingBottom: 1 }}
+          >
+            {tileData.map(tile => (
+              <GridListTile key={tile.img} cols={tile.cols || 1} rows={tile.rows || 1}>
+                <img src={tile.img} alt={tile.title} />
+                <GridListTileBar
+                  title={tile.title}
+                  titlePosition={'top'}
+                  actionPosition="left"
+                  className={css(styles.titleBar)}
+                />
+              </GridListTile>
+            ))}
+          </GridList>
+        )}
 
         </PageContainer>
     )
-}
-
-const styles = {
-  container: {
-    paddingBottom: 30,
-  },
-  title: {
-    paddingTop: 30,
-    paddingBottom: 30,
-  },
-  titleBar: {
-    background:
-          'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-          'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
-  icon: {
-    color: 'white'
-  }
 }

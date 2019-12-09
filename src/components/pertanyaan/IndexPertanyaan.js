@@ -6,25 +6,15 @@ import {
 import PageContainer from './../shared/PageContainer';
 import CardForm from './CardForm';
 
+import { css }from 'aphrodite';
+import { styles } from './Styles';
+
 export default function IndexPertanyaan() {
   return (
     <PageContainer>
-      <Container style={styles.container}>
+      <Container className={css(styles.container)}>
         <CardForm />
       </Container>
     </PageContainer>
   )
-}
-
-const styles = {
-  container: {
-    paddingTop: 30,
-    paddingBottom: 30,
-  },
-  card: {
-
-  },
-  media: {
-
-  }
 }

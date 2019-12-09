@@ -59,10 +59,4 @@ const styles = {
     paddingBottom: 30,
     backgroundColor: 'black',
   },
-  // center: {
-  //   display: 'block',
-  //   marginLeft: 'auto',
-  //   marginRight: 'auto',
-  //   width: '50%',
-  // },
 }

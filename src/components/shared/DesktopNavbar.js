@@ -9,7 +9,7 @@ import {
 import NavbarLink from './NavbarLink';
 import pages from './../Pages';
 
-import {ns} from './../../images/IndexImages';
+import { ns } from './../../images/IndexImages';
 
 export default function DesktopNavbar(){
   return (

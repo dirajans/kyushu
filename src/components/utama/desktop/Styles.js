@@ -1,6 +1,8 @@
+import { StyleSheet } from 'aphrodite';
+
 import { backdrop } from './../../../images/IndexImages';
 
-export const styles = {
+export const styles = StyleSheet.create({
   sectionBlack: {
     height: 1080,
     backgroundImage: `url(${backdrop})`,
@@ -29,4 +31,4 @@ export const styles = {
     height: 1080,
     backgroundColor: '#fcd20e',
   },
-}
+})

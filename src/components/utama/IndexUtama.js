@@ -31,7 +31,6 @@ export default function IndexUtama() {
         play={true}
         cancelOnInteraction={false}
         interval={6000}
-
         bullets={false}
         infinite={true}
         cssModule={AwesomeSliderStyles}

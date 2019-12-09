@@ -5,11 +5,11 @@ import {
 } from '@material-ui/core';
 
 export default function PageNotFound(){
-    return (
-        <Container>
-          <Typography>
-          Page Not Found
-          </Typography>
-        </Container>
-    )
+  return (
+    <Container>
+      <Typography>
+      Page Not Found
+      </Typography>
+    </Container>
+  )
 }

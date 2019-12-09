@@ -1,9 +1,7 @@
-import { makeStyles } from "@material-ui/styles";
+import { StyleSheet }from 'aphrodite';
 
-const useStyles = makeStyles( theme => ({
-    root: {
-        backgroundColor: 'black'
-    }
-}))
+export const styles = StyleSheet.create({
+  container: {
 
-export default useStyles;
+  }
+})

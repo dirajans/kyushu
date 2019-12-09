@@ -10,7 +10,9 @@ import {
   Hidden
 } from '@material-ui/core';
 
-import {ns} from './../../images/IndexImages';
+import { ns } from './../../images/IndexImages';
+import { css }from 'aphrodite';
+import { styles } from './Styles';
 
 export default function CardForm() {
   const [nama, setNama] = useState('');
@@ -38,10 +40,10 @@ export default function CardForm() {
   }
 
   return (
-    <Card style={styles.card}>
+    <Card className={css(styles.card)}>
       <Hidden xsDown>
       <CardMedia
-        style={styles.media}
+        className={css(styles.media)}
         image={ns}
         title={'Title for image'}
       />
@@ -65,7 +67,7 @@ export default function CardForm() {
           value={nama}
           label={'Nama'}
           onChange={handleChangeNama}
-          style={{ marginBottom: 15 }}
+          className={css(styles.marginField)}
         />
         <TextField
           fullWidth
@@ -74,7 +76,7 @@ export default function CardForm() {
           value={email}
           label={'Email'}
           onChange={handleChangeEmail}
-          style={{ marginBottom: 15 }}
+          className={css(styles.marginField)}
         />
         <TextField
           fullWidth
@@ -83,7 +85,7 @@ export default function CardForm() {
           value={pertanyaan}
           label={'Pertanyaan / Cadangan'}
           onChange={handleChangePertanyaan}
-          style={{ marginBottom: 15 }}
+          className={css(styles.marginField)}
           multiline
           rows={5}
         />
@@ -99,17 +101,4 @@ export default function CardForm() {
       </CardContent>
     </Card>
   );
-}
-
-const styles = {
-  card: {
-    display: 'flex',
-    maxWidth: '100%',
-  },
-  media: {
-    display: 'flex',
-    height: 500,
-    width: '50%',
-    backgroundColor: 'black',
-  },
 }
