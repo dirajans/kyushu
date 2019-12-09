@@ -1,49 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Grid,
-  Container,
-  Typography,
+  Hidden,
 } from '@material-ui/core';
 
-import PageContainer from '../shared/PageContainer';
+import AwesomeSlider from 'react-awesome-slider';
+import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
 
-import {styles} from './Styles';
+import PageContainer from '../shared/PageContainer';
+import { bg, backdrop, ns } from './../../images/IndexImages';
+
+import DesktopComponents from './desktop/DesktopComponents';
+import MobileComponents from './mobile/MobileComponents';
+
+import './galeri.scss';
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function IndexUtama() {
+  const [tileData] = useState([
+      { title: 'image-3', img: bg, cols: 3, rows: 3 },
+      { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
+      { title: 'image-4', img: ns, cols: 1, rows: 1 },
+  ]);
 
   return (
     <PageContainer>
 
-      <div style={styles.container}>
-        <div style={styles.content}>
-        <Container maxWidth="lg">
+      <AutoplaySlider
+        play={true}
+        cancelOnInteraction={false}
+        interval={6000}
 
-        </Container>
-        </div>
-      </div>
+        bullets={false}
+        infinite={true}
+        cssModule={AwesomeSliderStyles}
+      >
+      {tileData.map( (data) => (
+        <div data-src={data.img} />
+      ))}
+      </AutoplaySlider>
 
-      <div style={{ backgroundColor: '#cf0820' }}>
-        <div style={styles.sectionRed} />
-        <div style={styles.sectionBlack} />
-        <div style={styles.sectionYellow} />
-      </div>
-
-      <div style={styles.sectionLast}>
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: '100%' }}
-        >
-          <Grid item lg={12} align={'center'}>
-            <Typography variant={'h1'}>
-              Daulat Tuanku
-            </Typography>
-          </Grid>
-        </Grid>
-      </div>
+      <Hidden smUp>
+        <MobileComponents />
+      </Hidden>
+      <Hidden xsDown>
+        <DesktopComponents />
+      </Hidden>
     </PageContainer>
   );
 }

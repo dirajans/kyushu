@@ -35,10 +35,10 @@ export default function Navbar(){
     </HideOnScroll>
 
     <Hidden smUp>
-      <div style={{ paddingBottom: 50 }} />
+      <div style={{ marginBottom: 50 }} />
     </Hidden>
     <Hidden xsDown>
-      <div style={{ paddingBottom: 110 }} />
+      <div style={{ marginBottom: 114 }} />
     </Hidden>
     </>
   )
