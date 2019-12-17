@@ -14,7 +14,7 @@ import { ns } from './../../images/IndexImages';
 import { css }from 'aphrodite';
 import { styles } from './Styles';
 
-export default function CardForm() {
+export default function CardForm({ onSubmit }) {
   const [nama, setNama] = useState('');
   const [email, setEmail] = useState('');
   const [pertanyaan, setPertanyaan] = useState('');
@@ -29,6 +29,8 @@ export default function CardForm() {
       email,
       pertanyaan,
     }
+
+    onSubmit(data);
 
     // do something with data
     console.log(data);

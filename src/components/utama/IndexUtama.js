@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {
   Hidden,
+  Grid,
+  Typography
 } from '@material-ui/core';
 
 import AwesomeSlider from 'react-awesome-slider';
@@ -10,10 +12,9 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import PageContainer from '../shared/PageContainer';
 import { bg, backdrop, ns } from './../../images/IndexImages';
 
-import DesktopComponents from './desktop/DesktopComponents';
-import MobileComponents from './mobile/MobileComponents';
-
 import './galeri.scss';
+import { styles } from './Styles';
+import { css } from 'aphrodite';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -40,12 +41,22 @@ export default function IndexUtama() {
       ))}
       </AutoplaySlider>
 
-      <Hidden smUp>
-        <MobileComponents />
-      </Hidden>
-      <Hidden xsDown>
-        <DesktopComponents />
-      </Hidden>
+      <div className={css(styles.sectionLast)}>
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          style={{ minHeight: '100%' }}
+        >
+          <Grid item lg={12} align={'center'}>
+            <Typography variant={'h1'}>
+              Daulat Tuanku
+            </Typography>
+          </Grid>
+        </Grid>
+      </div>
     </PageContainer>
   );
 }

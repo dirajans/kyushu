@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import {
   Typography,
-  Grid
+  Grid,
+  Hidden
 } from '@material-ui/core';
 
 import { peta } from './../../images/IndexImages';
 import { styles } from './Styles';
 import { css }from 'aphrodite';
 import PageContainer from '../shared/PageContainer';
+
+import DesktopComponents from './desktop/DesktopComponents';
+import MobileComponents from './mobile/MobileComponents';
 
 export default function IndexPengenalan(){
   const [reveal, setReveal] = useState(false);
@@ -50,6 +54,13 @@ export default function IndexPengenalan(){
           )}
         </Grid>
       </Grid>
+
+      <Hidden smUp>
+        <MobileComponents />
+      </Hidden>
+      <Hidden xsDown>
+        <DesktopComponents />
+      </Hidden>
 
     </PageContainer>
   )
