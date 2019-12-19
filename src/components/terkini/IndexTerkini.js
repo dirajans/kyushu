@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from 'react';
 import {
   GridList,
   GridListTile,
@@ -9,68 +8,42 @@ import {
   DialogActions,
   DialogContent,
   Typography,
-  Button
+  Button,
+  Divider,
+  CircularProgress,
+  Grid,
 } from '@material-ui/core';
-
-import { bg, ns, backdrop, peta } from './../../images/IndexImages';
+import axios from 'axios';
 import PageContainer from './../shared/PageContainer';
-
-const tileData = [
-  {
-    img: bg,
-    title: 'bg',
-    author: 'ali',
-    featured: true,
-  },
-  {
-    img: ns,
-    title: 'bg',
-    author: 'ali',
-    featured: false,
-  },
-  {
-    img: peta,
-    title: 'bg',
-    author: 'ali',
-    featured: false,
-  },
-  {
-    img: backdrop,
-    title: 'bg',
-    author: 'ali',
-    featured: false,
-  },
-  {
-    img: bg,
-    title: 'bg',
-    author: 'ali',
-    featured: true,
-  },
-  {
-    img: bg,
-    title: 'bg',
-    author: 'ali',
-    featured: false,
-  },
-  {
-    img: bg,
-    title: 'bg',
-    author: 'ali',
-    featured: false,
-  },
-  {
-    img: bg,
-    title: 'bg',
-    author: 'ali',
-    featured: true,
-  },
-]
+import { domain } from './../shared/config';
+import { css } from 'aphrodite';
+import { styles } from './Styles';
 
 export default function AdvancedGridList() {
-  const classes = useStyles();
+  const [tileData, setTileData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const url = domain + '/posts';
+
+  const fetchData = async () => {
+    setLoading(true);
+    await axios.get(url).then(
+      response => {
+        setTileData(response.data);
+        setLoading(false);
+      }
+    )
+  }
+
+  useEffect( () => {
+    fetchData();
+  }, []);
 
   const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
+  const [dialogData, setDialogData] = useState({});
+
+  const handleClickOpen = (data) => {
+    setDialogData(data);
     setOpen(true);
   }
 
@@ -78,57 +51,77 @@ export default function AdvancedGridList() {
     setOpen(false);
   }
 
-  return (
-    <PageContainer>
-      <GridList cellHeight={500} spacing={1} cols={4}>
-        {tileData.map(tile => (
-          <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} onClick={handleClickOpen}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
-              subtitle={'24th June, 2019'}
-              titlePosition={'bottom'}
-              className={classes.titleBar}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-
+  const ModalDialog = () => {
+    return (
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} fullWidth={true} maxWidth={'lg'}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
+          {dialogData.title}
         </DialogTitle>
+
         <DialogContent dividers>
-        <img src={ns} alt={''} />
+        {dialogData.images.length !== 0 && dialogData.images.map( (image) => (
+          <img
+            key={image.hash}
+            src={image.url}
+            alt={''}
+            style={{ objectFit: 'contain'}}
+          />
+        ))}
+        <br/><br/>
+        <Typography variant={'caption'} gutterBottom>
+        Posted by {dialogData.user.username} at {dialogData.created_at}
+        </Typography>
+        <br/><br/>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            {dialogData.description}
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+            Close
           </Button>
         </DialogActions>
       </Dialog>
+    )
+  }
+
+  return (
+    <PageContainer>
+    {loading && (
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+        className={css(styles.circular)}
+      >
+        <Grid item lg={12} align={'center'}>
+          <CircularProgress />
+        </Grid>
+      </Grid>
+    )}
+
+    {!loading && (
+      <GridList cellHeight={500} spacing={1} cols={4}>
+        {tileData.map(tile => (
+          <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
+            <img src={tile.images[0].url} alt={tile.title} />
+            <GridListTileBar
+              title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
+              subtitle={tile.created_at}
+              titlePosition={'bottom'}
+              className={css(styles.titleBar)}
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+    )}
+
+    {open && (
+      <ModalDialog />
+    )}
 
     </PageContainer>
   );
 }
-
-const useStyles = makeStyles(theme => ({
-  gridList: {
-    width: 500,
-    height: 450,
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: 'translateZ(0)',
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
-      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
-  icon: {
-    color: 'white',
-  },
-}));

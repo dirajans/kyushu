@@ -11,26 +11,18 @@ import { css } from 'aphrodite';
 import { styles } from './Styles';
 import axios from 'axios';
 import PageContainer from './../shared/PageContainer';
+import { domain } from './../shared/config';
 
 export default function IndexGaleri(){
     const [tileData, setTileData] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    const url = domain + '/upload/files';
     const fetchImages = async () => {
       setLoading(true);
-      await axios.get('https://picsum.photos/v2/list').then(
+      await axios.get(url).then(
         response => {
-          const dataArr = [];
-          response.data.slice(0,5).map( res => {
-            const data = {
-              img: res.download_url,
-              title: res.id,
-              rows: 2,
-              cols: 1,
-            };
-            return dataArr.push(data);
-          })
-          setTileData(dataArr);
+          setTileData(response.data);
         }
       ).catch( error => {
         console.log(error);
@@ -76,14 +68,8 @@ export default function IndexGaleri(){
             style={{ paddingBottom: 1 }}
           >
             {tileData.map(tile => (
-              <GridListTile key={tile.img} cols={tile.cols || 1} rows={tile.rows || 1}>
-                <img src={tile.img} alt={tile.title} />
-                <GridListTileBar
-                  title={tile.title}
-                  titlePosition={'top'}
-                  actionPosition="left"
-                  className={css(styles.titleBar)}
-                />
+              <GridListTile key={tile.hash} cols={1} rows={2}>
+                <img src={tile.url} alt={''} />
               </GridListTile>
             ))}
           </GridList>
