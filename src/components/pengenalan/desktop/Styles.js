@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-
+import { fadeInRight } from 'react-animations';
 import { backdrop } from './../../../images/IndexImages';
 
 export const styles = StyleSheet.create({
@@ -37,4 +37,8 @@ export const styles = StyleSheet.create({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  bounce: {
+    animationName: fadeInRight,
+    animationDuration: '2s'
+  }
 })

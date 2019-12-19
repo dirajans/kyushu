@@ -95,7 +95,7 @@ export default function DesktopComponents(){
         </Grid>
       </div>
       <div className={css(styles.sectionDefault)}>
-
+        <img src={peta} alt={''} className={css(styles.bounce)}/>
       </div>
     </>
   )
