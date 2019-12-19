@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import {
   Avatar,
   Card,
   CardHeader,
-  Typography,
   Grid
 } from '@material-ui/core';
 

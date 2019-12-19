@@ -3,10 +3,14 @@ import { StyleSheet } from 'aphrodite';
 import { backdrop } from './../../../images/IndexImages';
 
 export const styles = StyleSheet.create({
+  sectionDefault: {
+    height: 1080,
+    backgroundColor: 'white',
+  },
   sectionBlack: {
     height: 1080,
     backgroundImage: `url(${backdrop})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'left',
     backgroundRepeat: 'no-repeat',
     backgroundColor: 'black',
     backgroundAttachment: 'fixed',
@@ -14,7 +18,7 @@ export const styles = StyleSheet.create({
   sectionRed: {
     height: 1080,
     backgroundImage: `url(${backdrop})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
     backgroundColor: '#cf0820',
     backgroundAttachment: 'fixed',
@@ -22,13 +26,15 @@ export const styles = StyleSheet.create({
   sectionYellow: {
     height: 1080,
     backgroundImage: `url(${backdrop})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'left',
     backgroundRepeat: 'no-repeat',
     backgroundColor: '#fcd20e',
     backgroundAttachment: 'fixed',
   },
-  sectionLast: {
-    height: 1080,
-    backgroundColor: '#fcd20e',
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
 })

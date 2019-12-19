@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Card,
   CardMedia,
   CardContent,
-  TextField,
   Typography,
   Divider,
   Button,

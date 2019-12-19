@@ -9,7 +9,6 @@ import {
   DialogContent,
   Typography,
   Button,
-  Divider,
   CircularProgress,
   Grid,
 } from '@material-ui/core';
@@ -37,7 +36,7 @@ export default function AdvancedGridList() {
 
   useEffect( () => {
     fetchData();
-  }, []);
+  });
 
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});

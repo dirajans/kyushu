@@ -3,7 +3,6 @@ import {
   Typography,
   GridList,
   GridListTile,
-  GridListTileBar,
   CircularProgress,
   Grid,
 } from '@material-ui/core';
@@ -32,7 +31,7 @@ export default function IndexGaleri(){
 
     useEffect( () => {
       fetchImages();
-    },[])
+    })
 
     return (
         <PageContainer>

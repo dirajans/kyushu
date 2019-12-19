@@ -17,7 +17,7 @@ export default function DesktopNavbar(){
       <Grid container justify={'center'}>
         <Toolbar>
           <img src={ns} width={100} alt={''}/>
-          <Typography variant={'h5'}>
+          <Typography variant={'h4'} style={{ fontFamily: 'Great Vibes'}}>
           Portal DiRaja Negeri Sembilan
           </Typography>
           <img src={ns} width={100} alt={''}/>

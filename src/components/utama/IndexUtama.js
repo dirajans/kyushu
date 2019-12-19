@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Hidden,
   Grid,
   Typography
 } from '@material-ui/core';
