@@ -36,7 +36,7 @@ export default function AdvancedGridList() {
 
   useEffect( () => {
     fetchData();
-  });
+  }, []);
 
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});

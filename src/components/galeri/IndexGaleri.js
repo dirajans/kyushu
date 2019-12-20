@@ -31,7 +31,7 @@ export default function IndexGaleri(){
 
     useEffect( () => {
       fetchImages();
-    })
+    }, [])
 
     return (
         <PageContainer>
