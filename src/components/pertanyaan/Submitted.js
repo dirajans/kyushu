@@ -26,13 +26,15 @@ export default function CardForm({ onClick }) {
 
       <CardContent style={{ justifyContent: 'center' }}>
         <Typography variant={'h5'}>
-        Pertanyaan
+        Pertanyaan / Cadangan
         </Typography>
         <br/>
         <Divider />
         <br/>
         <Typography variant={'subtitle2'}>
-        Untuk sebarang pertanyaan atau cadangan, sila isi borang di bawah:
+        Terima kasih.<br/>
+        Pertanyaan/cadangan anda telah berjaya dihantar.
+        Kami akan beri maklum balas kepada anda.
         </Typography>
         <br/><br/>
         <Button

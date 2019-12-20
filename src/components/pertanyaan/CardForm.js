@@ -15,30 +15,27 @@ import { css }from 'aphrodite';
 import { styles } from './Styles';
 
 export default function CardForm({ onSubmit }) {
-  const [nama, setNama] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [pertanyaan, setPertanyaan] = useState('');
+  const [description, setDescription] = useState('');
 
-  const handleChangeNama = (event) => setNama(event.target.value);
+  const handleChangeName = (event) => setName(event.target.value);
   const handleChangeEmail = (event) => setEmail(event.target.value);
-  const handleChangePertanyaan = (event) => setPertanyaan(event.target.value);
+  const handleChangeDescription = (event) => setDescription(event.target.value);
 
   const handleFormSubmit = () => {
     const data = {
-      nama,
+      name,
       email,
-      pertanyaan,
+      description,
     }
 
     onSubmit(data);
 
-    // do something with data
-    console.log(data);
-
     // reset values
-    setNama('');
+    setName('');
     setEmail('');
-    setPertanyaan('');
+    setDescription('');
   }
 
   return (
@@ -53,7 +50,7 @@ export default function CardForm({ onSubmit }) {
 
       <CardContent style={{ justifyContent: 'center' }}>
         <Typography variant={'h5'}>
-        Pertanyaan
+        Pertanyaan / Cadangan
         </Typography>
         <br/>
         <Divider />
@@ -63,15 +60,17 @@ export default function CardForm({ onSubmit }) {
         </Typography>
         <br/>
         <TextField
+          required
           fullWidth
           variant={'outlined'}
           name={'nama'}
-          value={nama}
+          value={name}
           label={'Nama'}
-          onChange={handleChangeNama}
+          onChange={handleChangeName}
           className={css(styles.marginField)}
         />
         <TextField
+          required
           fullWidth
           variant={'outlined'}
           name={'email'}
@@ -81,12 +80,13 @@ export default function CardForm({ onSubmit }) {
           className={css(styles.marginField)}
         />
         <TextField
+          required
           fullWidth
           variant={'outlined'}
           name={'pertanyaan'}
-          value={pertanyaan}
+          value={description}
           label={'Pertanyaan / Cadangan'}
-          onChange={handleChangePertanyaan}
+          onChange={handleChangeDescription}
           className={css(styles.marginField)}
           multiline
           rows={5}
