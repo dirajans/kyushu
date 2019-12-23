@@ -4,12 +4,11 @@ import {
   IconButton,
   Typography,
   List,
-  ListItem,
-  ListItemText,
   Drawer
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import pages from './../Pages';
+import * as ROUTES from './../../../routes/Pages';
+import MobileLink from './MobileLink';
 
 export default function MobileNavbar(){
   const [state, setState] = useState(false);
@@ -36,17 +35,12 @@ export default function MobileNavbar(){
 
     <Drawer anchor="top" open={state} onClose={toggleDrawer}>
       <List>
-        {pages.map( (page) => (
-          <ListItem
-            key={page.name+'navbar'}
-            button
-            onClick={toggleDrawer}
-            component={'a'}
-            href={'#/'+page.href}
-          >
-            <ListItemText primary={page.name} />
-          </ListItem>
-        ))}
+        <MobileLink onClick={toggleDrawer} href={ROUTES.UTAMA} title={'Utama'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.PENGENALAN} title={'Pengenalan'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.PENTADBIRAN} title={'Pentadbiran'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.TERKINI} title={'Terkini'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.GALERI} title={'Galeri'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.PERTANYAAN} title={'Pertanyaan'} />
       </List>
     </Drawer>
     </>

@@ -1,21 +1,18 @@
 import React from 'react';
 import { Link, MenuItem } from '@material-ui/core';
 
-export default function NavbarLink({ title, url }){
+export default function FooterLink({ title, url, newTab }){
   return (
-    <Link href={'#/'+url} style={styles.link}>
+    <Link href={url} target={newTab ? '_blank' : '_self'} underline={'none'}>
       <MenuItem style={styles.font}>{title}</MenuItem>
     </Link>
   )
 }
 
 const styles = {
-  link: {
-    textDecoration: 'none',
-  },
   font: {
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 13,
     color: 'grey'
   }
 }

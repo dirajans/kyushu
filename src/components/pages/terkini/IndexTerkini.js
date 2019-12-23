@@ -12,9 +12,7 @@ import {
   CircularProgress,
   Grid,
 } from '@material-ui/core';
-import axios from 'axios';
-import PageContainer from './../shared/PageContainer';
-import { domain } from './../shared/config';
+import PageContainer from './../../shared/PageContainer';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
 
@@ -22,16 +20,8 @@ export default function AdvancedGridList() {
   const [tileData, setTileData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const url = domain + '/posts';
-
   const fetchData = async () => {
-    setLoading(true);
-    await axios.get(url).then(
-      response => {
-        setTileData(response.data);
-        setLoading(false);
-      }
-    )
+
   }
 
   useEffect( () => {
@@ -52,7 +42,13 @@ export default function AdvancedGridList() {
 
   const ModalDialog = () => {
     return (
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} fullWidth={true} maxWidth={'lg'}>
+      <Dialog 
+        onClose={handleClose} 
+        aria-labelledby="customized-dialog-title" 
+        open={open} 
+        fullWidth={true} 
+        maxWidth={'lg'}
+      >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {dialogData.title}
         </DialogTitle>

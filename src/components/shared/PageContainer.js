@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from './navbars/Navbar';
+import Footer from './footers/Footer';
 
 export default function PageContainer({ children }){
   return (

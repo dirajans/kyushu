@@ -8,24 +8,14 @@ import {
 } from '@material-ui/core';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
-import axios from 'axios';
-import PageContainer from './../shared/PageContainer';
-import { domain } from './../shared/config';
+import PageContainer from './../../shared/PageContainer';
 
 export default function IndexGaleri(){
     const [tileData, setTileData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const url = domain + '/upload/files';
     const fetchImages = async () => {
       setLoading(true);
-      await axios.get(url).then(
-        response => {
-          setTileData(response.data);
-        }
-      ).catch( error => {
-        console.log(error);
-      });
       setLoading(false);
     }
 
@@ -35,15 +25,6 @@ export default function IndexGaleri(){
 
     return (
         <PageContainer>
-
-        <Typography
-          variant={'h4'}
-          align={'center'}
-          className={css(styles.title)}
-        >
-          Galeri
-        </Typography>
-
         {loading && (
           <Grid
             container

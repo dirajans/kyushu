@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   Typography
@@ -8,7 +8,7 @@ import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 
-import PageContainer from '../shared/PageContainer';
+import PageContainer from './../../shared/PageContainer';
 import { bg, backdrop, ns } from './../../images/IndexImages';
 
 import './galeri.scss';
@@ -18,11 +18,12 @@ import { css } from 'aphrodite';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function IndexUtama() {
-  const [tileData] = useState([
-      { title: 'image-3', img: bg, cols: 3, rows: 3 },
-      { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
-      { title: 'image-4', img: ns, cols: 1, rows: 1 },
-  ]);
+  const tempData = [
+    { title: 'image-3', img: bg, cols: 3, rows: 3 },
+    { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
+    { title: 'image-4', img: ns, cols: 1, rows: 1 },
+  ]
+  const [tileData, setTileData] = useState(tempData);
 
   return (
     <PageContainer>

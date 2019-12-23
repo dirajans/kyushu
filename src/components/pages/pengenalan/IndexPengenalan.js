@@ -2,8 +2,7 @@ import React from 'react';
 import {
   Hidden
 } from '@material-ui/core';
-import PageContainer from '../shared/PageContainer';
-
+import PageContainer from './../../shared/PageContainer';
 import DesktopComponents from './desktop/DesktopComponents';
 import MobileComponents from './mobile/MobileComponents';
 
