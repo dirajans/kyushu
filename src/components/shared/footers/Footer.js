@@ -24,7 +24,7 @@ export default function Footer() {
           <FooterLink title={'Institusi Diraja & Undang'} url={ROUTES.INSTITUSI} />
           <FooterLink title={'Adat Perpatih'} url={ROUTES.ADAT} />
           <FooterLink title={'Bendera & Jata'} url={ROUTES.BENDERA} />
-          <FooterLink title={'Lagu'} url={ROUTES.LAGU} />
+          <FooterLink title={'Lagu Kebesaran'} url={ROUTES.LAGU} />
           <FooterLink title={'YAM'} url={ROUTES.YAM} />
 
           <FooterLink title={'Pentadbiran'} url={ROUTES.PENTADBIRAN} />

@@ -18,6 +18,8 @@ const styles = {
   font: {
     fontWeight: 'bold',
     fontSize: 14,
-    color: 'grey'
+    color: 'grey',
+    paddingTop: 15,
+    paddingBottom: 15,
   }
 }

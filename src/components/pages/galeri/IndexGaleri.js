@@ -6,6 +6,7 @@ import {
   CircularProgress,
   Grid,
 } from '@material-ui/core';
+import axios from 'axios';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
 import PageContainer from './../../shared/PageContainer';
@@ -15,7 +16,15 @@ export default function IndexGaleri(){
     const [loading, setLoading] = useState(false);
 
     const fetchImages = async () => {
+      const url = 'http://18.139.3.116:1337/upload/files'
       setLoading(true);
+      await axios.get(url)
+        .then( res => {
+          setTileData(res.data)
+        })
+        .catch( error => {
+          console.log(error);
+        })
       setLoading(false);
     }
 

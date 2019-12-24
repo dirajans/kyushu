@@ -5,12 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import { firebase } from './../firebase/config';
 import * as ROUTES from './Pages';
-
-// auth import
-import SignIn from './../components/auths/SignIn';
-import ResetPassword from './../components/auths/ResetPassword';
 
 // utama import
 import Utama from './../components/pages/utama/IndexUtama';
@@ -39,79 +34,28 @@ import PageNotFound from './../components/pages/404/PageNotFound';
 import Loading from './../components/shared/Loading';
 
 export default function IndexRoutes(){
-  const [loading, setLoading] = useState(true);
-  const [authed, setAuthed] = useState(false);
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={ROUTES.UTAMA} component={Utama} />
 
-  const PrivateRoute = ({component: Component, authed, ...rest}) => {
-    return (
-      <Route
-        {...rest}
-        render={(props) => authed === true
-          ? <Component {...props} />
-          : <Redirect to={{pathname: '/auth/signin', state: {from: props.location}}} />}
-      />
-    )
-  }
+        <Route path={ROUTES.SEJARAH} component={Sejarah} />
+        <Route path={ROUTES.INSTITUSI} component={Institusi} />
+        <Route path={ROUTES.ADAT} component={Adat} />
+        <Route path={ROUTES.BENDERA} component={Bendera} />
+        <Route path={ROUTES.LAGU} component={Lagu} />
+        <Route path={ROUTES.YAM} component={Yam} />
 
-  const PublicRoute = ({component: Component, authed, ...rest}) => {
-    return (
-      <Route
-        {...rest}
-        render={(props) => authed === false
-          ? <Component {...props} />
-          : <Redirect to='/' />}
-      />
-    )
-  }
+        <Route path={ROUTES.PENTADBIRAN} component={Pentadbiran} />
 
-  const checkLoggedIn = async () => {
-    setLoading(true);
-    await firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setAuthed(true);
-        setLoading(false);
-      } else {
-        setAuthed(false);
-        setLoading(false);
-      }
-    })
-  }
+        <Route path={ROUTES.TERKINI} component={Terkini} />
 
-  useEffect( () => {
-    checkLoggedIn();
-  }, []);
+        <Route path={ROUTES.GALERI} component={Galeri} />
 
-  if (loading) {
-    return (
-      <Loading />
-    )
-  } else {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <PublicRoute path={ROUTES.SIGNIN} component={SignIn} />
-          <PublicRoute path={ROUTES.RESETPASSWORD} component={ResetPassword} />
+        <Route path={ROUTES.PERTANYAAN} component={Pertanyaan} />
 
-          <Route exact path={ROUTES.UTAMA} component={Utama} />
-
-          <Route path={ROUTES.SEJARAH} component={Sejarah} />
-          <Route path={ROUTES.INSTITUSI} component={Institusi} />
-          <Route path={ROUTES.ADAT} component={Adat} />
-          <Route path={ROUTES.BENDERA} component={Bendera} />
-          <Route path={ROUTES.LAGU} component={Lagu} />
-          <Route path={ROUTES.YAM} component={Yam} />
-
-          <Route path={ROUTES.PENTADBIRAN} component={Pentadbiran} />
-
-          <Route path={ROUTES.TERKINI} component={Terkini} />
-
-          <Route path={ROUTES.GALERI} component={Galeri} />
-
-          <Route path={ROUTES.PERTANYAAN} component={Pertanyaan} />
-
-          <Route component={PageNotFound} />
-        </Switch>
-      </BrowserRouter>
-    )
-  }
+        <Route component={PageNotFound} />
+      </Switch>
+    </BrowserRouter>
+  )
 }

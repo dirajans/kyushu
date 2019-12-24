@@ -15,13 +15,21 @@ import {
 import PageContainer from './../../shared/PageContainer';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
+import axios from 'axios';
 
-export default function AdvancedGridList() {
+export default function IndexTerkini() {
   const [tileData, setTileData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
-
+    const url = 'http://18.139.3.116:1337/posts'
+    await axios.get(url)
+      .then( res => {
+        setTileData(res.data);
+      })
+      .catch( error => {
+        console.log(error);
+      })
   }
 
   useEffect( () => {
@@ -42,11 +50,11 @@ export default function AdvancedGridList() {
 
   const ModalDialog = () => {
     return (
-      <Dialog 
-        onClose={handleClose} 
-        aria-labelledby="customized-dialog-title" 
-        open={open} 
-        fullWidth={true} 
+      <Dialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        fullWidth={true}
         maxWidth={'lg'}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
@@ -59,7 +67,7 @@ export default function AdvancedGridList() {
             key={image.hash}
             src={image.url}
             alt={''}
-            style={{ objectFit: 'contain'}}
+            style={{ objectFit: 'contain' }}
           />
         ))}
         <br/><br/>
