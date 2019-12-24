@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, MenuItem } from '@material-ui/core';
 
-export default function NavbarLink({ title, url }){
+export default function NavbarLink({ title, url, onMouseOver }){
   return (
-    <Link href={url} style={styles.link}>
-      <MenuItem style={styles.font}>{title}</MenuItem>
-    </Link>
+    <div onMouseOver={onMouseOver}>
+      <Link href={url} style={styles.link}>
+        <MenuItem style={styles.font}>{title}</MenuItem>
+      </Link>
+    </div>
   )
 }
 

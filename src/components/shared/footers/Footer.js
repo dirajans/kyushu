@@ -17,9 +17,16 @@ export default function Footer() {
       <Grid container spacing={2}>
         <Grid item lg={3} xs={12}>
           <FooterTitle title={'Pautan'} />
-          
+
           <FooterLink title={'Utama'} url={ROUTES.UTAMA} />
-          <FooterLink title={'Pengenalan'} url={ROUTES.PENGENALAN} />
+
+          <FooterLink title={'Sejarah Penubuhan'} url={ROUTES.SEJARAH} />
+          <FooterLink title={'Institusi Diraja & Undang'} url={ROUTES.INSTITUSI} />
+          <FooterLink title={'Adat Perpatih'} url={ROUTES.ADAT} />
+          <FooterLink title={'Bendera & Jata'} url={ROUTES.BENDERA} />
+          <FooterLink title={'Lagu'} url={ROUTES.LAGU} />
+          <FooterLink title={'YAM'} url={ROUTES.YAM} />
+
           <FooterLink title={'Pentadbiran'} url={ROUTES.PENTADBIRAN} />
           <FooterLink title={'Terkini'} url={ROUTES.TERKINI} />
           <FooterLink title={'Galeri'} url={ROUTES.GALERI} />

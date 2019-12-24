@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Hidden
 } from '@material-ui/core';
-import PageContainer from './../../shared/PageContainer';
-import DesktopComponents from './desktop/DesktopComponents';
-import MobileComponents from './mobile/MobileComponents';
+import PageContainer from './../../../shared/PageContainer';
+import DesktopComponents from './DesktopComponents';
+import MobileComponents from './MobileComponents';
 
-export default function IndexPengenalan(){
+export default function IndexInstitusi(){
   return (
     <PageContainer>
       <Hidden smUp>

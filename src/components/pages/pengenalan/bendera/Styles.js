@@ -3,10 +3,6 @@ import { fadeInRight } from 'react-animations';
 import { backdrop } from './../../../images/IndexImages';
 
 export const styles = StyleSheet.create({
-  sectionDefault: {
-    height: 1080,
-    backgroundColor: 'white',
-  },
   sectionBlack: {
     height: 1080,
     backgroundImage: `url(${backdrop})`,
@@ -31,14 +27,4 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fcd20e',
     backgroundAttachment: 'fixed',
   },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-  bounce: {
-    animationName: fadeInRight,
-    animationDuration: '2s'
-  }
 })

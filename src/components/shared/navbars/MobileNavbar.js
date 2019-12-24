@@ -36,7 +36,14 @@ export default function MobileNavbar(){
     <Drawer anchor="top" open={state} onClose={toggleDrawer}>
       <List>
         <MobileLink onClick={toggleDrawer} href={ROUTES.UTAMA} title={'Utama'} />
-        <MobileLink onClick={toggleDrawer} href={ROUTES.PENGENALAN} title={'Pengenalan'} />
+
+        <MobileLink onClick={toggleDrawer} href={ROUTES.SEJARAH} title={'Sejarah Penubuhan'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.INSTITUSI} title={'Institusi Diraja & Undang'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.ADAT} title={'Adat Perpatih'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.BENDERA} title={'Bendera & Jata'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.LAGU} title={'Lagu'} />
+        <MobileLink onClick={toggleDrawer} href={ROUTES.YAM} title={'YAM'} />
+
         <MobileLink onClick={toggleDrawer} href={ROUTES.PENTADBIRAN} title={'Pentadbiran'} />
         <MobileLink onClick={toggleDrawer} href={ROUTES.TERKINI} title={'Terkini'} />
         <MobileLink onClick={toggleDrawer} href={ROUTES.GALERI} title={'Galeri'} />

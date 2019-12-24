@@ -8,51 +8,8 @@ import { css } from 'aphrodite';
 import { peta } from './../../../images/IndexImages';
 
 export default function DesktopComponents(){
-  const [reveal, setReveal] = useState(false);
-
-  const handleMouseEnter = () => {
-    setReveal(true)
-  }
-  const handleMouseLeave = () => {
-    setReveal(false)
-  }
-
-  const Info = () => {
-    return (
-      <>
-      <Typography variant={'h5'} gutterBottom>
-        Negeri Sembilan Darul Khusus
-      </Typography>
-      <Typography variant={'subtitle1'}>
-        Terdiri daripada ... mukim
-      </Typography>
-      </>
-    )
-  }
-
   return (
     <>
-      <div className={css(styles.sectionDefault)}>
-
-      </div>
-      <div className={css(styles.sectionDefault)}>
-        <Grid container>
-          <Grid item xs={12} lg={6}>
-            <img
-              src={peta}
-              alt={''}
-              className={css(styles.img)}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            />
-          </Grid>
-          <Grid item xs={12} lg={6} style={{ paddingTop: 50 }}>
-            {reveal && (
-              <Info />
-            )}
-          </Grid>
-        </Grid>
-      </div>
       <div className={css(styles.sectionBlack)}>
         <Grid container>
           <Grid item lg={6} />
@@ -93,9 +50,6 @@ export default function DesktopComponents(){
             </Typography>
           </Grid>
         </Grid>
-      </div>
-      <div className={css(styles.sectionDefault)}>
-        <img src={peta} alt={''} className={css(styles.bounce)}/>
       </div>
     </>
   )
