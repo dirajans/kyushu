@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {
   Container,
 } from '@material-ui/core';
-
+import axios from 'axios';
+import qs from 'querystring';
 import PageContainer from './../../shared/PageContainer';
 import CardForm from './CardForm';
 import Submitted from './Submitted';
@@ -21,8 +22,18 @@ export default function IndexPertanyaan() {
     ) {
       alert('Sila semak butir-butir borang anda.');
     } else {
+      const url = 'http://18.139.3.116:1337/inquiries';
       // send to db
-      
+      await axios({
+        method: 'post',
+        url: url,
+        data: qs.stringify(data),
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        }
+      });
+
+      setSubmitted(true);
     }
   }
 

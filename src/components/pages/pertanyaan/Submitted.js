@@ -34,7 +34,6 @@ export default function CardForm({ onClick }) {
         <Typography variant={'subtitle2'}>
         Terima kasih.<br/>
         Pertanyaan / cadangan anda telah berjaya dihantar.
-        Kami akan beri maklum balas kepada anda.
         </Typography>
         <br/><br/>
         <Button
