@@ -23,6 +23,7 @@ export default function IndexTerkini() {
 
   const fetchData = async () => {
     const url = 'http://18.139.3.116:1337/posts'
+    setLoading(true);
     await axios.get(url)
       .then( res => {
         setTileData(res.data);
@@ -30,6 +31,7 @@ export default function IndexTerkini() {
       .catch( error => {
         console.log(error);
       })
+    setLoading(false);
   }
 
   useEffect( () => {

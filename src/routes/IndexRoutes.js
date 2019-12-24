@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Switch,
   Route,
-  Redirect,
 } from 'react-router-dom';
 import * as ROUTES from './Pages';
 
@@ -31,7 +30,6 @@ import Pentadbiran from './../components/pages/pentadbiran/IndexPentadbiran';
 import Terkini from './../components/pages/terkini/IndexTerkini';
 
 import PageNotFound from './../components/pages/404/PageNotFound';
-import Loading from './../components/shared/Loading';
 
 export default function IndexRoutes(){
   return (

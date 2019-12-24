@@ -10,7 +10,7 @@ export default function IndexAdat(){
   return (
     <PageContainer>
       <Hidden smUp>
-
+        <MobileComponents />
       </Hidden>
       <Hidden xsDown>
         <DesktopComponents />

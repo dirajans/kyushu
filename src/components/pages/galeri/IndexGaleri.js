@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Typography,
   GridList,
   GridListTile,
   CircularProgress,

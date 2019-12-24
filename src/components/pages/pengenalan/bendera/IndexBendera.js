@@ -10,7 +10,7 @@ export default function IndexBendera(){
   return (
     <PageContainer>
       <Hidden smUp>
-
+        <MobileComponents />
       </Hidden>
       <Hidden xsDown>
         <DesktopComponents />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Grid,
   Typography
@@ -24,6 +24,14 @@ export default function IndexUtama() {
     { title: 'image-4', img: ns, cols: 1, rows: 1 },
   ]
   const [tileData, setTileData] = useState(tempData);
+
+  const fetchCarousel = () => {
+    setTileData(tempData)
+  }
+
+  useEffect( () => {
+    fetchCarousel();
+  }, []);
 
   return (
     <PageContainer>

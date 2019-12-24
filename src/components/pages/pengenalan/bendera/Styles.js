@@ -1,5 +1,4 @@
 import { StyleSheet } from 'aphrodite';
-import { fadeInRight } from 'react-animations';
 import { backdrop } from './../../../images/IndexImages';
 
 export const styles = StyleSheet.create({

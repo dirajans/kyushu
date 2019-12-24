@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Grid,
   Typography,
 } from '@material-ui/core';
 import { styles } from './Styles';
 import { css } from 'aphrodite';
-import { peta } from './../../../images/IndexImages';
 
 export default function DesktopComponents(){
   return (
