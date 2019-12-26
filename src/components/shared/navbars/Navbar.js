@@ -6,8 +6,8 @@ import {
   useScrollTrigger,
 } from '@material-ui/core';
 
-import MobileNavbar from './MobileNavbar';
-import DesktopNavbar from './DesktopNavbar';
+import MobileNavbar from './mobile/MobileNavbar';
+import DesktopNavbar from './desktop/DesktopNavbar';
 
 function HideOnScroll(props) {
   const { children, window } = props;

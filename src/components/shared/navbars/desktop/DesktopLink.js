@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, MenuItem } from '@material-ui/core';
 
-export default function NavbarLink({ title, url, onMouseOver }){
+export default function DesktopLink({ title, url, onMouseOver }){
   return (
     <div onMouseOver={onMouseOver}>
       <Link href={url} style={styles.link}>

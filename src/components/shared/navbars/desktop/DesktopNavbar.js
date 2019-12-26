@@ -6,9 +6,12 @@ import {
   Divider,
   Grid,
 } from '@material-ui/core';
-import NavbarLink from './NavbarLink';
-import * as ROUTES from './../../../routes/Pages';
-import { ns } from './../../images/IndexImages';
+import DesktopLink from './DesktopLink';
+import MenuPengenalan from './MenuPengenalan';
+import MenuPentadbiran from './MenuPentadbiran';
+
+import * as ROUTES from './../../../../routes/Pages';
+import { ns } from './../../../images/IndexImages';
 
 export default function DesktopNavbar(){
   const [openMenuPengenalan, setOpenMenuPengenalan] = useState(false);
@@ -49,7 +52,7 @@ export default function DesktopNavbar(){
           <Grid container justify={'space-around'}>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Utama'}
                 url={ROUTES.UTAMA}
                 onMouseOver={closeMenu}
@@ -58,25 +61,25 @@ export default function DesktopNavbar(){
             </Grid>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Pengenalan'}
-                url={ROUTES.SEJARAH}
+                url={'#'}
                 onMouseOver={onMouseOverPengenalan}
                 onMouseLeave={closeMenu}
               />
             </Grid>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Pentadbiran'}
-                url={ROUTES.PENTADBIRAN}
+                url={'#'}
                 onMouseOver={onMouseOverPentadbiran}
                 onMouseLeave={closeMenu}
               />
             </Grid>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Terkini'}
                 url={ROUTES.TERKINI}
                 onMouseOver={closeMenu}
@@ -85,7 +88,7 @@ export default function DesktopNavbar(){
             </Grid>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Galeri'}
                 url={ROUTES.GALERI}
                 onMouseOver={closeMenu}
@@ -94,7 +97,7 @@ export default function DesktopNavbar(){
             </Grid>
 
             <Grid item>
-              <NavbarLink
+              <DesktopLink
                 title={'Pertanyaan'}
                 url={ROUTES.PERTANYAAN}
                 onMouseOver={closeMenu}
@@ -106,47 +109,11 @@ export default function DesktopNavbar(){
       </Container>
 
       {openMenuPengenalan && (
-        <div onMouseLeave={closeMenu}>
-        <Divider />
-          <Container>
-            <NavbarLink
-              title={'Sejarah Penubuhan'}
-              url={ROUTES.SEJARAH}
-            />
-            <NavbarLink
-              title={'Institusi Diraja & Undang'}
-              url={ROUTES.INSTITUSI}
-            />
-            <NavbarLink
-              title={'Adat Perpatih'}
-              url={ROUTES.ADAT}
-            />
-            <NavbarLink
-              title={'Bendera & Jata'}
-              url={ROUTES.BENDERA}
-            />
-            <NavbarLink
-             title={'Lagu Kebesaran'}
-             url={ROUTES.LAGU}
-            />
-            <NavbarLink
-             title={'YAM'}
-             url={ROUTES.YAM}
-            />
-          </Container>
-        </div>
+        <MenuPengenalan onMouseLeave={closeMenu} />
       )}
 
       {openMenuPentadbiran && (
-        <div onMouseLeave={closeMenu}>
-        <Divider />
-          <Container>
-            <NavbarLink
-              title={'Struktur Pentadbiran Istana'}
-              url={ROUTES.PENTADBIRAN}
-            />
-          </Container>
-        </div>
+        <MenuPentadbiran onMouseLeave={closeMenu} />
       )}
 
     </div>
