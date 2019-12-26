@@ -10,9 +10,13 @@ import * as ROUTES from './Pages';
 import Utama from './../components/pages/utama/IndexUtama';
 
 // pengenalan import
-import Sejarah from './../components/pages/pengenalan/sejarah/IndexSejarah';
+import Penubuhan from './../components/pages/pengenalan/sejarah/Penubuhan';
+import Peristiwa from './../components/pages/pengenalan/sejarah/PeristiwaPenting';
+import UndangTubuh from './../components/pages/pengenalan/sejarah/UndangTubuh';
 
 import Adat from './../components/pages/pengenalan/adat/IndexAdat';
+import UndangLembaga from './../components/pages/pengenalan/undang/UndangLembaga';
+import AlatKebesaran from './../components/pages/pengenalan/alat/AlatKebesaran';
 import Institusi from './../components/pages/pengenalan/institusi/IndexInstitusi';
 import Istana from './../components/pages/pengenalan/istana/IndexIstana';
 
@@ -53,11 +57,15 @@ export default function IndexRoutes(){
       <Switch>
         <Route exact path={ROUTES.UTAMA} component={Utama} />
 
-        <Route path={ROUTES.SEJARAH} component={Sejarah} />
+        <Route path={ROUTES.PENUBUHAN} component={Penubuhan} />
+        <Route path={ROUTES.PERISTIWA} component={Peristiwa} />
+        <Route path={ROUTES.UNDANGTUBUH} component={UndangTubuh} />
 
         <Route path={ROUTES.INSTITUSI} component={Institusi} />
         <Route path={ROUTES.ADAT} component={Adat} />
+        <Route path={ROUTES.UNDANGLEMBAGA} component={UndangLembaga} />
         <Route path={ROUTES.ISTANA} component={Istana} />
+        <Route path={ROUTES.ALATKEBESARAN} component={AlatKebesaran} />
 
         <Route path={ROUTES.LOKASI} component={Lokasi} />
         <Route path={ROUTES.BENDERA} component={Bendera} />

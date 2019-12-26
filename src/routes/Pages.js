@@ -1,12 +1,13 @@
-export const SIGNIN = '/auth/signin';
-export const RESETPASSWORD = '/auth/resetpassword';
-
 export const UTAMA = '/';
 
-export const SEJARAH = '/sejarah';
+export const PENUBUHAN = '/penubuhan';
+export const PERISTIWA = '/peristiwa';
+export const UNDANGTUBUH = '/undangtubuh';
 
 export const INSTITUSI = '/institusi';
 export const ADAT = '/adat';
+export const UNDANGLEMBAGA = '/undanglembaga';
+export const ALATKEBESARAN = '/alatkebesaran';
 export const ISTANA = '/istana';
 
 export const LOKASI = '/lokasi';

@@ -19,7 +19,7 @@ export default function Footer() {
           <FooterTitle title={'Pautan'} />
 
           <FooterLink title={'Utama'} url={ROUTES.UTAMA} />
-          <FooterLink title={'Pengenalan'} url={ROUTES.SEJARAH} />
+          <FooterLink title={'Pengenalan'} url={ROUTES.PENUBUHAN} />
           <FooterLink title={'Pentadbiran'} url={ROUTES.PENTADBIRAN} />
           <FooterLink title={'Terkini'} url={ROUTES.TERKINI} />
           <FooterLink title={'Galeri'} url={ROUTES.GALERI} />

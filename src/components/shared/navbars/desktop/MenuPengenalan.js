@@ -6,32 +6,40 @@ import {
 } from '@material-ui/core';
 import * as ROUTES from './../../../../routes/Pages';
 import DesktopLink from './DesktopLink';
-import DesktopTitle from './DesktopTitle';
+import { backdrop } from './../../../images/IndexImages';
 
 export default function MenuPengenalan({ onMouseLeave }){
     return (
-        <div onMouseLeave={onMouseLeave}>
+        <div onMouseLeave={onMouseLeave} style={styles.backdrop}>
         <Divider />
         <br/>
           <Container>
             <Grid container spacing={2}>
               <Grid item lg={3}>
-                <DesktopTitle title={'Sejarah'} />
+                <DesktopLink 
+                  header
+                  title={'Sejarah'} 
+                  url={ROUTES.PENUBUHAN}
+                />
                 <DesktopLink
                   title={'Sejarah Penubuhan'}
-                  url={ROUTES.SEJARAH}
+                  url={ROUTES.PENUBUHAN}
                 />
                 <DesktopLink
                   title={'Peristiwa Penting'}
-                  url={'#'}
+                  url={ROUTES.PERISTIWA}
                 />
                 <DesktopLink
                   title={'Undang - Undang Tubuh'}
-                  url={'#'}
+                  url={ROUTES.UNDANGTUBUH}
                 />
               </Grid>
               <Grid item lg={3}>
-                <DesktopTitle title={'Institusi Diraja, Undang, & Adat'} />
+                <DesktopLink 
+                  header
+                  title={'Institusi Diraja, Undang, & Adat'} 
+                  url={ROUTES.INSTITUSI}
+                />
                 <DesktopLink
                   title={'Institusi Diraja'}
                   url={ROUTES.INSTITUSI}
@@ -42,11 +50,11 @@ export default function MenuPengenalan({ onMouseLeave }){
                 />
                 <DesktopLink
                   title={"Dato' Undang & Lembaga"}
-                  url={'#'}
+                  url={ROUTES.UNDANGLEMBAGA}
                 />
                 <DesktopLink
                   title={'Alat Kebesaran'}
-                  url={'#'}
+                  url={ROUTES.ALATKEBESARAN}
                 />
                 <DesktopLink
                   title={'Istana'}
@@ -54,7 +62,11 @@ export default function MenuPengenalan({ onMouseLeave }){
                 />
               </Grid>
               <Grid item lg={3}>
-                <DesktopTitle title={'Info Negeri'} />
+                <DesktopLink 
+                  header
+                  title={'Info Negeri'} 
+                  url={ROUTES.LOKASI}  
+                />
                 <DesktopLink
                   title={'Kedudukan & Lokasi'}
                   url={ROUTES.LOKASI}
@@ -70,7 +82,11 @@ export default function MenuPengenalan({ onMouseLeave }){
                 
               </Grid>
               <Grid item lg={3}>
-                <DesktopTitle title={'Yamtuan Besar'} />
+                <DesktopLink
+                  header
+                  title={'Yamtuan Besar'} 
+                  url={ROUTES.YAM}
+                />
                 <DesktopLink
                   title={'Raja Melewar'}
                   url={ROUTES.RAJAMELEWAR}
@@ -121,4 +137,12 @@ export default function MenuPengenalan({ onMouseLeave }){
           <br/>
         </div>
     )
+}
+
+const styles = {
+  backdrop: {
+    backgroundImage: `url(${backdrop})`, 
+    backgroundRepeat: 'no-repeat', 
+    backgroundPosition: 'center',
+  }
 }
