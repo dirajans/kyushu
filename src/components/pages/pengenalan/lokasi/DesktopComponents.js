@@ -1,7 +1,13 @@
 import React from 'react';
+import {
+  Container
+} from '@material-ui/core';
+import { peta } from './../../../images/IndexImages';
 
 export default function DesktopComponents(){
   return (
-    <h1>Desktop</h1>
+    <Container>
+      <img src={peta} alt={''} />
+    </Container>
   )
 }

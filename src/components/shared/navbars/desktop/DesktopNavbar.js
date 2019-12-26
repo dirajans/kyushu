@@ -35,7 +35,7 @@ export default function DesktopNavbar(){
 
   return (
     <div>
-      <Grid container justify={'center'}>
+      <Grid container justify={'center'} onMouseOver={closeMenu}>
         <Toolbar>
           <img src={ns} width={100} alt={''}/>
           <Typography variant={'h4'} style={{ fontFamily: 'Great Vibes'}}>

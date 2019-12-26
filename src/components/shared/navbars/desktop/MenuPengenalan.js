@@ -10,11 +10,12 @@ import { backdrop } from './../../../images/IndexImages';
 
 export default function MenuPengenalan({ onMouseLeave }){
     return (
-        <div onMouseLeave={onMouseLeave} style={styles.backdrop}>
+        <div onMouseLeave={onMouseLeave}>
         <Divider />
         <br/>
           <Container>
             <Grid container spacing={2}>
+              <img src={backdrop} alt={''} style={styles.backdrop} />
               <Grid item lg={3}>
                 <DesktopLink 
                   header
@@ -141,8 +142,15 @@ export default function MenuPengenalan({ onMouseLeave }){
 
 const styles = {
   backdrop: {
-    backgroundImage: `url(${backdrop})`, 
-    backgroundRepeat: 'no-repeat', 
-    backgroundPosition: 'center',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    opacity: 0.1,
   }
 }

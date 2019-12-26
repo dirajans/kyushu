@@ -5,3 +5,6 @@ export const peta = require('./peta.png');
 export const tar = require('./tar.jpg');
 export const jaafar = require('./jaafar.jpg');
 export const muhriz = require('./muhriz.jpg');
+export const munawir = require('./munawir.jpg');
+export const antah = require('./antah.jpg');
+export const muhammad = require('./muhammad.jpg');
