@@ -6,7 +6,7 @@ import {
     Divider,
     Container
 } from '@material-ui/core';
-import { muhriz } from './../../../images/IndexImages';
+import { backdrop } from './../../../images/IndexImages';
 
 export default function Imam(){
     return (
@@ -15,7 +15,7 @@ export default function Imam(){
                 <br/><br/>
             <Grid container>
                 <Grid item lg={5}>
-                    <img src={muhriz} alt={''} />
+                    <img src={backdrop} alt={''} />
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
@@ -25,6 +25,9 @@ export default function Imam(){
                     <Divider />
                     <br/>
                     <Typography variant={'body1'}>
+                    Yamtuan Imam merupakan pemerintah ke-V di Negeri Sembilan. Baginda merupakan saudara kandung Raja Radin. 
+                    Baginda memerintah dari tahun 1861 hingga 1869. Baginda merupakan anakanda kepada pasangan Raja Lenggang 
+                    dan Tunku Puan Ngah binti Yamtuan Hitam. Baginda dilahirkan pada tahun 1823 dan mangkat pada tahun 1869[1].
                     </Typography>
                 </Grid>
             </Grid>
