@@ -1,20 +1,23 @@
 export const UTAMA = '/';
 
+export const SEJARAH = '/sejarah';
 export const PENUBUHAN = '/penubuhan';
 export const PERISTIWA = '/peristiwa';
 export const UNDANGTUBUH = '/undangtubuh';
 
 export const INSTITUSI = '/institusi';
+export const DIRAJA = '/diraja';
 export const ADAT = '/adat';
 export const UNDANGLEMBAGA = '/undanglembaga';
 export const ALATKEBESARAN = '/alatkebesaran';
 export const ISTANA = '/istana';
 
+export const NEGERI = '/negeri';
 export const LOKASI = '/lokasi';
 export const BENDERA = '/bendera';
 export const LAGU = '/lagu';
 
-export const YAM = '/yam';
+export const YAMTUAN = '/yamtuan';
 export const RAJAMELEWAR = '/rajamelewar';
 export const RAJAHITAM = '/rajahitam';
 export const RAJALENGGANG = '/rajalenggang';

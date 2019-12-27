@@ -20,7 +20,7 @@ export default function MenuPengenalan({ onMouseLeave }){
                 <DesktopLink 
                   header
                   title={'Sejarah'} 
-                  url={ROUTES.PENUBUHAN}
+                  url={ROUTES.SEJARAH}
                 />
                 <DesktopLink
                   title={'Sejarah Penubuhan'}
@@ -43,7 +43,7 @@ export default function MenuPengenalan({ onMouseLeave }){
                 />
                 <DesktopLink
                   title={'Institusi Diraja'}
-                  url={ROUTES.INSTITUSI}
+                  url={ROUTES.DIRAJA}
                 />
                 <DesktopLink
                   title={'Adat Perpatih'}
@@ -66,7 +66,7 @@ export default function MenuPengenalan({ onMouseLeave }){
                 <DesktopLink 
                   header
                   title={'Info Negeri'} 
-                  url={ROUTES.LOKASI}  
+                  url={ROUTES.NEGERI}  
                 />
                 <DesktopLink
                   title={'Kedudukan & Lokasi'}
@@ -86,7 +86,7 @@ export default function MenuPengenalan({ onMouseLeave }){
                 <DesktopLink
                   header
                   title={'Yamtuan Besar'} 
-                  url={ROUTES.YAM}
+                  url={ROUTES.YAMTUAN}
                 />
                 <DesktopLink
                   title={'Raja Melewar'}

@@ -6,7 +6,7 @@ import PageContainer from './../../../shared/PageContainer';
 import DesktopComponents from './DesktopComponents';
 import MobileComponents from './MobileComponents';
 
-export default function IndexYam(){
+export default function Yamtuan(){
   return (
     <PageContainer>
       <Hidden smUp>
