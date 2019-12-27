@@ -26,9 +26,9 @@ import Istana from './../components/pages/pengenalan/institusi/istana/IndexIstan
 
 // negeri
 import Negeri from './../components/pages/pengenalan/negeri/Negeri';
-import Lokasi from './../components/pages/pengenalan/lokasi/IndexLokasi';
-import Bendera from './../components/pages/pengenalan/bendera/IndexBendera';
-import Lagu from './../components/pages/pengenalan/lagu/IndexLagu';
+import Lokasi from './../components/pages/pengenalan/negeri/lokasi/IndexLokasi';
+import Bendera from './../components/pages/pengenalan/negeri/bendera/IndexBendera';
+import Lagu from './../components/pages/pengenalan/negeri/lagu/IndexLagu';
 
 // yamtuan
 import Yamtuan from './../components/pages/pengenalan/yamtuan/Yamtuan';

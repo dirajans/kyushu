@@ -8,6 +8,7 @@ export default function PageContainer({ children }){
     <>
       <Navbar />
       {children}
+      <br/><br/>
       <Footer />
     </>
   )

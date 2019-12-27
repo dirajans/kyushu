@@ -12,7 +12,7 @@ export default function Muhriz(){
     return (
         <PageContainer>
             <Container>
-                <br/><br/>
+                <br/><br/><br/><br/>
             <Grid container>
                 <Grid item lg={5}>
                     <img src={muhammad} alt={''} />

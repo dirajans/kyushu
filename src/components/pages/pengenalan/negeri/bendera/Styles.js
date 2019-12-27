@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { backdrop } from './../../../images/IndexImages';
+import { backdrop } from './../../../../images/IndexImages';
 
 export const styles = StyleSheet.create({
   sectionBlack: {
