@@ -12,6 +12,9 @@ export default function DesktopComponents(){
   return (
     <Container>
       <br/><br/><br/><br/>
+      <Typography variant={'h6'} style={{ color: 'grey'}}>
+      Lagu Kebesaran Negeri
+      </Typography>
       <Typography variant={'h4'}>
       Berkatlah Yang Dipertuan Besar Negeri Sembilan
       </Typography>
@@ -26,13 +29,26 @@ export default function DesktopComponents(){
       Lagu negeri ini mendapat gubahan semula yang lebih diperbaharui oleh Tunku Zain Al-'Abidin ibni Tuanku Muhriz iaitu putera kedua Yamtuan Besar Tuanku Muhriz ibni Almarhum Tuanku Munawir.[1] dengan kerjasama Orkestra Filharmonik Malaysia serta kumpulan koir dari beberapa sekolah serata negeri tersebut.[1] Gubahan baru ini diperkenalkan sewaktu pertabalan baginda Tuanku Muhriz serta permaisuri baginda Tengku Aishah Rohani Tengku Besar Mahmud pada awal 2009, dan kemudiannya dirasmikan pada 27 Oktober 2010.[2]
       <br/><br/>
       </Typography>
-
+      <br/><br/>
       <Grid container>
         <Grid item lg={3} />
         <Grid item lg={6}>
+          <iframe 
+            width={'100%'}
+            height="315" 
+            src="https://www.youtube.com/embed/iz1nw74rQWs" 
+            frameborder="0" 
+            allow="accelerometer; 
+            autoplay; 
+            encrypted-media; 
+            gyroscope; 
+            picture-in-picture" 
+            allowfullscreen
+          />
+
           <Card>
             <CardContent>
-              <Typography variant={'h6'} align={'center'}>
+              <Typography variant={'h5'} align={'center'}>
               <strong>Lirik</strong>
               <br/><br/>
               Berkatlah Yang Dipertuan Besar Negeri Sembilan<br/>
@@ -47,7 +63,7 @@ export default function DesktopComponents(){
         </Grid>
         <Grid item lg={3} />
       </Grid>
-      
+      <br/><br/><br/><br/>
     </Container>
   )
 }
