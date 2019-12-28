@@ -1,13 +1,21 @@
 import React from 'react';
 import PageContainer from './../../../shared/PageContainer';
-import { Typography, Container } from '@material-ui/core';
+import { 
+  Typography, 
+  Container,
+  Grid
+} from '@material-ui/core';
 
 export default function Penubuhan(){
   return (
     <PageContainer>
       <Container>
         <br/><br/><br/><br/>
-        <Typography variant={'h6'}>
+        <Grid container>
+          <Grid item lg={3}>
+          </Grid>
+          <Grid item lg={6}>
+          <Typography variant={'h6'}>
           SEJARAH AWAL PEMERINTAHAN NEGERI SEMBILAN
         </Typography>
         <Typography variant={'body1'}>
@@ -77,6 +85,11 @@ export default function Penubuhan(){
         sebagai penasihat dalam pentadbiran dan membuat peraturan negeri.<br/>
         <br/><br/>
         </Typography>
+          </Grid>
+          <Grid item lg={3}>
+          </Grid>
+        </Grid>
+        
       </Container>
     </PageContainer>
   )

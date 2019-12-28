@@ -12,6 +12,9 @@ export default function DesktopComponents(){
   return (
     <Container>
       <br/><br/><br/><br/>
+      <Grid container>
+        <Grid item lg={3} />
+        <Grid item lg={6}>
       <Typography variant={'h6'} style={{ color: 'grey'}}>
       Lagu Kebesaran
       </Typography>
@@ -30,9 +33,7 @@ export default function DesktopComponents(){
       <br/><br/>
       </Typography>
       <br/><br/>
-      <Grid container>
-        <Grid item lg={3} />
-        <Grid item lg={6}>
+      
           <iframe 
             title={'Lagu Kebesaran Negeri Sembilan'}
             width={'100%'}
