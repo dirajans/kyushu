@@ -24,7 +24,7 @@ export default function UndangTubuh(){
           <br/>
           <Divider />
           <br/>
-          <Typography variant={'body1'}>
+          <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
           Undang-undang Tubuh Kerajaan Negeri Sembilan 1959 adalah undang-undang asas Negeri Sembilan dan menubuhkan negeri 
           yang ditadbir secara kolektif dengan Yang di-Pertuan Besar Negeri Sembilan sebagai Ketua Negeri dan Undang Yang Empat 
           sebagai pemerintah bersama. Ia mula berkuat kuasa pada Mac 1959 berikutan kemerdekaan Persekutuan Tanah Melayu pada 

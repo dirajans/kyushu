@@ -24,7 +24,7 @@ export default function RajaHitam(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Nan Dipertuan Tuanku Raja Hitam juga dikenali Tuanku Raja Hitam merupakan seorang Raja atau 
                     Yang Dipertuan Besar Negeri Sembilan ke-II di Negeri Sembilan. Baginda menggantikan Raja Melewar 
                     yang telah mangkat. Baginda merupakan menantu kepada Raja Melewar kerana mengahwini Tunku Puan Aishah 

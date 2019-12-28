@@ -24,7 +24,7 @@ export default function Antah(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Yamtuan Antah ibni Almarhum Yamtuan Radin merupakan Yang di-Pertuan Besar Negeri Sembilan yang keenam. 
                     Memerintah dari 1869 hingga 22 Oktober 1888 dan memperjuangkan Negeri Sembilan daripada dijajah oleh 
                     British pada tahun 1876. Merupakan anakanda Yamtuan Radin dan mempunyai anakanda yang memodenkan 

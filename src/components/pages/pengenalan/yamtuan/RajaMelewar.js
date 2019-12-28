@@ -24,7 +24,7 @@ export default function RajaMelewar(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Raja Melewar ialah anak raja Minangkabau dari kerajaan Pagar Ruyung. 
                     Nama asalnya ialah Raja Mahmud, putera kepada Sultan Abdul Jalil Pagar Ruyung.[1]
                     <br/><br/>

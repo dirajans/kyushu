@@ -24,7 +24,7 @@ export default function RajaLenggang(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Yamtuan Lenggang juga dikenali Paduka Seri Tuanku Raja Ali. Yamtuan Lenggang pemerintah atau Yang Di-Pertuan 
                     Besar Negeri Sembilan ke-III di Negeri Sembilan, baginda merupakan menantu kepada Raja Hitam. 
                     Baginda mendirikan rumahtangga dengan Tunku Puan Ngah binti Yamtuan Hitam. Baginda menggantikan 

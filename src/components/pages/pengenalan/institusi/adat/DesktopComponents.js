@@ -10,13 +10,13 @@ export default function DesktopComponents(){
     <Container>
       <br/><br/><br/><br/>
       <Grid container>
-        <Grid item lg={4}>
+        <Grid item lg={3}>
         </Grid>
-        <Grid item lg={8}>
+        <Grid item lg={6}>
         <Typography variant={'h6'}>
         Adat Perpatih
       </Typography>
-      <Typography variant={'body1'}>
+      <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
         Adat Perpatih adalah amalan hidup yang jauh lebih lama daripada Common Law yang hanya bermula sekitar tahun 1066 Masihi. 
         Adat ini berasal dari Alam Minangkabau. Adat Perpatih telah dibawa dan diterima pakai di Negeri Sembilan oleh para perantau 
         yang mula meneroka wilayah ini sekitar abad ke-12. Walaupun Adat Perpatih yang diamalkan oleh masyarakat pedalaman Negeri 
@@ -82,6 +82,8 @@ export default function DesktopComponents(){
       Batu Belang<br/>
       Tiga Batu<br/>
       </Typography>
+        </Grid>
+        <Grid item lg={3}>
         </Grid>
       </Grid>
       <br/><br/>

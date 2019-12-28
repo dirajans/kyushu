@@ -24,7 +24,7 @@ export default function AbdulRahman(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Tuanku Abdul Rahman ibni al-Marhum Tuanku Muhammad (24 Ogos 1895 – 1 April 1960) ialah Yang di-Pertuan Besar 
                     Negeri Sembilan yang merupakan Yang di-Pertuan Agong Pertama Persekutuan Tanah Melayu (kini Malaysia). 
                     Baginda ditabalkan sebagai Yang di-Pertuan Agong dari 31 Ogos 1957 sehingga kemangkatannya pada 1 April 1960.

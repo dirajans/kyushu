@@ -24,7 +24,7 @@ export default function Munawir(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Tuanku Munawir ibni Almarhum Tuanku Abdul Rahman merupakan Yang Di-Pertuan Besar Negeri Sembilan yang 
                     kesembilan dari 5 April 1960 - 14 April 1967. Baginda merupakan putera sulung kepada Yang di-Pertuan Agong 
                     Malaysia yang pertama iaitu Almarhum Tuanku Abdul Rahman dan Tuanku Maharunnisa binti Tunku Membang.

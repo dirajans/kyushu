@@ -18,7 +18,7 @@ export default function Penubuhan(){
           <Typography variant={'h6'}>
           SEJARAH AWAL PEMERINTAHAN NEGERI SEMBILAN
         </Typography>
-        <Typography variant={'body1'}>
+        <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
         Dalam budaya masyarakat Melayu, seorang Raja diinterpretasikan sebagai simbol perpaduan dan pelindung kepada 
         rakyat jelata di bawah naungannya. Pada sekitar abad ke-15 hingga ke-16, Negeri Sembilan merupakan sebuah negeri 
         di bawah naungan Kerajaan Melayu Melaka sehinggalah berakhirnya pemerintahan Sultan Mahmud Shah yang tewas kepada 
@@ -56,7 +56,7 @@ export default function Penubuhan(){
         SEJARAH KEDATANGAN RAJA PAGAR RUYONG
         </Typography>
 
-        <Typography variant={'body1'}>
+        <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
         Yang di-Pertuan Pagar Ruyong telah berkenan menunaikan hajat masyarakat Negeri Sembilan untuk mendapatkan seorang Raja 
         berketurunan Pagar Ruyong. Baginda telah menghantar puteranya, Raja Mahmud yang kemudiannya bergelar Raja Melewar. 
         Sebelum ketibaan Raja Melewar ke Negeri Sembilan, Yang di-Pertuan Pagar Ruyong telah mengutuskan Raja Khatib untuk 

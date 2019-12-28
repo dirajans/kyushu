@@ -24,7 +24,7 @@ export default function Muhriz(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Tuanku Muhriz ibni Almarhum Tuanku Munawir diputerakan pada 14 Januari 1948. Baginda ialah Yang di-Pertuan 
                     Besar Negeri Sembilan yang ke-11. Baginda merupakan satu-satunya putera daripada enam orang adik-beradik 
                     kepada pasangan Tuanku Munawir, Yang di-Pertuan Besar ke-9 dan pasangan baginda, Tunku Ampuan Durah binti 

@@ -24,7 +24,7 @@ export default function Radin(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Raja Radin atau dikenali sebagai Yamtuan Radin merupakan pemerintah ke-IV di Negeri Sembilan. 
                     Baginda memerintah dari tahun 1824 hingga 1861. Baginda merupakan anakanda kepada pasangan 
                     Raja Lenggang dan Tunku Puan Ngah binti Yamtuan Hitam. Baginda dilahirkan pada tahun 1802 dan 

@@ -24,7 +24,7 @@ export default function DesktopComponents(){
       <br/>
       <Divider />
       <br/>
-      <Typography variant={'body1'}>
+      <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
       Berkatlah Yang Dipertuan Besar Negeri Sembilan adalah lagu kebesaran Negeri Sembilan. Lagunya telah digubah oleh 
       Andrew Caldecott (1884-1951) dan diperkenankan oleh Yang Di-Pertuan Negeri Sembilan pada masa itu, Tuanku Muhammad pada 
       tahun 1911.

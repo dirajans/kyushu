@@ -24,7 +24,7 @@ export default function Jaafar(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Tuanku Ja’afar ibni Almarhum Tuanku Abdul Rahman (19 Julai 1922 - 27 Disember 2008) merupakan Yang di-Pertuan 
                     Besar Negeri Sembilan ke-10 dan Yang di-Pertuan Agong Malaysia yang ke-10. Baginda telah diputerakan pada 
                     19 Julai 1922, Klang, Selangor dan dibesarkan di Seri Menanti, Negeri Sembilan. Baginda merupakan putera kedua 

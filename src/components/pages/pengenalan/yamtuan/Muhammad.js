@@ -24,7 +24,7 @@ export default function Muhriz(){
                     <br/>
                     <Divider />
                     <br/>
-                    <Typography variant={'body1'}>
+                    <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
                     Tuanku Muhammad ibni Almarhum Tuanku Antah (25 April 1865 - 1 Ogos 1933) merupakan Yang di-Pertuan Besar 
                     Negeri Sembilan yang ketujuh, memerintah dari 22 Oktober 1888 - 1 Ogos 1933. 
                     <br/><br/>
