@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   circular: {
     minHeight: '100%',
-    paddingTop: '20vh',
-    paddingBottom: '20vh'
+    paddingTop: '35vh',
+    paddingBottom: '35vh'
   }
 })

@@ -13,7 +13,7 @@ export default function DesktopComponents(){
     <Container>
       <br/><br/><br/><br/>
       <Typography variant={'h6'} style={{ color: 'grey'}}>
-      Lagu Kebesaran Negeri
+      Lagu Kebesaran
       </Typography>
       <Typography variant={'h4'}>
       Berkatlah Yang Dipertuan Besar Negeri Sembilan
@@ -34,6 +34,7 @@ export default function DesktopComponents(){
         <Grid item lg={3} />
         <Grid item lg={6}>
           <iframe 
+            title={'Lagu Kebesaran Negeri Sembilan'}
             width={'100%'}
             height="315" 
             src="https://www.youtube.com/embed/iz1nw74rQWs" 
@@ -48,7 +49,7 @@ export default function DesktopComponents(){
 
           <Card>
             <CardContent>
-              <Typography variant={'h5'} align={'center'}>
+              <Typography variant={'h5'} align={'center'} style={{ fontStyle: 'italic'}}>
               <strong>Lirik</strong>
               <br/><br/>
               Berkatlah Yang Dipertuan Besar Negeri Sembilan<br/>
