@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   Container, 
   Typography,
-  Grid
+  Grid,
+  Divider,
 } from '@material-ui/core';
 
 export default function DesktopComponents(){
@@ -13,8 +14,14 @@ export default function DesktopComponents(){
         <Grid item lg={3}>
         </Grid>
         <Grid item lg={6}>
+        <Typography variant={'h4'}>
+          Adat Perpatih
+        </Typography>
+        <br/>
+        <Divider />
+        <br/>
         <Typography variant={'h6'}>
-        Adat Perpatih
+        Pengenalan
       </Typography>
       <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
         Adat Perpatih adalah amalan hidup yang jauh lebih lama daripada Common Law yang hanya bermula sekitar tahun 1066 Masihi. 

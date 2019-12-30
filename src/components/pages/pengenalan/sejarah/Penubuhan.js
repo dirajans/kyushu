@@ -3,7 +3,8 @@ import PageContainer from './../../../shared/PageContainer';
 import { 
   Typography, 
   Container,
-  Grid
+  Grid,
+  Divider,
 } from '@material-ui/core';
 
 export default function Penubuhan(){
@@ -15,8 +16,14 @@ export default function Penubuhan(){
           <Grid item lg={3}>
           </Grid>
           <Grid item lg={6}>
+            <Typography variant={'h4'}>
+              Sejarah Penubuhan
+            </Typography>
+            <br/>
+            <Divider />
+            <br/>
           <Typography variant={'h6'}>
-          SEJARAH AWAL PEMERINTAHAN NEGERI SEMBILAN
+          Sejarah Awal Pemerintahan Negeri Sembilan
         </Typography>
         <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
         Dalam budaya masyarakat Melayu, seorang Raja diinterpretasikan sebagai simbol perpaduan dan pelindung kepada 
@@ -53,7 +60,7 @@ export default function Penubuhan(){
         </Typography>
         <br/>
         <Typography variant={'h6'}>
-        SEJARAH KEDATANGAN RAJA PAGAR RUYONG
+        Sejarah Kedatangan Raja Pagar Ruyong
         </Typography>
 
         <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
