@@ -14,9 +14,9 @@ export default function DesktopComponents(){
       <Container>
         <br/><br/><br/><br/>
         <Grid container>
-          <Grid item lg={4}>
+          <Grid item lg={3}>
           </Grid>
-          <Grid item lg={4}>
+          <Grid item lg={6}>
             <Typography variant={'h4'}>
             Bendera dan Jata
             </Typography>
@@ -26,18 +26,18 @@ export default function DesktopComponents(){
             <Typography variant={'h6'}>
             Bendera Negeri
             </Typography>
-            <Typography variant={'body1'}>
-            Description
+            <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
+            Warna kuning pada bendera membawa maksud D.Y.M.M. Raja. Bahagian tiga segi yang berwarna merah bermakna rakyat, sementara bahagian tiga segi yang berwarna hitam maksudnya Datuk-datuk Undang bagi Luak-luak yang menjadi bahagian-bahagian negeri ini.
             </Typography>
             <br/>
             <Typography variant={'h6'}>
             Jata Negeri
             </Typography>
-            <Typography variant={'body1'}>
-            Description
+            <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
+            Sembilan Tangkai Padi di dalam perisai bermaksud sembilan buah negeri dalam gabungan Negeri Sembilan yang lama. Warna Merah dalam perisai menunjukkan hubungan-hubungan pada masa lalu dengan British. Warna Hitam bermaksud Dato'-Dato' Undang Yang Empat dan Tunku Besar Tampin. Warna kuning pula bermakna Yang Di-Pertuan Besar manakala Bintang Pecah Sembilan menunjukkan sembilan buah negeri dalam gabungan yang sama. Pedang dan sarung di atas perisai memberi maksud Tanda Keadilan serta di tengah jata antara pedang dan sarung terletak Changgai Putri tanda kebesaran Yang Di-Pertuan Besar
             </Typography>
           </Grid>
-          <Grid item lg={4}>
+          <Grid item lg={3}>
           </Grid>
         </Grid>
         <br/><br/><br/><br/>

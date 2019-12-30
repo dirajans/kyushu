@@ -35,6 +35,7 @@ export default function DesktopComponents(){
         <br/><br/>
         nasab bapa (patrilineal) yang dikaitkan dengan Datuk Ketemenggungan.<br/>
         nasab ibu (matrilineal) yang dikaitan dengan Datuk Perpatih Nan Sebatang<br/>
+        <br/>
         Berikutan dengan kewujudan dua (2) sistem ini, wujud konsep Laras Nan Dua iaitu Bodi-Cianago dan Kota-Piliang di Minangkabau. 
         Melalui pemuafakatan antara kedua-dua orang pemimpin ini yang ditandai dengan batu batikam dan batu baling, dua (2) 
         sistem (nasab ibu dan nasab bapa) telah menjadi satu Adat Tuah Disakato. Penggabungan dua sistem menjadi satu yang digunakan 
@@ -76,7 +77,8 @@ export default function DesktopComponents(){
       Buapak - ketua kelompok kekeluargaan perut (subclan)<br/>
       Lembaga iaitu ketua kelompok kekeluargaan suku (clan)<br/>
       <br/>
-      Suku-suku di Negeri Sembilan<br/>
+      Suku-suku di Negeri Sembilan:<br/>
+      <br/>
       Biduanda<br/>
       Paya Kumboh<br/>
       Tanah Datar<br/>

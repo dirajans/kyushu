@@ -13,9 +13,9 @@ export default function Muhriz(){
         <PageContainer>
             <Container>
                 <br/><br/><br/><br/>
-            <Grid container>
+                <Grid container spacing={6}>
                 <Grid item lg={5}>
-                    <img src={muhriz} alt={''} />
+                    <img src={muhriz} alt={''} style={{ maxWidth: '100%', height: 'auto'}} />
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>

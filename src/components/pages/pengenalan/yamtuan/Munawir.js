@@ -13,9 +13,9 @@ export default function Munawir(){
         <PageContainer>
             <Container>
                 <br/><br/><br/><br/>
-            <Grid container>
+                <Grid container spacing={6}>
                 <Grid item lg={5}>
-                    <img src={munawir} alt={''} />
+                    <img src={munawir} alt={''} style={{ maxWidth: '100%', height: 'auto'}} />
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>

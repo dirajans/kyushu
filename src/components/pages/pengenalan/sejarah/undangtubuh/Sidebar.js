@@ -6,7 +6,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export default function SimpleExpansionPanel() {
+export default function Sidebar() {
   const bahagianSatu = [
     { title: 'Bab 1 - Permulaan', ringkasan: 'Ringkasan Bab' },
     { title: 'Bab 2 - Agama Negeri', ringkasan: 'Ringkasan Bab' },

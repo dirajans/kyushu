@@ -12,9 +12,10 @@ import Utama from './../components/pages/utama/IndexUtama';
 // pengenalan import
 // sejarah
 import Sejarah from './../components/pages/pengenalan/sejarah/Sejarah';
-import Penubuhan from './../components/pages/pengenalan/sejarah/Penubuhan';
-import Peristiwa from './../components/pages/pengenalan/sejarah/PeristiwaPenting';
-import UndangTubuh from './../components/pages/pengenalan/sejarah/UndangTubuh';
+import Penubuhan from './../components/pages/pengenalan/sejarah/penubuhan/Penubuhan';
+import Peristiwa from './../components/pages/pengenalan/sejarah/peristiwa/PeristiwaPenting';
+
+import UndangTubuh from './../components/pages/pengenalan/sejarah/undangtubuh/UndangTubuh';
 
 // institusi
 import Institusi from './../components/pages/pengenalan/institusi/Institusi';
@@ -67,6 +68,7 @@ export default function IndexRoutes(){
         <Route path={ROUTES.SEJARAH} component={Sejarah} />
         <Route path={ROUTES.PENUBUHAN} component={Penubuhan} />
         <Route path={ROUTES.PERISTIWA} component={Peristiwa} />
+
         <Route path={ROUTES.UNDANGTUBUH} component={UndangTubuh} />
 
         <Route path={ROUTES.INSTITUSI} component={Institusi} />

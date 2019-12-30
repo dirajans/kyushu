@@ -13,9 +13,9 @@ export default function Imam(){
         <PageContainer>
             <Container>
             <br/><br/><br/><br/>
-            <Grid container>
+            <Grid container spacing={6}>
                 <Grid item lg={5}>
-                    <img src={backdrop} alt={''} />
+                    <img src={backdrop} alt={''} style={{ maxWidth: '100%', height: 'auto'}} />
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>

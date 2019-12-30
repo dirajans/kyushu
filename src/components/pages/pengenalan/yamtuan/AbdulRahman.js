@@ -13,9 +13,9 @@ export default function AbdulRahman(){
         <PageContainer>
             <Container>
             <br/><br/><br/><br/>
-            <Grid container>
+            <Grid container spacing={6}>
                 <Grid item lg={5}>
-                    <img src={tar} alt={''} />
+                    <img src={tar} alt={''} style={{ maxWidth: '100%', height: 'auto'}} />
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
