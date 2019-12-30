@@ -9,10 +9,10 @@ import {
   DialogContent,
   Typography,
   Button,
-  CircularProgress,
-  Grid,
 } from '@material-ui/core';
 import PageContainer from './../../shared/PageContainer';
+import ErrorMessage from './../../shared/ErrorMessage';
+import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
 import axios from 'axios';
@@ -20,6 +20,7 @@ import axios from 'axios';
 export default function IndexTerkini() {
   const [tileData, setTileData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchData = async () => {
     const url = 'http://18.139.3.116:1337/posts'
@@ -29,6 +30,7 @@ export default function IndexTerkini() {
         setTileData(res.data);
       })
       .catch( error => {
+        setError(true);
         console.log(error);
       })
     setLoading(false);
@@ -93,21 +95,10 @@ export default function IndexTerkini() {
   return (
     <PageContainer>
     {loading && (
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
-        className={css(styles.circular)}
-      >
-        <Grid item lg={12} align={'center'}>
-          <CircularProgress />
-        </Grid>
-      </Grid>
+      <Loading />
     )}
 
-    {!loading && (
+    {!loading && !error && (
       <GridList cellHeight={500} spacing={1} cols={4}>
         {tileData.map(tile => (
           <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
@@ -121,6 +112,10 @@ export default function IndexTerkini() {
           </GridListTile>
         ))}
       </GridList>
+    )}
+
+    {!loading && error && (
+      <ErrorMessage />
     )}
 
     {open && (

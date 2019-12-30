@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import {
   GridList,
   GridListTile,
-  CircularProgress,
-  Grid,
 } from '@material-ui/core';
 import axios from 'axios';
-import { css } from 'aphrodite';
-import { styles } from './Styles';
 import PageContainer from './../../shared/PageContainer';
+import ErrorMessage from './../../shared/ErrorMessage';
+import Loading from './../../shared/Loading';
 
 export default function IndexGaleri(){
     const [tileData, setTileData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const fetchImages = async () => {
       const url = 'http://18.139.3.116:1337/upload/files'
@@ -22,6 +21,7 @@ export default function IndexGaleri(){
           setTileData(res.data)
         })
         .catch( error => {
+          setError(true);
           console.log(error);
         })
       setLoading(false);
@@ -34,18 +34,7 @@ export default function IndexGaleri(){
     return (
         <PageContainer>
         {loading && (
-          <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justify="center"
-            className={css(styles.circular)}
-          >
-            <Grid item lg={12} align={'center'}>
-              <CircularProgress />
-            </Grid>
-          </Grid>
+          <Loading />
         )}
 
         {!loading && (
@@ -61,6 +50,10 @@ export default function IndexGaleri(){
               </GridListTile>
             ))}
           </GridList>
+        )}
+
+        {!loading && error && (
+          <ErrorMessage />
         )}
 
         </PageContainer>

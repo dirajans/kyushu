@@ -15,10 +15,5 @@ export const styles = StyleSheet.create({
   },
   icon: {
     color: 'white'
-  },
-  circular: {
-    minHeight: '100%',
-    paddingTop: '35vh',
-    paddingBottom: '35vh'
   }
 })
