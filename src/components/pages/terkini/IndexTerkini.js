@@ -23,7 +23,7 @@ export default function IndexTerkini() {
   const [error, setError] = useState(false);
 
   const fetchData = async () => {
-    const url = 'http://localhost:3000/posts'
+    const url = 'http://localhost:1337/posts'
     setLoading(true);
     await axios.get(url)
       .then( res => {
