@@ -4,7 +4,7 @@ import Navbar from './navbars/Navbar';
 import Footer from './footers/Footer';
 import { StyleSheet, css } from 'aphrodite';
 
-import { backdrop2 } from './../images/IndexImages';
+import { backdrop, benderaBw } from './../images/IndexImages';
 
 export default function PageContainer({ children }){
   return (
@@ -20,10 +20,10 @@ export default function PageContainer({ children }){
 
 const styles = StyleSheet.create({
   backdrop: {
-    backgroundImage: `url(${backdrop2})`,
-    backgroundPosition: 'center',
+    backgroundImage: `url(${backdrop}), url(${benderaBw})`,
+    backgroundPosition: 'left, right',
     backgroundRepeat: 'no-repeat',
     backgroundColor: 'white',
     backgroundAttachment: 'fixed',
-  }
+  },
 })

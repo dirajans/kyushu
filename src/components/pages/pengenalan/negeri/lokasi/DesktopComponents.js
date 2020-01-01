@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Typography, 
+import {
+  Typography,
   Container,
   Grid,
   Divider,
 } from '@material-ui/core';
-import { peta } from './../../../../images/IndexImages';
+import { peta, nsMalaysia } from './../../../../images/IndexImages';
 
 export default function DesktopComponent(){
   return (
@@ -21,6 +21,8 @@ export default function DesktopComponent(){
             <br/>
             <Divider />
             <br/>
+            <img src={nsMalaysia} alt={''} style={{ maxWidth: '100%', margin: 'auto' }}/>
+            <br/><br/>
           <Typography variant={'h6'}>
             Pengenalan
           </Typography>

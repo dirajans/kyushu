@@ -1,8 +1,16 @@
 export const bg = require('./bg.jpg');
+
 export const backdrop = require('./backdrop.png');
-export const backdrop2 = require('./backdrop2.png');
+export const backdropBlack = require('./backdropBlack.png');
+export const backdropRed = require('./backdropRed.png');
+export const backdropYellow = require('./backdropYellow.png');
+
+export const nsMalaysia = require('./nsMalaysia.svg');
+
 export const ns = require('./ns.png');
 export const peta = require('./peta.png');
+export const bendera = require('./bendera.png');
+export const benderaBw = require('./benderaBw.png');
 
 // yamtuan
 export const tar = require('./yamtuan/tar.jpg');

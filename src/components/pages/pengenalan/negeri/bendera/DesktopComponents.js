@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import { styles } from './Styles';
 import { css } from 'aphrodite';
+import { bendera, ns } from './../../../../images/IndexImages';
 
 export default function DesktopComponents(){
   return (
@@ -23,18 +24,35 @@ export default function DesktopComponents(){
             <br/>
             <Divider />
             <br/>
+            <img src={bendera} alt={''} style={{ maxWidth: '100%', margin: 'auto'}}/>
+            <br/><br/>
             <Typography variant={'h6'}>
             Bendera Negeri
             </Typography>
             <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
-            Warna kuning pada bendera membawa maksud D.Y.M.M. Raja. Bahagian tiga segi yang berwarna merah bermakna rakyat, sementara bahagian tiga segi yang berwarna hitam maksudnya Datuk-datuk Undang bagi Luak-luak yang menjadi bahagian-bahagian negeri ini.
+            Warna kuning pada bendera membawa maksud D.Y.M.M. Raja. Bahagian
+            tiga segi yang berwarna merah bermakna rakyat, sementara bahagian
+            tiga segi yang berwarna hitam maksudnya Datuk-datuk Undang bagi
+            Luak-luak yang menjadi bahagian-bahagian negeri ini.
             </Typography>
+            <br/>
+            <Divider />
+            <br/>
+            <img src={ns} alt={''} style={{ maxWidth: '100%', margin: 'auto'}}/>
             <br/>
             <Typography variant={'h6'}>
             Jata Negeri
             </Typography>
             <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
-            Sembilan Tangkai Padi di dalam perisai bermaksud sembilan buah negeri dalam gabungan Negeri Sembilan yang lama. Warna Merah dalam perisai menunjukkan hubungan-hubungan pada masa lalu dengan British. Warna Hitam bermaksud Dato'-Dato' Undang Yang Empat dan Tunku Besar Tampin. Warna kuning pula bermakna Yang Di-Pertuan Besar manakala Bintang Pecah Sembilan menunjukkan sembilan buah negeri dalam gabungan yang sama. Pedang dan sarung di atas perisai memberi maksud Tanda Keadilan serta di tengah jata antara pedang dan sarung terletak Changgai Putri tanda kebesaran Yang Di-Pertuan Besar
+            Sembilan Tangkai Padi di dalam perisai bermaksud sembilan buah
+            negeri dalam gabungan Negeri Sembilan yang lama. Warna Merah dalam
+            perisai menunjukkan hubungan-hubungan pada masa lalu dengan British.
+            Warna Hitam bermaksud Dato'-Dato' Undang Yang Empat dan Tunku Besar
+            Tampin. Warna kuning pula bermakna Yang Di-Pertuan Besar manakala
+            Bintang Pecah Sembilan menunjukkan sembilan buah negeri dalam
+            gabungan yang sama. Pedang dan sarung di atas perisai memberi maksud
+            Tanda Keadilan serta di tengah jata antara pedang dan sarung terletak
+            Changgai Putri tanda kebesaran Yang Di-Pertuan Besar
             </Typography>
           </Grid>
           <Grid item lg={3}>
@@ -46,7 +64,7 @@ export default function DesktopComponents(){
         <Grid container>
           <Grid item lg={6} />
           <Grid item lg={6}>
-            <Typography variant={'h4'} style={{ paddingTop: 400, paddingRight: 200, textAlign: 'center' }}>
+            <Typography variant={'h4'} className={css(styles.text)}>
               <span style={{ color: 'white' }}>
                 Warna hitam melambangkan<br/><br/>
                 DATO'-DATO' UNDANG<br/>
@@ -60,7 +78,7 @@ export default function DesktopComponents(){
       <div className={css(styles.sectionRed)}>
         <Grid container>
           <Grid item lg={6}>
-            <Typography variant={'h4'} style={{ paddingTop: 400, paddingLeft: 200, textAlign: 'center' }}>
+            <Typography variant={'h4'} className={css(styles.text)}>
               <span style={{ color: 'white' }}>
                 Warna merah melambangkan<br/><br/>
                 RAKYAT
@@ -74,7 +92,7 @@ export default function DesktopComponents(){
         <Grid container>
           <Grid item lg={6} />
           <Grid item lg={6}>
-            <Typography variant={'h4'} style={{ paddingTop: 400, paddingRight: 200, textAlign: 'center' }}>
+            <Typography variant={'h4'} className={css(styles.text)}>
               <span style={{ color: 'black' }}>
                 Warna kuning melambangkan<br/><br/>
                 RAJA

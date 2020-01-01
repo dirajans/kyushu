@@ -17,9 +17,9 @@ export default function MenuPengenalan({ onMouseLeave }){
             <Grid container spacing={2}>
               <img src={backdrop} alt={''} style={styles.backdrop} />
               <Grid item lg={3}>
-                <DesktopLink 
+                <DesktopLink
                   header
-                  title={'Sejarah'} 
+                  title={'Sejarah'}
                   url={ROUTES.SEJARAH}
                 />
                 <DesktopLink
@@ -36,9 +36,9 @@ export default function MenuPengenalan({ onMouseLeave }){
                 />
               </Grid>
               <Grid item lg={3}>
-                <DesktopLink 
+                <DesktopLink
                   header
-                  title={'Institusi Diraja, Undang, & Adat'} 
+                  title={'Institusi Diraja, Undang, & Adat'}
                   url={ROUTES.INSTITUSI}
                 />
                 <DesktopLink
@@ -63,10 +63,10 @@ export default function MenuPengenalan({ onMouseLeave }){
                 />
               </Grid>
               <Grid item lg={3}>
-                <DesktopLink 
+                <DesktopLink
                   header
-                  title={'Info Negeri'} 
-                  url={ROUTES.NEGERI}  
+                  title={'Info Negeri'}
+                  url={ROUTES.NEGERI}
                 />
                 <DesktopLink
                   title={'Kedudukan & Lokasi'}
@@ -80,12 +80,12 @@ export default function MenuPengenalan({ onMouseLeave }){
                   title={'Lagu Kebesaran'}
                   url={ROUTES.LAGU}
                 />
-                
+
               </Grid>
               <Grid item lg={3}>
                 <DesktopLink
                   header
-                  title={'Yamtuan Besar'} 
+                  title={'Yamtuan Besar'}
                   url={ROUTES.YAMTUAN}
                 />
                 <DesktopLink
@@ -151,6 +151,5 @@ const styles = {
     marginRight: 'auto',
     marginTop: 'auto',
     marginBottom: 'auto',
-    opacity: 0.1,
   }
 }
