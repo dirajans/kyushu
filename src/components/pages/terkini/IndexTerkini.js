@@ -71,7 +71,7 @@ export default function IndexTerkini() {
             key={image.hash}
             src={image.url}
             alt={''}
-            style={{ objectFit: 'contain' }}
+            style={{ maxWidth: '100%', margin: 'auto' }}
           />
         ))}
         <br/><br/>
@@ -79,7 +79,7 @@ export default function IndexTerkini() {
         Posted by {dialogData.user.username} at {dialogData.created_at}
         </Typography>
         <br/><br/>
-          <Typography gutterBottom>
+          <Typography gutterBottom style={{ textAlign: 'justify' }}>
             {dialogData.description}
           </Typography>
         </DialogContent>

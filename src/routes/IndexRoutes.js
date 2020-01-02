@@ -33,17 +33,17 @@ import Lagu from './../components/pages/pengenalan/negeri/lagu/IndexLagu';
 
 // yamtuan
 import Yamtuan from './../components/pages/pengenalan/yamtuan/Yamtuan';
-import AbdulRahman from './../components/pages/pengenalan/yamtuan/AbdulRahman';
-import Antah from './../components/pages/pengenalan/yamtuan/Antah';
-import Imam from './../components/pages/pengenalan/yamtuan/Imam';
-import Jaafar from './../components/pages/pengenalan/yamtuan/Jaafar';
-import Muhammad from './../components/pages/pengenalan/yamtuan/Muhammad';
-import Muhriz from './../components/pages/pengenalan/yamtuan/Muhriz';
-import Munawir from './../components/pages/pengenalan/yamtuan/Munawir';
-import Radin from './../components/pages/pengenalan/yamtuan/Radin';
-import RajaHitam from './../components/pages/pengenalan/yamtuan/RajaHitam';
-import RajaLenggang from './../components/pages/pengenalan/yamtuan/RajaLenggang';
-import RajaMelewar from './../components/pages/pengenalan/yamtuan/RajaMelewar';
+import AbdulRahman from './../components/pages/pengenalan/yamtuan/yam/AbdulRahman';
+import Antah from './../components/pages/pengenalan/yamtuan/yam/Antah';
+import Imam from './../components/pages/pengenalan/yamtuan/yam/Imam';
+import Jaafar from './../components/pages/pengenalan/yamtuan/yam/Jaafar';
+import Muhammad from './../components/pages/pengenalan/yamtuan/yam/Muhammad';
+import Muhriz from './../components/pages/pengenalan/yamtuan/yam/Muhriz';
+import Munawir from './../components/pages/pengenalan/yamtuan/yam/Munawir';
+import Radin from './../components/pages/pengenalan/yamtuan/yam/Radin';
+import RajaHitam from './../components/pages/pengenalan/yamtuan/yam/RajaHitam';
+import RajaLenggang from './../components/pages/pengenalan/yamtuan/yam/RajaLenggang';
+import RajaMelewar from './../components/pages/pengenalan/yamtuan/yam/RajaMelewar';
 
 // galeri import
 import Galeri from './../components/pages/galeri/IndexGaleri';

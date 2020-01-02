@@ -1,12 +1,12 @@
 import React from 'react';
-import PageContainer from './../../../shared/PageContainer';
-import { 
+import PageContainer from './../../../../shared/PageContainer';
+import {
     Typography,
     Grid,
     Divider,
     Container
 } from '@material-ui/core';
-import { muhriz } from './../../../images/IndexImages';
+import { muhriz } from './../../../../images/IndexImages';
 
 export default function Muhriz(){
     return (
@@ -25,16 +25,16 @@ export default function Muhriz(){
                     <Divider />
                     <br/>
                     <Typography variant={'body1'} style={{ textAlign: 'justify' }}>
-                    Tuanku Muhriz ibni Almarhum Tuanku Munawir diputerakan pada 14 Januari 1948. Baginda ialah Yang di-Pertuan 
-                    Besar Negeri Sembilan yang ke-11. Baginda merupakan satu-satunya putera daripada enam orang adik-beradik 
-                    kepada pasangan Tuanku Munawir, Yang di-Pertuan Besar ke-9 dan pasangan baginda, Tunku Ampuan Durah binti 
+                    Tuanku Muhriz ibni Almarhum Tuanku Munawir diputerakan pada 14 Januari 1948. Baginda ialah Yang di-Pertuan
+                    Besar Negeri Sembilan yang ke-11. Baginda merupakan satu-satunya putera daripada enam orang adik-beradik
+                    kepada pasangan Tuanku Munawir, Yang di-Pertuan Besar ke-9 dan pasangan baginda, Tunku Ampuan Durah binti
                     Almarhum Tunku Besar Burhanuddin.
                     <br/><br/>
                     <strong>Pendidikan</strong>
                     <br/>
-                    Baginda mendapat pendidikan awal di Sekolah Tuanku Muhammad, Kuala Pilah. Kemudian di Sekolah Menengah Tunku 
-                    Besar Tampin, Tampin dan Sekolah Menengah King George V di Seremban dan meneruskan pelajaran baginda di 
-                    Aldenhem School, United Kingdom. Baginda memperoleh Ijazah Undang-undang dari Kolej Universiti Wales, 
+                    Baginda mendapat pendidikan awal di Sekolah Tuanku Muhammad, Kuala Pilah. Kemudian di Sekolah Menengah Tunku
+                    Besar Tampin, Tampin dan Sekolah Menengah King George V di Seremban dan meneruskan pelajaran baginda di
+                    Aldenhem School, United Kingdom. Baginda memperoleh Ijazah Undang-undang dari Kolej Universiti Wales,
                     Aberystwyth, Britain.
                     <br/><br/>
                     <strong>Kerjaya</strong>
@@ -51,25 +51,25 @@ export default function Muhriz(){
                     <br/><br/>
                     <strong>Yang di-Pertuan Besar</strong>
                     <br/>
-                    Tuanku Muhriz akhirnya dimasyhurkan sebagai Yang di-Pertuan Besar Negeri Sembilan pada 29 Disember 2008 di 
-                    Balairong Seri, Istana Besar Seri Menanti, Kuala Pilah, Negeri Sembilan. Istiadat pemasyhuran itu dilakukan 
-                    oleh Undang Luak Sungai Ujong Datuk Klana Petra Datuk Mubarak Dohak mengikut Adat Perpatih yang dibawa dari 
+                    Tuanku Muhriz akhirnya dimasyhurkan sebagai Yang di-Pertuan Besar Negeri Sembilan pada 29 Disember 2008 di
+                    Balairong Seri, Istana Besar Seri Menanti, Kuala Pilah, Negeri Sembilan. Istiadat pemasyhuran itu dilakukan
+                    oleh Undang Luak Sungai Ujong Datuk Klana Petra Datuk Mubarak Dohak mengikut Adat Perpatih yang dibawa dari
                     Pagar Ruyung, Sumatera, Indonesia.
                     <br/><br/>
 
                     Duta AS Kamala Lakhdir membuat kunjungan hormat ke atas Tuanku Muhriz
                     <br/><br/>
-                    Pemilihan pengganti dibuat antara Putera Yang Empat iaitu Tunku Besar Seri Menanti Tunku Mukhriz Ibni Almarhum 
-                    Tuanku Munawir, Tunku Laxamana Tunku Naquiyuddin Ibni Almarhum Tuanku Ja'afar, Tunku Muda Serting Tunku Imran 
-                    Ibni Almarhum Tuanku Ja'afar dan Tuanku Panglima Besar Tunku Nazaruddin Ibni Almarhum Tuanku Ja'afar. Tunku 
-                    Naquiyuddin pernah menjadi pemangku Yang Dipertuan Besar Negeri Sembilan.Tunku Imran dan Tunku Nadzaruddin 
+                    Pemilihan pengganti dibuat antara Putera Yang Empat iaitu Tunku Besar Seri Menanti Tunku Mukhriz Ibni Almarhum
+                    Tuanku Munawir, Tunku Laxamana Tunku Naquiyuddin Ibni Almarhum Tuanku Ja'afar, Tunku Muda Serting Tunku Imran
+                    Ibni Almarhum Tuanku Ja'afar dan Tuanku Panglima Besar Tunku Nazaruddin Ibni Almarhum Tuanku Ja'afar. Tunku
+                    Naquiyuddin pernah menjadi pemangku Yang Dipertuan Besar Negeri Sembilan.Tunku Imran dan Tunku Nadzaruddin
                     turut dipertimbangkan sebagai calon Yang Dipertuan Besar Negeri Sembilan yang baru.
                     <br/><br/>
                     Turut hadir ialah kesemua putera Almarhum Tuanku Ja’afar, <br/><br/>
                     Tunku Laxamana Tunku Naquiyuddin Tuanku Ja’afar; <br/>
                     Tunku Muda Serting, Tunku Imran Tuanku Ja’afar;<br/>
                     Tunku Panglima Besar, Tunku Nadzaruddin Tuanku Ja’afar ,<br/><br/>
-                    
+
                     Undang Luak Jelebu, Datuk Musa Wahab; <br/>
                     Undang Luak Rembau, Datuk Muhamad Sharip Othman;<br/>
                     Undang Luak Johol, Datuk Mohd. Jan Abdul Gani. <br/>
@@ -80,14 +80,14 @@ export default function Muhriz(){
                     <br/><br/>
                     <strong>Istiadat pemasyhuran</strong>
                     <br/>
-                    Kesemua Undang Yang Empat bersidang di Dewan Keadilan dan memutuskan pemasyhuran Tuanku Muhriz sebagai 
-                    pengganti Almarhum Tuanku Ja’afar. Kemudian tembakan meriam 32 das dan 21 das lagi menandakan pemasyhuran 
-                    Yang Dipertuan Besar Negeri Sembilan yang baru. Semua Undang Yang Empat menghadap Tuanku Muhriz dan Mubarak 
-                    menyampaikan persembahan Mas Manah. Seterusnya Mufti negeri, Datuk Murtadza Sheikh Ahmad membacakan doa 
+                    Kesemua Undang Yang Empat bersidang di Dewan Keadilan dan memutuskan pemasyhuran Tuanku Muhriz sebagai
+                    pengganti Almarhum Tuanku Ja’afar. Kemudian tembakan meriam 32 das dan 21 das lagi menandakan pemasyhuran
+                    Yang Dipertuan Besar Negeri Sembilan yang baru. Semua Undang Yang Empat menghadap Tuanku Muhriz dan Mubarak
+                    menyampaikan persembahan Mas Manah. Seterusnya Mufti negeri, Datuk Murtadza Sheikh Ahmad membacakan doa
                     kesyukuran.[1]
                     <br/><br/>
-                    Baginda hadir dalam Istiadat Pemakaman Diraja iaitu membawa jenazah Almarhum Tuanku Ja’afar dari Pelambar 
-                    di Istana Besar Seri Menanti ke Maharaja Diraja Seri Menanti bersebelahan Masjid Tuanku Munawir diiringi 86 
+                    Baginda hadir dalam Istiadat Pemakaman Diraja iaitu membawa jenazah Almarhum Tuanku Ja’afar dari Pelambar
+                    di Istana Besar Seri Menanti ke Maharaja Diraja Seri Menanti bersebelahan Masjid Tuanku Munawir diiringi 86
                     das tembakan meriam.
                     <br/><br/>
                     <strong>Terasul dan gelaran</strong>
@@ -101,9 +101,9 @@ export default function Muhriz(){
                     14 Januari 1948 - 5 April 1960: Yang Amat Mulia Tunku Muhriz ibni Tunku Laksamana Munawir<br/><br/>
                     5 April 1960 – 1960: Yang Amat Mulia Tunku Muhriz ibni Tuanku Munawir.<br/><br/>
                     1960 - 14 April 1967: Yang Amat Mulia Tunku Muhriz ibni Tuanku Munawir, Tunku Besar Seri Menanti.<br/><br/>
-                    15 April 1960 - 27 Disember 2008: Yang Amat Mulia Tunku Muhriz ibni Almarhum Tuanku Munawir, 
+                    15 April 1960 - 27 Disember 2008: Yang Amat Mulia Tunku Muhriz ibni Almarhum Tuanku Munawir,
                     Tunku Besar Seri Menanti<br/><br/>
-                    27 Disember 2008 - kini: Duli Yang Maha Mulia Tuanku Muhriz ibni Almarhum Tuanku Munawir, Yang di-Pertuan 
+                    27 Disember 2008 - kini: Duli Yang Maha Mulia Tuanku Muhriz ibni Almarhum Tuanku Munawir, Yang di-Pertuan
                     Besar Negeri Sembilan XI.<br/><br/>
                     </Typography>
                 </Grid>

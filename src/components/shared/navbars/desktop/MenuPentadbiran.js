@@ -15,8 +15,25 @@ export default function MenuPentadbiran({ onMouseLeave}){
             <Grid container spacing={2}>
                 <Grid item lg={3}>
                     <DesktopLink
-                        title={'Struktur Pentadbiran Istana'}
-                        url={ROUTES.PENTADBIRAN}
+                      header
+                      title={'Struktur Pentadbiran Istana'}
+                      url={ROUTES.PENTADBIRAN}
+                    />
+                    <DesktopLink
+                      title={'Pengelolaan Istana'}
+                      url={ROUTES.PENTADBIRAN}
+                    />
+                    <DesktopLink
+                      title={'Juruiring'}
+                      url={ROUTES.PENTADBIRAN}
+                    />
+                    <DesktopLink
+                      title={'Khidmat Pengurusan'}
+                      url={ROUTES.PENTADBIRAN}
+                    />
+                    <DesktopLink
+                      title={'Protokol'}
+                      url={ROUTES.PENTADBIRAN}
                     />
                 </Grid>
                 <Grid item lg={3}>
@@ -30,6 +47,7 @@ export default function MenuPentadbiran({ onMouseLeave}){
                 </Grid>
             </Grid>
           </Container>
+          <br/>
         </div>
     )
 }
