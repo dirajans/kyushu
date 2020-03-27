@@ -1,5 +1,6 @@
 {
   "name": "kyushu",
+  "homepage": "http://alkyu92.github.io/kyushu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
