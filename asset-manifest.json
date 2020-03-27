@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/kyushu/static/css/main.a13abc01.chunk.css",
+    "main.js": "/kyushu/static/js/main.f132eb87.chunk.js",
+    "main.js.map": "/kyushu/static/js/main.f132eb87.chunk.js.map",
+    "runtime-main.js": "/kyushu/static/js/runtime-main.39b591fd.js",
+    "runtime-main.js.map": "/kyushu/static/js/runtime-main.39b591fd.js.map",
+    "static/css/2.085f375b.chunk.css": "/kyushu/static/css/2.085f375b.chunk.css",
+    "static/js/2.e5fab7b2.chunk.js": "/kyushu/static/js/2.e5fab7b2.chunk.js",
+    "static/js/2.e5fab7b2.chunk.js.map": "/kyushu/static/js/2.e5fab7b2.chunk.js.map",
+    "index.html": "/kyushu/index.html",
+    "precache-manifest.1b0cf632c1a993f1f95f30f03242ea73.js": "/kyushu/precache-manifest.1b0cf632c1a993f1f95f30f03242ea73.js",
+    "service-worker.js": "/kyushu/service-worker.js",
+    "static/css/2.085f375b.chunk.css.map": "/kyushu/static/css/2.085f375b.chunk.css.map",
+    "static/css/main.a13abc01.chunk.css.map": "/kyushu/static/css/main.a13abc01.chunk.css.map",
+    "static/media/antah.jpg": "/kyushu/static/media/antah.5f0ad6b1.jpg",
+    "static/media/backdrop.png": "/kyushu/static/media/backdrop.5dce344d.png",
+    "static/media/backdropBlack.png": "/kyushu/static/media/backdropBlack.53ed77cf.png",
+    "static/media/backdropRed.png": "/kyushu/static/media/backdropRed.e360e9d5.png",
+    "static/media/backdropYellow.png": "/kyushu/static/media/backdropYellow.735298f0.png",
+    "static/media/bg.jpg": "/kyushu/static/media/bg.509a962b.jpg",
+    "static/media/jaafar.jpg": "/kyushu/static/media/jaafar.87f512c9.jpg",
+    "static/media/muhammad.jpg": "/kyushu/static/media/muhammad.a64ab975.jpg",
+    "static/media/muhriz.jpg": "/kyushu/static/media/muhriz.f1f708f0.jpg",
+    "static/media/munawir.jpg": "/kyushu/static/media/munawir.07fd85b9.jpg",
+    "static/media/ns.png": "/kyushu/static/media/ns.019508ce.png",
+    "static/media/nsMalaysia.svg": "/kyushu/static/media/nsMalaysia.a357dbb6.svg",
+    "static/media/peta.png": "/kyushu/static/media/peta.b6a403b8.png",
+    "static/media/tar.jpg": "/kyushu/static/media/tar.e746529f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.39b591fd.js",
+    "static/css/2.085f375b.chunk.css",
+    "static/js/2.e5fab7b2.chunk.js",
+    "static/css/main.a13abc01.chunk.css",
+    "static/js/main.f132eb87.chunk.js"
+  ]
+}
