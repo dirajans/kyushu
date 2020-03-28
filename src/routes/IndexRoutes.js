@@ -61,7 +61,7 @@ import PageNotFound from './../components/pages/404/PageNotFound';
 
 export default function IndexRoutes(){
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path={ROUTES.UTAMA} component={Utama} />
 

@@ -23,16 +23,16 @@ export default function IndexTerkini() {
   const [error, setError] = useState(false);
 
   const fetchData = async () => {
-    const url = 'http://18.139.3.116:1337/posts'
+    // const url = 'http://18.139.3.116:1337/posts'
     setLoading(true);
-    await axios.get(url)
-      .then( res => {
-        setTileData(res.data);
-      })
-      .catch( error => {
-        setError(true);
-        console.log(error);
-      })
+    // await axios.get(url)
+    //   .then( res => {
+    //     setTileData(res.data);
+    //   })
+    //   .catch( error => {
+    //     setError(true);
+    //     console.log(error);
+    //   })
     setLoading(false);
   }
 

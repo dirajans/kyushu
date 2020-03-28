@@ -22,16 +22,16 @@ export default function IndexPertanyaan() {
     ) {
       alert('Sila semak butir-butir borang anda.');
     } else {
-      const url = 'http://18.139.3.116:1337/inquiries';
+      // const url = 'http://18.139.3.116:1337/inquiries';
       // send to db
-      await axios({
-        method: 'post',
-        url: url,
-        data: qs.stringify(data),
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        }
-      });
+      // await axios({
+      //   method: 'post',
+      //   url: url,
+      //   data: qs.stringify(data),
+      //   headers: {
+      //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      //   }
+      // });
 
       setSubmitted(true);
     }
