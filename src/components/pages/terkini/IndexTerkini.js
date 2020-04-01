@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   GridList,
   GridListTile,
@@ -15,30 +15,11 @@ import ErrorMessage from './../../shared/ErrorMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
-import axios from 'axios';
 
 export default function IndexTerkini() {
   const [tileData, setTileData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const fetchData = async () => {
-    const url = 'http://18.139.3.116:1337/posts'
-    setLoading(true);
-    await axios.get(url)
-      .then( res => {
-        setTileData(res.data);
-      })
-      .catch( error => {
-        setError(true);
-        console.log(error);
-      })
-    setLoading(false);
-  }
-
-  useEffect( () => {
-    fetchData();
-  }, []);
 
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});

@@ -3,14 +3,11 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
-
 import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
-
 import PageContainer from './../../shared/PageContainer';
 import { bg, backdrop, ns } from './../../images/IndexImages';
-
 import './galeri.scss';
 import { styles } from './Styles';
 import { css } from 'aphrodite';
@@ -24,14 +21,6 @@ export default function IndexUtama() {
     { title: 'image-4', img: ns, cols: 1, rows: 1 },
   ]
   const [tileData, setTileData] = useState(tempData);
-
-  const fetchCarousel = () => {
-    setTileData(tempData)
-  }
-
-  useEffect( () => {
-    fetchCarousel();
-  }, []);
 
   return (
     <PageContainer>

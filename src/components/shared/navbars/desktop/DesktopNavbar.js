@@ -104,6 +104,16 @@ export default function DesktopNavbar(){
                 onMouseLeave={closeMenu}
               />
             </Grid>
+
+            <Grid item>
+              <DesktopLink
+                title={'Admin Sign in'}
+                url={ROUTES.SIGNIN}
+                onMouseOver={closeMenu}
+                onMouseLeave={closeMenu}
+              />
+            </Grid>
+
           </Grid>
         </Toolbar>
       </Container>

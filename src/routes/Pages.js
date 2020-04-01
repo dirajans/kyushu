@@ -35,3 +35,8 @@ export const PENTADBIRAN = '/pentadbiran';
 export const TERKINI = '/terkini';
 export const GALERI = '/galeri';
 export const PERTANYAAN = '/pertanyaan';
+
+// admin
+export const SIGNIN = '/admin/signin';
+export const DASHBOARD = '/admin/dashboard';
+export const FORGOTPASSWORD = '/admin/forgotpassword';
