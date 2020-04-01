@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Toolbar,
   Typography,
@@ -9,13 +9,24 @@ import {
 import DesktopLink from './DesktopLink';
 import MenuPengenalan from './MenuPengenalan';
 import MenuPentadbiran from './MenuPentadbiran';
-
 import * as ROUTES from './../../../../routes/Pages';
 import { ns } from './../../../images/IndexImages';
 
 export default function DesktopNavbar(){
+  const [signedIn, setSignedIn] = useState(false);
   const [openMenuPengenalan, setOpenMenuPengenalan] = useState(false);
   const [openMenuPentadbiran, setOpenMenuPentadbiran] = useState(false);
+
+  const checkLoggedIn = () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser !== null) {
+      setSignedIn(true);
+    }
+  }
+
+  useEffect( () => {
+    checkLoggedIn();
+  }, []);
 
   // pengenalan menu
   const onMouseOverPengenalan = () => {
@@ -105,14 +116,16 @@ export default function DesktopNavbar(){
               />
             </Grid>
 
-            <Grid item>
-              <DesktopLink
-                title={'Admin Sign in'}
-                url={ROUTES.SIGNIN}
-                onMouseOver={closeMenu}
-                onMouseLeave={closeMenu}
-              />
-            </Grid>
+            {signedIn && (
+              <Grid item>
+                <DesktopLink
+                  title={'Dashboard'}
+                  url={ROUTES.DASHBOARD}
+                  onMouseOver={closeMenu}
+                  onMouseLeave={closeMenu}
+                />
+              </Grid>
+            )}
 
           </Grid>
         </Toolbar>

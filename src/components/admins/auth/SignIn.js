@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Avatar,
   Button,
   TextField,
   Link,
@@ -10,11 +9,13 @@ import {
   Container,
   CircularProgress,
 } from '@material-ui/core';
-import { styles } from './Styles';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { firebase } from './../../firebaseConfig';
+import { useStyles } from './Styles';
+import { firebase } from './../../../firebaseConfig';
+import Copyright from './../../shared/Copyright';
+import { ns } from './../../images/IndexImages';
 
 export default function SignIn() {
+  const classes = useStyles();
 
   const [ values, setValues ] = useState(0);
   const [ loading, setLoading ] = useState(false);
@@ -31,7 +32,8 @@ export default function SignIn() {
       alert('Invalid email address or password')
     } else {
       setLoading(true);
-      await firebase.auth().signInWithEmailAndPassword(email, password).then( (user) => {
+      await firebase.auth().signInWithEmailAndPassword(email, password).then( (result) => {
+        localStorage.setItem('currentUser', JSON.stringify(result.user));
         setLoading(false);
       })
       .catch( (error) => {
@@ -41,14 +43,16 @@ export default function SignIn() {
     }
   }
 
+  const goToHome = () => {
+    window.open('/', '_self');
+  }
+
   return (
     <Container component="main" maxWidth="xs">
-      <div className={styles.paper}>
-        <Avatar className={styles.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+      <div className={classes.paper}>
 
-        <Typography component="h1" variant="h5">
+        <img style={{ width: 300 }} src={ns} alt={'jata'} onClick={goToHome} />
+        <Typography component="h1" variant={'h5'} style={{ fontFamily: 'Great Vibes'}}>
           Portal Diraja Negeri Sembilan
         </Typography>
 
@@ -56,7 +60,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={styles.form} noValidate onSubmit={handleSubmit}>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -82,23 +86,18 @@ export default function SignIn() {
             onChange={handleChange('password')}
           />
 
-          <div className={styles.wrapper}>
+          <div className={classes.wrapper}>
           <Button
             type="submit"
             fullWidth
             disabled={loading}
             variant="contained"
             color="primary"
-            className={styles.submit}
+            className={classes.submit}
           >
             Sign In
           </Button>
-          {loading && (
-            <CircularProgress 
-            size={24} 
-            className={styles.buttonProgress} 
-            />
-          )}
+          {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
           </div>
 
           <Grid
@@ -116,7 +115,7 @@ export default function SignIn() {
         </form>
       </div>
       <Box mt={8}>
-        
+        <Copyright />
       </Box>
     </Container>
   );

@@ -59,9 +59,10 @@ import Pentadbiran from './../components/pages/pentadbiran/IndexPentadbiran';
 import Terkini from './../components/pages/terkini/IndexTerkini';
 
 // admin import
-import SignIn from './../components/admins/SignIn';
+import SignIn from './../components/admins/auth/SignIn';
+import ForgotPassword from './../components/admins/auth/ForgotPassword';
 import Dashboard from './../components/admins/Dashboard';
-import ForgotPassword from './../components/admins/ForgotPassword';
+import Post from './../components/admins/Post';
 
 // misc import
 import PageNotFound from './../components/pages/404/PageNotFound';
@@ -124,6 +125,7 @@ export default function IndexRoutes(){
           <PublicRoute authed={authed} exact path={ROUTES.SIGNIN} component={SignIn} />
           <PublicRoute authed={authed} exact path={ROUTES.FORGOTPASSWORD} component={ForgotPassword} />
           <PrivateRoute authed={authed} exact path={ROUTES.DASHBOARD} component={Dashboard} />
+          <PrivateRoute authed={authed} exact path={ROUTES.POST} component={Post} />
   
           <Route path={ROUTES.SEJARAH} component={Sejarah} />
           <Route path={ROUTES.PENUBUHAN} component={Penubuhan} />

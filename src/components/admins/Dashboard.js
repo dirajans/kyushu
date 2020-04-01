@@ -1,28 +1,16 @@
 import React from 'react';
 import {
-  Typography,
-  Container,
-  Button,
+  Paper,
 } from '@material-ui/core';
-import { firebase } from './../../firebaseConfig';
+import PageContainer from './../../components/shared/AdminContainer';
 
 export default function Dashboard(){
-  
-  const handleSignOut = async () => {
-    await firebase.auth().signOut()
-    .catch( error => {
-      console.log(error);
-    })
-  }
 
   return (
-    <Container>
-      <Typography>
-      Admin Dashboard page
-      </Typography>
-      <Button onClick={handleSignOut}>
-        Sign Out
-      </Button>
-    </Container>
+    <PageContainer name={'Dashboard'}>
+      <Paper>
+        random picker
+      </Paper>
+    </PageContainer>
   )
 }

@@ -40,3 +40,4 @@ export const PERTANYAAN = '/pertanyaan';
 export const SIGNIN = '/admin/signin';
 export const DASHBOARD = '/admin/dashboard';
 export const FORGOTPASSWORD = '/admin/forgotpassword';
+export const POST = '/admin/posts';

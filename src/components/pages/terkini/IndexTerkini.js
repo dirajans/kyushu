@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   GridList,
   GridListTile,
@@ -15,35 +15,39 @@ import ErrorMessage from './../../shared/ErrorMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
+import { ns } from './../../images/IndexImages';
+import { firebase } from './../../../firebaseConfig';
 
 export default function IndexTerkini() {
   const [tileData, setTileData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-<<<<<<< HEAD
-=======
-  const fetchData = async () => {
-    // const url = 'http://18.139.3.116:1337/posts'
+  const [open, setOpen] = useState(false);
+  const [dialogData, setDialogData] = useState({});
+
+  const fetchPosts = async () => {
     setLoading(true);
-    // await axios.get(url)
-    //   .then( res => {
-    //     setTileData(res.data);
-    //   })
-    //   .catch( error => {
-    //     setError(true);
-    //     console.log(error);
-    //   })
-    setLoading(false);
+    await firebase.database().ref('posts')
+    .once('value', snap => {
+      let arr = [];
+      snap.forEach( child => {
+        let item = child.val();
+        arr.push(item);
+      });
+      setTileData(arr);
+      setLoading(false);
+    })
+    .catch( error => {
+      console.log(error);
+      setError(error);
+      setLoading(false);
+    })
   }
 
   useEffect( () => {
-    fetchData();
+    fetchPosts();
   }, []);
-
->>>>>>> 0def6d71c5c81506925c490fc187095b7c5a6546
-  const [open, setOpen] = useState(false);
-  const [dialogData, setDialogData] = useState({});
 
   const handleClickOpen = (data) => {
     setDialogData(data);
@@ -103,8 +107,8 @@ export default function IndexTerkini() {
     {!loading && !error && (
       <GridList cellHeight={500} spacing={1} cols={4}>
         {tileData.map(tile => (
-          <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
-            <img src={tile.images[0].url} alt={tile.title} />
+          <GridListTile key={tile.title} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
+            <img src={ ns } alt={tile.title} />
             <GridListTileBar
               title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
               subtitle={tile.created_at}

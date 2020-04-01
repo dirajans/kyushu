@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Grid,
   Typography
@@ -20,7 +20,7 @@ export default function IndexUtama() {
     { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
     { title: 'image-4', img: ns, cols: 1, rows: 1 },
   ]
-  const [tileData, setTileData] = useState(tempData);
+  const [tileData] = useState(tempData);
 
   return (
     <PageContainer>
@@ -34,7 +34,7 @@ export default function IndexUtama() {
         cssModule={AwesomeSliderStyles}
       >
       {tileData.map( (data) => (
-        <div data-src={data.img} />
+        <div data-src={data.img} key={data.title} />
       ))}
       </AutoplaySlider>
 

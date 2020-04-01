@@ -10,12 +10,15 @@ import {
   Container,
   CircularProgress,
 } from '@material-ui/core';
-import { styles } from './Styles';
+import { useStyles } from './Styles';
 import CheckIcon from '@material-ui/icons/Check';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { firebase } from './../../firebaseConfig';
+import { firebase } from './../../../firebaseConfig';
+import Copyright from './../../shared/Copyright';
+import { ns } from './../../images/IndexImages';
 
 export default function ForgotPassword() {
+  const classes = useStyles();
+
   const [ values, setValues ] = useState(0);
   const [ loading, setLoading ] = useState(false);
   const [ success, setSuccess ] = useState(false);
@@ -44,13 +47,15 @@ export default function ForgotPassword() {
     }
   }
 
+  const goToHome = () => {
+    window.open('/', '_self');
+  }
+
   return (
     <Container component="main" maxWidth="xs">
-      <div className={styles.paper}>
-        <Avatar className={styles.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
+      <div className={classes.paper}>
+        <img style={{ width: 300 }} src={ns} alt={'jata'} onClick={goToHome} />
+        <Typography component="h1" variant={'h5'} style={{ fontFamily: 'Great Vibes'}}>
           Portal Diraja Negeri Sembilan
         </Typography>
 
@@ -63,7 +68,7 @@ export default function ForgotPassword() {
           justify="center"
           style={{ paddingTop: 100, paddingBottom: 100 }}
           >
-            <Avatar className={styles.avatar}>
+            <Avatar className={classes.avatar}>
               <CheckIcon color={'green'} />
             </Avatar>
             <Typography component="h1" variant="h6" style={{ textAlign: 'center' }}>
@@ -82,7 +87,7 @@ export default function ForgotPassword() {
           <Typography component="h1" variant="h5">
             Password Reset
           </Typography>
-          <form className={styles.form} noValidate onSubmit={handleSubmitReset}>
+          <form className={classes.form} noValidate onSubmit={handleSubmitReset}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -96,18 +101,18 @@ export default function ForgotPassword() {
               onChange={handleChange('email')}
             />
 
-            <div className={styles.wrapper}>
+            <div className={classes.wrapper}>
             <Button
               type="submit"
               fullWidth
               disabled={loading}
               variant="contained"
               color="primary"
-              className={styles.submit}
+              className={classes.submit}
             >
               Reset
             </Button>
-            {loading && <CircularProgress size={24} className={styles.buttonProgress} />}
+            {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
             </div>
           </form>
           </>
@@ -127,7 +132,7 @@ export default function ForgotPassword() {
         </Grid>
       </div>
       <Box mt={8}>
-        
+        <Copyright />
       </Box>
     </Container>
   )
