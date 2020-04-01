@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { firebase } from './../../firebaseConfig';
-import { snapshotToArray } from './../../components/shared/Utils';
+import { firebase } from '../../../firebaseConfig';
+import { snapshotToArray } from '../../shared/Utils';
 import {
   Paper,
   CircularProgress,
+  Button,
 } from '@material-ui/core';
 import {
   IntegratedFiltering,
@@ -21,13 +22,15 @@ import {
   Toolbar,
   SearchPanel,
 } from '@devexpress/dx-react-grid-material-ui';
-import PageContainer from '../shared/containers/AdminContainer';
-
+import PageContainer from '../../shared/containers/AdminContainer';
+import DialogForm from './DialogForm';
 
 export default function Post(){
   const [rowData, setRowData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pageSizes] = useState([10, 30, 90]);
+
+  const [openForm, setOpenForm] = useState(false);
   
   const fetchData = () => {
     setLoading(true);
@@ -53,6 +56,14 @@ export default function Post(){
     { name: 'updated_at', title: 'Updated At'},
   ]);
 
+  const handleOpenForm = () => {
+    setOpenForm(true);
+  }
+
+  const handleCloseForm = () => {
+    setOpenForm(false);
+  }
+
   return (
     <PageContainer name={'Manage Posts'}>
       <Paper>
@@ -63,6 +74,24 @@ export default function Post(){
         )}
 
         {!loading && (
+          <>
+          <div style={{ padding: 10 }}>
+          <Button
+            variant={'contained'}
+            color={'primary'}
+            onClick={handleOpenForm}
+          >
+            Create New Post
+          </Button>
+        </div>
+
+        <DialogForm
+          openStatus={openForm}
+          onSubmit={handleCloseForm}
+          onCancel={handleCloseForm}
+        />
+
+
           <Grid
           rows={rowData}
           columns={columns}
@@ -83,6 +112,7 @@ export default function Post(){
           <SearchPanel />
 
         </Grid>
+        </>
         )}
         
       </Paper>

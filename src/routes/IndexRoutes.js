@@ -61,8 +61,8 @@ import Terkini from './../components/pages/terkini/IndexTerkini';
 // admin import
 import SignIn from './../components/admins/auth/SignIn';
 import ForgotPassword from './../components/admins/auth/ForgotPassword';
-import Dashboard from './../components/admins/Dashboard';
-import Post from './../components/admins/Post';
+import Dashboard from './../components/admins/dashboards/Dashboard';
+import Post from './../components/admins/posts/Post';
 
 // misc import
 import PageNotFound from './../components/pages/404/PageNotFound';
