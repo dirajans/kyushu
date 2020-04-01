@@ -20,8 +20,22 @@ export default function IndexPertanyaan() {
     ) {
       alert('Sila semak butir-butir borang anda.');
     } else {
+<<<<<<< HEAD
       // send to firebase
       firebase.database().ref('pertanyaan/' + data.id).set(data);
+=======
+      // const url = 'http://18.139.3.116:1337/inquiries';
+      // send to db
+      // await axios({
+      //   method: 'post',
+      //   url: url,
+      //   data: qs.stringify(data),
+      //   headers: {
+      //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      //   }
+      // });
+
+>>>>>>> 0def6d71c5c81506925c490fc187095b7c5a6546
       setSubmitted(true);
     }
   }

@@ -21,6 +21,27 @@ export default function IndexTerkini() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+<<<<<<< HEAD
+=======
+  const fetchData = async () => {
+    // const url = 'http://18.139.3.116:1337/posts'
+    setLoading(true);
+    // await axios.get(url)
+    //   .then( res => {
+    //     setTileData(res.data);
+    //   })
+    //   .catch( error => {
+    //     setError(true);
+    //     console.log(error);
+    //   })
+    setLoading(false);
+  }
+
+  useEffect( () => {
+    fetchData();
+  }, []);
+
+>>>>>>> 0def6d71c5c81506925c490fc187095b7c5a6546
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});
 
