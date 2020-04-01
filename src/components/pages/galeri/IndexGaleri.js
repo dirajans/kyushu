@@ -3,7 +3,7 @@ import {
   GridList,
   GridListTile,
 } from '@material-ui/core';
-import PageContainer from './../../shared/PageContainer';
+import PageContainer from '../../shared/containers/PageContainer';
 import ErrorMessage from './../../shared/ErrorMessage';
 import Loading from './../../shared/Loading';
 

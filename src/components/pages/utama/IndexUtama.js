@@ -6,7 +6,7 @@ import {
 import AwesomeSlider from 'react-awesome-slider';
 import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import PageContainer from './../../shared/PageContainer';
+import PageContainer from '../../shared/containers/PageContainer';
 import { bg, backdrop, ns } from './../../images/IndexImages';
 import './galeri.scss';
 import { styles } from './Styles';

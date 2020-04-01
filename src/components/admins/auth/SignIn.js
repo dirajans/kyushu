@@ -29,12 +29,14 @@ export default function SignIn() {
     const { email, password } = values;
 
     if (email === undefined || password === undefined) {
-      alert('Invalid email address or password')
+      alert('Sila semak alamat emel dan kata laluan anda')
     } else {
       setLoading(true);
-      await firebase.auth().signInWithEmailAndPassword(email, password).then( (result) => {
+      await firebase.auth().signInWithEmailAndPassword(email, password)
+      .then( (result) => {
         localStorage.setItem('currentUser', JSON.stringify(result.user));
         setLoading(false);
+        window.open('/admin/dashboard', '_self');
       })
       .catch( (error) => {
         setLoading(false);
@@ -58,7 +60,7 @@ export default function SignIn() {
 
         <br /><br />
         <Typography component="h1" variant="h5">
-          Sign in
+          Log Masuk
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
@@ -67,7 +69,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Alamat Emel"
             name="email"
             autoComplete="off"
             autoFocus
@@ -79,7 +81,7 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Kata Laluan"
             type="password"
             id="password"
             autoComplete="off"
@@ -95,7 +97,7 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Log Masuk
           </Button>
           {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
           </div>
@@ -108,7 +110,7 @@ export default function SignIn() {
           >
             <Grid item xs>
               <Link href="/admin/forgotpassword" variant="body2">
-                Forgot password?
+                Terlupa kata laluan?
               </Link>
             </Grid>
           </Grid>

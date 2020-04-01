@@ -3,8 +3,7 @@ import {
     Grid,
     CircularProgress,
 } from '@material-ui/core';
-import { styles } from './Styles';
-import { css } from 'aphrodite';
+import { StyleSheet, css } from 'aphrodite';
 
 export default function Loading(){
     return (
@@ -22,3 +21,11 @@ export default function Loading(){
       </Grid>
     )
 }
+
+const styles = StyleSheet.create({
+  circular: {
+      minHeight: '100%',
+      paddingTop: '35vh',
+      paddingBottom: '35vh'
+  },
+})

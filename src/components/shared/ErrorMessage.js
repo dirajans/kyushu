@@ -4,8 +4,8 @@ import {
     Typography,
     Divider,
 } from '@material-ui/core';
-import { css } from 'aphrodite';
-import { styles } from './Styles';
+import { css, StyleSheet } from 'aphrodite';
+
 export default function ErrorMessage(){
     return (
         <Grid
@@ -33,3 +33,11 @@ export default function ErrorMessage(){
         </Grid>
     )
 }
+
+const styles = StyleSheet.create({
+    circular: {
+        minHeight: '100%',
+        paddingTop: '35vh',
+        paddingBottom: '35vh'
+    },
+  })

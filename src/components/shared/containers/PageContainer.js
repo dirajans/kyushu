@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Navbar from './navbars/Navbar';
-import Footer from './footers/Footer';
+import Navbar from '../navbars/Navbar';
+import Footer from '../footers/Footer';
 import { StyleSheet, css } from 'aphrodite';
 
-import { backdrop, benderaBw } from './../images/IndexImages';
+import { backdrop, benderaBw } from '../../images/IndexImages';
 
 export default function PageContainer({ children }){
   return (

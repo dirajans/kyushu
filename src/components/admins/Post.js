@@ -21,7 +21,7 @@ import {
   Toolbar,
   SearchPanel,
 } from '@devexpress/dx-react-grid-material-ui';
-import PageContainer from './../../components/shared/AdminContainer';
+import PageContainer from '../shared/containers/AdminContainer';
 
 
 export default function Post(){

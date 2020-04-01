@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Container,
 } from '@material-ui/core';
-import PageContainer from './../../shared/PageContainer';
+import PageContainer from '../../shared/containers/PageContainer';
 import CardForm from './CardForm';
 import Submitted from './Submitted';
 import { css }from 'aphrodite';

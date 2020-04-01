@@ -10,13 +10,14 @@ import {
   Typography,
   Button,
 } from '@material-ui/core';
-import PageContainer from './../../shared/PageContainer';
+import PageContainer from '../../shared/containers/PageContainer';
 import ErrorMessage from './../../shared/ErrorMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
 import { ns } from './../../images/IndexImages';
 import { firebase } from './../../../firebaseConfig';
+import { snapshotToArray } from './../../shared/Utils';
 
 export default function IndexTerkini() {
   const [tileData, setTileData] = useState([]);
@@ -28,14 +29,9 @@ export default function IndexTerkini() {
 
   const fetchPosts = async () => {
     setLoading(true);
-    await firebase.database().ref('posts')
-    .once('value', snap => {
-      let arr = [];
-      snap.forEach( child => {
-        let item = child.val();
-        arr.push(item);
-      });
-      setTileData(arr);
+    await firebase.database().ref('posts').once('value', snap => {
+      const posts = snapshotToArray(snap);
+      setTileData(posts);
       setLoading(false);
     })
     .catch( error => {

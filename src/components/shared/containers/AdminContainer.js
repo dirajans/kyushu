@@ -15,7 +15,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { firebase } from '../../firebaseConfig';
+import { firebase } from '../../../firebaseConfig';
 import { mainListItems } from './ListItems';
 import { useStyles } from './AdminStyles';
 
@@ -39,6 +39,7 @@ export default function PageContainer({ children, name }) {
     await firebase.auth().signOut()
     .then( () => {
       localStorage.setItem('currentUser', null);
+      window.open('/admin/signin', '_self');
     })
     .catch( (error) => {
       alert(error.toString());

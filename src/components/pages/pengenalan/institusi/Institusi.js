@@ -5,7 +5,7 @@ import {
   Typography,
   Divider,
 } from '@material-ui/core';
-import PageContainer from './../../../shared/PageContainer';
+import PageContainer from '../../../shared/containers/PageContainer';
 
 export default function Institusi(){
   return (

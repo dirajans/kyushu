@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PageContainer from './../../shared/PageContainer';
+import PageContainer from '../../shared/containers/PageContainer';
 import PengelolaanIstana from './pengelolaanIstana/PengelolaanIstana';
 
 export default function IndexPentadbiran(){

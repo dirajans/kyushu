@@ -85,7 +85,7 @@ export default function ForgotPassword() {
           <>
           <br /><br />
           <Typography component="h1" variant="h5">
-            Password Reset
+            Set Semula Kata Laluan
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleSubmitReset}>
             <TextField
@@ -94,7 +94,7 @@ export default function ForgotPassword() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Alamat Emel"
               name="email"
               autoComplete="email"
               autoFocus
@@ -110,7 +110,7 @@ export default function ForgotPassword() {
               color="primary"
               className={classes.submit}
             >
-              Reset
+              Set Semula
             </Button>
             {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
             </div>
@@ -126,7 +126,7 @@ export default function ForgotPassword() {
         >
           <Grid item xs>
             <Link href="/admin/signin" variant="body2">
-              Go to Sign In page
+              Pergi ke halaman Log Masuk
             </Link>
           </Grid>
         </Grid>
