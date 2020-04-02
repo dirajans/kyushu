@@ -3,16 +3,12 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
-import AwesomeSlider from 'react-awesome-slider';
-import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import PageContainer from '../../shared/containers/PageContainer';
-import { bg, backdrop, ns } from './../../images/IndexImages';
-import './galeri.scss';
 import { styles } from './Styles';
 import { css } from 'aphrodite';
-
-const AutoplaySlider = withAutoplay(AwesomeSlider);
+import { bg, backdrop, ns } from './../../images/IndexImages';
+import Carousel from './../../shared/Carousel';
+import './galeri.scss';
 
 export default function IndexUtama() {
   const tempData = [
@@ -20,23 +16,13 @@ export default function IndexUtama() {
     { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
     { title: 'image-4', img: ns, cols: 1, rows: 1 },
   ]
+
   const [tileData] = useState(tempData);
 
   return (
     <PageContainer>
 
-      <AutoplaySlider
-        play={true}
-        cancelOnInteraction={false}
-        interval={6000}
-        bullets={false}
-        infinite={true}
-        cssModule={AwesomeSliderStyles}
-      >
-      {tileData.map( (data) => (
-        <div data-src={data.img} key={data.title} />
-      ))}
-      </AutoplaySlider>
+      <Carousel src={tileData} />
 
       <div className={css(styles.sectionLast)}>
         <Grid

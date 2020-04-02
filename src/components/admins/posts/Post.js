@@ -5,6 +5,7 @@ import {
   Paper,
   CircularProgress,
   Button,
+  Link,
 } from '@material-ui/core';
 import {
   IntegratedFiltering,
@@ -23,6 +24,7 @@ import {
   SearchPanel,
 } from '@devexpress/dx-react-grid-material-ui';
 import PageContainer from '../../shared/containers/AdminContainer';
+import EditableDialog from './EditableDialog';
 import DialogForm from './DialogForm';
 
 export default function Post(){
@@ -31,6 +33,8 @@ export default function Post(){
   const [pageSizes] = useState([10, 30, 90]);
 
   const [openForm, setOpenForm] = useState(false);
+  const [ openInfo, setOpenInfo ] = useState(false);
+  const [ infoData, setInfoData ] = useState({});
   
   const fetchData = () => {
     setLoading(true);
@@ -39,7 +43,7 @@ export default function Post(){
       setRowData(products);
       setLoading(false);
     });
-  };
+  }
   
   useEffect( () => {
     fetchData();
@@ -60,8 +64,31 @@ export default function Post(){
     setOpenForm(true);
   }
 
-  const handleCloseForm = () => {
+  const handleClose = () => {
     setOpenForm(false);
+    setOpenInfo(false);
+  }
+
+  const handleOnClickId = (clickedId) => {
+    const data = rowData.find( (row) => row.id === clickedId )
+    setInfoData(data);
+    setOpenInfo(true);
+  }
+
+  const LinkCell = ({ value, style, ...restProps }) => {
+    return (
+      <Table.Cell {...restProps} style={{ ...style }}>
+        <Link onClick={ () => { handleOnClickId(value) }}>{value}</Link>
+      </Table.Cell>
+    )
+  }
+
+  const NameCell = (props) => {
+    const { column } = props;
+    if (column.name === 'id') {
+      return <LinkCell {...props} />
+    }
+    return <Table.Cell {...props} />
   }
 
   return (
@@ -87,10 +114,15 @@ export default function Post(){
 
         <DialogForm
           openStatus={openForm}
-          onSubmit={handleCloseForm}
-          onCancel={handleCloseForm}
+          onSubmit={handleClose}
+          onCancel={handleClose}
         />
 
+        <EditableDialog
+          data={infoData}
+          openStatus={openInfo}
+          onClose={handleClose}
+        />
 
           <Grid
           rows={rowData}
@@ -98,14 +130,16 @@ export default function Post(){
           getRowId={getRowId}
         >
           <SearchState defaultValue={''} />
-          <SortingState />
+          <SortingState 
+            defaultSorting={[{ columnName: 'created_at', direction: 'desc' }]}
+          />
           <PagingState />
 
           <IntegratedFiltering />
           <IntegratedSorting />
           <IntegratedPaging />
 
-          <Table />
+          <Table cellComponent={NameCell} />
           <TableHeaderRow showSortingControls={true} />
           <PagingPanel pageSizes={pageSizes} />
           <Toolbar />
