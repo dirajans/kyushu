@@ -6,6 +6,7 @@ import {
   Grid,
 } from '@material-ui/core';
 import PageContainer from '../../shared/containers/AdminContainer';
+import { firebase } from './../../../firebaseConfig';
 
 export default function Dashboard(){
   const [selection, setSelection] = useState('');
@@ -80,6 +81,13 @@ export default function Dashboard(){
             </Grid>
           ))}
         </Grid>
+
+            <br/>
+        <hr/>
+        <br/>
+        <h2>Selected Color:</h2>
+        <h3>{selection}</h3>
+        <div style={{ height: '100px', width: '100px', backgroundColor: selection }} />
 
       </Paper>
     </PageContainer>
