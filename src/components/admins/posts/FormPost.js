@@ -64,7 +64,7 @@ export default function FormPost({
             label={'Description'}
             onChange={handleChangeDescription}
             multiline
-            rows={5}
+            rows={8}
           />
           
           <FormControl

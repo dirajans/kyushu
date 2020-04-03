@@ -29,9 +29,11 @@ export default function EditableDialog({
     }
 
     const handleOnDelete = () => {
-        firebase.database().ref('posts/' + data.id).remove();
-        setIsEdit(false);
-        onClose();
+        if(window.confirm('Are you sure?')){
+            firebase.database().ref('posts/' + data.id).remove();
+            setIsEdit(false);
+            onClose();
+        }
     }
 
     return (

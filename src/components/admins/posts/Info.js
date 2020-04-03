@@ -48,11 +48,11 @@ export default function FormPost({
         <>
         <DialogTitle>Post Info</DialogTitle>
             <DialogContent>
-            <Grid container spacing={2}>
-                <Grid item lg={6}>
+            <Grid container spacing={4}>
+                <Grid item lg={7}>
                     <Carousel src={tileData} />
                 </Grid>
-                <Grid item lg={6}>
+                <Grid item lg={5}>
                     <Field name={'Title'} value={title} />
                     <Field name={'Description'} value={description} />
 

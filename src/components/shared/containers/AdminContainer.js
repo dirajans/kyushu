@@ -58,6 +58,7 @@ export default function PageContainer({ children, name }) {
       onClose={handleProfileClose}
     >
       {/* <MenuItem onClick={handleProfileOpenPage} >My Profile</MenuItem> */}
+      <MenuItem onClick={ () => window.open('/') } >Halaman Utama</MenuItem>
       <MenuItem onClick={ () => handleSignOutPress() } >Sign Out</MenuItem>
     </Menu>
   );
