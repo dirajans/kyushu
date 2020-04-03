@@ -30,13 +30,13 @@ export default function FormPost({
     
     const [tileData] = useState(tempData);
 
-    const Field = ({ name, value }) => {
+    const Field = ({ name, value, details }) => {
         return (
             <>
-            <Typography variant={'h6'} style={{ color: 'grey' }}>
+            <Typography variant={ details ? 'caption' : 'subtitle2'} style={{ color: 'grey' }}>
                 {name}
             </Typography>
-            <Typography variant={'h5'}>
+            <Typography variant={details ? 'caption' : 'body2'}>
                 {value}
             </Typography>
             <br />

@@ -10,6 +10,7 @@ import {
     Select,
     TextField,
 } from '@material-ui/core';
+import uuidv4 from 'uuid/v4';
 
 export default function FormPost({ 
     onSubmit, 
@@ -26,66 +27,77 @@ export default function FormPost({
     const handleChangeDescription = (event) => setDescription(event.target.value);
     const handleChangeFeatured = (event) => setFeatured(event.target.value);
 
+    const handleOnSubmit = () => {
+      const newData = {
+        id: data ? data.id : uuidv4(),
+        title,
+        description,
+        featured,
+        created_at: data ? data.created_at : new Date().toString(),
+        updated_at: data ? data.updated_at : new Date().toString(),
+      }
+      onSubmit(newData);
+    }
+
     return (
         <>
         <DialogTitle>Manage Post</DialogTitle>
         <DialogContent>
+          <TextField
+            required
+            fullWidth
+            variant={'outlined'}
+            name={'title'}
+            value={title}
+            label={'Title'}
+            onChange={handleChangeTitle}
+          />
 
-    <TextField
-      required
-      fullWidth
-      variant={'outlined'}
-      name={'title'}
-      value={title}
-      label={'Title'}
-      onChange={handleChangeTitle}
-    />
+          <br/><br/>
 
-    <br/><br/>
-
-    <TextField
-      required
-      fullWidth
-      variant={'outlined'}
-      name={'description'}
-      value={description}
-      label={'Description'}
-      onChange={handleChangeDescription}
-      multiline
-      rows={5}
-    />
-    
-    <FormControl
-    fullWidth
-    variant={'outlined'}
-    margin={'normal'}
-    required
-    >
-      <InputLabel id={'urgency'}>
-        Featured
-      </InputLabel>
-      <Select
-        id={'featured'}
-        name={'featured'}
-        value={featured}
-        onChange={handleChangeFeatured}
-        labelWidth={60}
-      >
-      {features.map( (feature) => (
-        <MenuItem
-        key={feature}
-        value={feature}
-        >
-        {feature}
-        </MenuItem>
-      ) )}
-      </Select>
-    </FormControl>
+          <TextField
+            required
+            fullWidth
+            variant={'outlined'}
+            name={'description'}
+            value={description}
+            label={'Description'}
+            onChange={handleChangeDescription}
+            multiline
+            rows={5}
+          />
+          
+          <FormControl
+          fullWidth
+          variant={'outlined'}
+          margin={'normal'}
+          required
+          >
+            <InputLabel id={'urgency'}>
+              Featured
+            </InputLabel>
+            <Select
+              id={'featured'}
+              name={'featured'}
+              value={featured}
+              onChange={handleChangeFeatured}
+              labelWidth={60}
+            >
+            {features.map( (feature) => (
+              <MenuItem
+              key={feature}
+              value={feature}
+              >
+              {feature}
+              </MenuItem>
+            ) )}
+            </Select>
+          </FormControl>
 
         </DialogContent>
         <DialogActions>
             <Button 
-            onClick={onSubmit} 
+            onClick={handleOnSubmit} 
             color="primary"
             variant={'contained'}
             >

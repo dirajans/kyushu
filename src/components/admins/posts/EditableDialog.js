@@ -4,6 +4,7 @@ import {
 } from '@material-ui/core';
 import Info from './Info';
 import FormPost from './FormPost';
+import { firebase } from './../../../firebaseConfig';
 
 export default function EditableDialog({
     data,
@@ -20,12 +21,17 @@ export default function EditableDialog({
         setIsEdit(false);
     }
 
-    const handleOnSubmit = () => {
-
+    // submit edited post
+    const handleOnSubmit = (newData) => {
+        firebase.database().ref('posts/' + data.id).set(newData);
+        setIsEdit(false);
+        onClose();
     }
 
     const handleOnDelete = () => {
-
+        firebase.database().ref('posts/' + data.id).remove();
+        setIsEdit(false);
+        onClose();
     }
 
     return (

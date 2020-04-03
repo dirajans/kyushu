@@ -131,7 +131,7 @@ export default function Post(){
         >
           <SearchState defaultValue={''} />
           <SortingState 
-            defaultSorting={[{ columnName: 'created_at', direction: 'desc' }]}
+            defaultSorting={[{ columnName: 'created_at', direction: 'asc' }]}
           />
           <PagingState />
 
