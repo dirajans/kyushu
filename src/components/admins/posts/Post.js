@@ -39,8 +39,8 @@ export default function Post(){
   const fetchData = () => {
     setLoading(true);
     firebase.database().ref('posts/').on('value', (snapshot) => {
-      const products = snapshotToArray(snapshot);
-      setRowData(products);
+      const posts = snapshotToArray(snapshot);
+      setRowData(posts);
       setLoading(false);
     });
   }

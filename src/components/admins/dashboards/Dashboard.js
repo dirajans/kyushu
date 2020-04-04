@@ -1,93 +1,153 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Paper,
-  Typography,
+  CircularProgress,
+  Link,
   Button,
-  Grid,
 } from '@material-ui/core';
+import {
+  IntegratedFiltering,
+  IntegratedPaging,
+  IntegratedSorting,
+  PagingState,
+  SortingState,
+  SearchState,
+} from '@devexpress/dx-react-grid';
+import {
+  Grid,
+  PagingPanel,
+  Table,
+  TableHeaderRow,
+  Toolbar,
+  SearchPanel,
+} from '@devexpress/dx-react-grid-material-ui';
 import PageContainer from '../../shared/containers/AdminContainer';
 import { firebase } from './../../../firebaseConfig';
+import { snapshotToArray } from './../../shared/Utils';
+import EditableDialog from './EditableDialog';
+import DialogForm from './DialogForm';
 
 export default function Dashboard(){
-  const [selection, setSelection] = useState('');
+  const [pageSizes] = useState([10, 30, 90]);
+  const [rowData, setRowData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const [arrOne, setArrOne] = useState(['green', 'yellow', 'blue', 'purple', 'red', 'black', 'orange']);
-  const [arrTwo, setArrTwo] = useState([]);
-  const [activeArr, setActiveArr] = useState('arrOne');
+  const [openForm, setOpenForm] = useState(false);
+  const [ openInfo, setOpenInfo ] = useState(false);
+  const [ infoData, setInfoData ] = useState({});
 
-  const filterMachine = (array) => {
-    let randNum = Math.floor(Math.random() * array.length);
-    const selected = array[randNum];
-    const filtered = array.filter( arr => arr !== selected);
-    return {filtered, selected};
+  const fetchData = () => {
+    setLoading(true);
+    firebase.database().ref('occasions/').on('value', (snapshot) => {
+      const occasions = snapshotToArray(snapshot);
+      setRowData(occasions);
+      setLoading(false);
+    });
   }
 
-  const generate = () => {
+  useEffect( () => {
+    fetchData();
+  }, []);
 
-    if( activeArr === 'arrTwo' ){
-      // filter arrTwo
-      const { filtered, selected } = filterMachine(arrTwo);
-      setArrTwo(filtered);
+  const getRowId = row => row.id;
 
-      setArrOne([selected, ...arrOne]);
+  const [columns] = useState([
+    { name: 'id', title: 'ID'},
+    { name: 'place', title: 'Place'},
+    { name: 'color', title: 'Color'},
+    { name: 'created_at', title: 'Created At'},
+    { name: 'updated_at', title: 'Updated At'},
+  ]);
 
-      setSelection(selected);
+  const handleOpenForm = () => {
+    setOpenForm(true);
+  }
 
-      if (arrTwo.length === 1) setActiveArr('arrOne');
+  const handleClose = () => {
+    setOpenForm(false);
+    setOpenInfo(false);
+  }
+
+  const handleOnClickId = (clickedId) => {
+    const data = rowData.find( (row) => row.id === clickedId )
+    setInfoData(data);
+    setOpenInfo(true);
+  }
+
+  const LinkCell = ({ value, style, ...restProps }) => {
+    return (
+      <Table.Cell {...restProps} style={{ ...style }}>
+        <Link onClick={ () => { handleOnClickId(value) }}>{value}</Link>
+      </Table.Cell>
+    )
+  }
+
+  const NameCell = (props) => {
+    const { column } = props;
+    if (column.name === 'id') {
+      return <LinkCell {...props} />
     }
-    
-    if ( activeArr === 'arrOne'){
-      // filter arrOne
-      const { filtered, selected } = filterMachine(arrOne);
-      setArrOne(filtered);
-
-      setArrTwo([selected, ...arrTwo]);
-
-      setSelection(selected);
-
-      if (arrOne.length === 1) setActiveArr('arrTwo');
-    }
+    return <Table.Cell {...props} />
   }
 
   return (
     <PageContainer name={'Dashboard'}>
       <Paper style={{ padding: '20px'}}>
-        <Typography variant={'h5'}>
-          Random Picker
-        </Typography>
+        {loading && (
+          <div style={{ height: 200, paddingLeft: '50%', paddingTop: 100 }}>
+            <CircularProgress />
+          </div>
+        )}
 
-        <br/>
+        {!loading && (
+          <>
 
-        <Button variant={'contained'} color={'primary'} onClick={generate}>
-          Generate
-        </Button>
+        <div style={{ padding: 10 }}>
+          <Button
+            variant={'contained'}
+            color={'primary'}
+            onClick={handleOpenForm}
+          >
+            Create New Occasion
+          </Button>
+        </div>
 
-        <br/><br/><br/>
+          <DialogForm
+          openStatus={openForm}
+          onSubmit={handleClose}
+          onCancel={handleClose}
+        />
 
-        <Grid container spacing={2}>
-          {arrOne.map( color => (
-            <Grid item lg={2}>
-            <div style={{ height: '100px', width: '100px', backgroundColor: color }} />
-            </Grid>
-          ))}
+        <EditableDialog
+          data={infoData}
+          openStatus={openInfo}
+          onClose={handleClose}
+        />
+
+        <Grid
+          rows={rowData}
+          columns={columns}
+          getRowId={getRowId}
+        >
+          <SearchState defaultValue={''} />
+          <SortingState 
+            defaultSorting={[{ columnName: 'created_at', direction: 'asc' }]}
+          />
+          <PagingState />
+
+          <IntegratedFiltering />
+          <IntegratedSorting />
+          <IntegratedPaging />
+
+          <Table cellComponent={NameCell} />
+          <TableHeaderRow showSortingControls={true} />
+          <PagingPanel pageSizes={pageSizes} />
+          <Toolbar />
+          <SearchPanel />
+
         </Grid>
-
-        <br/>
-
-        <Grid container spacing={2}>
-          {arrTwo.map( color => (
-            <Grid item lg={2}>
-            <div style={{ height: '100px', width: '100px', backgroundColor: color }} />
-            </Grid>
-          ))}
-        </Grid>
-
-            <br/>
-        <hr/>
-        <br/>
-        <h2>Selected Color:</h2>
-        <h3>{selection}</h3>
-        <div style={{ height: '100px', width: '100px', backgroundColor: selection }} />
+        </>
+        )}
 
       </Paper>
     </PageContainer>

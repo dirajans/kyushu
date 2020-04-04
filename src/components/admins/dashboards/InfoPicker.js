@@ -10,7 +10,7 @@ import {
 import Carousel from './../../shared/Carousel';
 import { bg, backdrop, ns } from './../../images/IndexImages';
 
-export default function Info({ 
+export default function InfoPicker({ 
     data: {
         id,
         title,
