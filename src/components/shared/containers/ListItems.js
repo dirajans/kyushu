@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const ListItemChild = ({ children, route, title }) => {
   return (
@@ -24,5 +25,6 @@ export const mainListItems = (
     <ListSubheader inset>Action</ListSubheader>
     <ListItemChild title='Dashboard' route='/admin/dashboard'><DashboardIcon /></ListItemChild>
     <ListItemChild title='Posts' route='/admin/posts'><AssignmentIcon /></ListItemChild>
+    <ListItemChild title='Settings' route='/admin/settings'><SettingsIcon /></ListItemChild>
   </div>
 );

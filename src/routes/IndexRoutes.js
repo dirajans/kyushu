@@ -63,6 +63,7 @@ import SignIn from './../components/admins/auth/SignIn';
 import ForgotPassword from './../components/admins/auth/ForgotPassword';
 import Dashboard from './../components/admins/dashboards/Dashboard';
 import Post from './../components/admins/posts/Post';
+import Settings from './../components/admins/settings/Settings';
 
 // misc import
 import PageNotFound from './../components/pages/404/PageNotFound';
@@ -126,7 +127,9 @@ export default function IndexRoutes(){
           <PublicRoute authed={authed} exact path={ROUTES.FORGOTPASSWORD} component={ForgotPassword} />
           <PrivateRoute authed={authed} exact path={ROUTES.DASHBOARD} component={Dashboard} />
           <PrivateRoute authed={authed} exact path={ROUTES.POST} component={Post} />
-  
+          <PrivateRoute authed={authed} exact path={ROUTES.SETTINGS} component={Settings} />
+
+          {/* Site routes */}
           <Route path={ROUTES.SEJARAH} component={Sejarah} />
           <Route path={ROUTES.PENUBUHAN} component={Penubuhan} />
           <Route path={ROUTES.PERISTIWA} component={Peristiwa} />

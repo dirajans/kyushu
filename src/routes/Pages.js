@@ -41,3 +41,4 @@ export const SIGNIN = '/admin/signin';
 export const DASHBOARD = '/admin/dashboard';
 export const FORGOTPASSWORD = '/admin/forgotpassword';
 export const POST = '/admin/posts';
+export const SETTINGS = '/admin/settings';

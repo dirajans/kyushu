@@ -3,6 +3,7 @@ import {
   Button,
   CircularProgress,
   Grid,
+  Typography,
 } from '@material-ui/core';
 import { firebase } from './../../../firebaseConfig';
 import { snapshotToArr} from './../../shared/Utils';
@@ -40,7 +41,7 @@ export default function ColorPicker({ onGenerate }){
 
   useEffect( () => {
     fetchData();
-  }, []);
+  });
 
 const filterMachine = (array) => {
     let randNum = Math.floor(Math.random() * array.length);
@@ -85,7 +86,7 @@ const generate = () => {
     return (
       <>
       <Grid item lg={2} key={key}>
-        <div style={{ height: '50px', width: '50px', backgroundColor: color }} />
+        <div style={{ height: '150px', width: '150px', backgroundColor: color }} />
       </Grid>
       </>
     )
@@ -102,16 +103,13 @@ const generate = () => {
     {!loading && (
         <>
         <Button variant={'contained'} color={'primary'} onClick={generate}>
-          Generate
+          Generate Color
         </Button>
 
         <br/><br/>
 
-        <hr/>
-        <br/>
-        <h2>Generated Color:</h2>
-        <h3>{selection}</h3>
         <ColorBox color={selection} />
+        <Typography variant={'caption'}>{selection}</Typography>
         </>
     )}
     </>

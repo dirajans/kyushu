@@ -8,14 +8,13 @@ import {
     Typography,
 } from '@material-ui/core';
 import Carousel from './../../shared/Carousel';
-import { bg, backdrop, ns } from './../../images/IndexImages';
+import { backdrop } from './../../images/IndexImages';
 
 export default function InfoPicker({ 
     data: {
         id,
-        title,
-        description,
-        featured,
+        place,
+        color,
         created_at,
         updated_at,
     },
@@ -23,9 +22,7 @@ export default function InfoPicker({
     onClose,
 }){
     const tempData = [
-        { title: 'image-3', img: bg, cols: 3, rows: 3 },
         { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
-        { title: 'image-4', img: ns, cols: 1, rows: 1 },
       ]
     
     const [tileData] = useState(tempData);
@@ -53,11 +50,10 @@ export default function InfoPicker({
                     <Carousel src={tileData} />
                 </Grid>
                 <Grid item lg={5}>
-                    <Field name={'Title'} value={title} />
-                    <Field name={'Description'} value={description} />
+                    <Field name={'Place'} value={place} />
+                    <Field name={'Color'} value={color} />
 
                     <Field name={'ID '} value={id} details/>
-                    <Field name={'Featured '} value={featured} details/>
                     <Field name={'Posted At '} value={created_at} details/>
                     <Field name={'Updated At '} value={updated_at} details/>
                 </Grid>

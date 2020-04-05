@@ -34,7 +34,7 @@ export default function FormPost({
         description,
         featured,
         created_at: data ? data.created_at : new Date().toString(),
-        updated_at: data ? data.updated_at : new Date().toString(),
+        updated_at: new Date().toString(),
       }
       onSubmit(newData);
     }
@@ -43,6 +43,20 @@ export default function FormPost({
         <>
         <DialogTitle>Manage Post</DialogTitle>
         <DialogContent>
+          <Button
+            variant="contained"
+            color={'primary'}
+            component="label"
+          >
+            Upload Images
+            <input
+              type="file"
+              style={{ display: "none" }}
+            />
+          </Button>
+
+          <br/><br/>
+
           <TextField
             required
             fullWidth

@@ -55,6 +55,7 @@ export default function Dashboard(){
     { name: 'id', title: 'ID'},
     { name: 'place', title: 'Place'},
     { name: 'color', title: 'Color'},
+    { name: 'chosenDate', title: 'Occasion Date'},
     { name: 'created_at', title: 'Created At'},
     { name: 'updated_at', title: 'Updated At'},
   ]);
@@ -108,11 +109,11 @@ export default function Dashboard(){
             color={'primary'}
             onClick={handleOpenForm}
           >
-            Create New Occasion
+            New Occasion
           </Button>
         </div>
 
-          <DialogForm
+        <DialogForm
           openStatus={openForm}
           onSubmit={handleClose}
           onCancel={handleClose}

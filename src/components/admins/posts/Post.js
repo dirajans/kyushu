@@ -108,7 +108,7 @@ export default function Post(){
             color={'primary'}
             onClick={handleOpenForm}
           >
-            Create New Post
+            New Post
           </Button>
         </div>
 
