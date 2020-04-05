@@ -54,7 +54,7 @@ export default function InfoPicker({
                     <Field name={'Color'} value={color} />
 
                     <Field name={'ID '} value={id} details/>
-                    <Field name={'Posted At '} value={created_at} details/>
+                    <Field name={'Created At '} value={created_at} details/>
                     <Field name={'Updated At '} value={updated_at} details/>
                 </Grid>
             </Grid>

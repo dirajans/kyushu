@@ -38,7 +38,7 @@ export default function Post(){
   
   const fetchData = () => {
     setLoading(true);
-    firebase.database().ref('posts/').on('value', (snapshot) => {
+    firebase.database().ref('posts').on('value', (snapshot) => {
       const posts = snapshotToArray(snapshot);
       setRowData(posts);
       setLoading(false);
@@ -103,14 +103,14 @@ export default function Post(){
         {!loading && (
           <>
           <div style={{ padding: 10 }}>
-          <Button
-            variant={'contained'}
-            color={'primary'}
-            onClick={handleOpenForm}
-          >
-            New Post
-          </Button>
-        </div>
+            <Button
+              variant={'contained'}
+              color={'primary'}
+              onClick={handleOpenForm}
+            >
+              New Post
+            </Button>
+          </div>
 
         <DialogForm
           openStatus={openForm}
@@ -131,7 +131,7 @@ export default function Post(){
         >
           <SearchState defaultValue={''} />
           <SortingState 
-            defaultSorting={[{ columnName: 'created_at', direction: 'asc' }]}
+            defaultSorting={[{ columnName: 'created_at', direction: 'desc' }]}
           />
           <PagingState />
 

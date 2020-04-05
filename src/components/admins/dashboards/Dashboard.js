@@ -4,7 +4,11 @@ import {
   CircularProgress,
   Link,
   Button,
+  Card,
+  CardContent,
+  Typography,
 } from '@material-ui/core';
+import { Grid as GridUI } from '@material-ui/core'; 
 import {
   IntegratedFiltering,
   IntegratedPaging,
@@ -102,8 +106,49 @@ export default function Dashboard(){
     return <Table.Cell {...props} />
   }
 
+  const statArr = [
+    {
+      month: 'Jan 2020',
+
+      red: '1',
+      green: '2',
+      yellow: '3',
+      purple: '4',
+      orange: '5',
+      black: '6',
+    }
+  ]
+  const [stats, setStats] = useState(statArr);
+
   return (
     <PageContainer name={'Dashboard'}>
+
+      <Paper style={{ padding: '20px'}}>
+        <GridUI container spacing={2}>
+          {stats.map( stat => (
+          <GridUI item lg={2}>
+            <Card>
+              <CardContent>
+                <Typography variant={'h6'}>
+                  {stat.month}
+                </Typography>
+                <Typography variant={'caption'}>
+                  Red: {stat.red}<br/>
+                  Green: {stat.green}<br/>
+                  Yellow: {stat.yellow}<br/>
+                  Purple: {stat.yellow}<br/>
+                  Orange: {stat.yellow}<br/>
+                  Black: {stat.yellow}<br/>
+                </Typography>
+              </CardContent>
+            </Card>
+          </GridUI>
+          ))}
+        </GridUI>
+      </Paper>
+
+      <br/>
+      
       <Paper style={{ padding: '20px'}}>
         {loading && (
           <div style={{ height: 200, paddingLeft: '50%', paddingTop: 100 }}>
@@ -143,7 +188,7 @@ export default function Dashboard(){
         >
           <SearchState defaultValue={''} />
           <SortingState 
-            defaultSorting={[{ columnName: 'created_at', direction: 'asc' }]}
+            defaultSorting={[{ columnName: 'created_at', direction: 'desc' }]}
           />
           <PagingState />
 

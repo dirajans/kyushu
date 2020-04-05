@@ -4,6 +4,7 @@ import { snapshotToArray } from './../../shared/Utils';
 import {
   Paper,
   CircularProgress,
+  Button,
 } from '@material-ui/core';
 import {
   IntegratedFiltering,
@@ -114,6 +115,21 @@ export default function Settings(){
         )}
 
         {!loading && (
+          <>
+          <div style={{ padding: 10 }}>
+            <Button
+              variant="contained"
+              color={'primary'}
+              component="label"
+            >
+              Import CSV
+              <input
+                type="file"
+                style={{ display: "none" }}
+              />
+            </Button>
+          </div>
+
           <Grid
           rows={rowData}
           columns={columns}
@@ -154,6 +170,7 @@ export default function Settings(){
           <SearchPanel />
 
         </Grid>
+        </>
         )}
         
       </Paper>
