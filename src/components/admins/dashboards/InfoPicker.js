@@ -43,7 +43,7 @@ export default function InfoPicker({
 
     return (
         <>
-        <DialogTitle>Post Info</DialogTitle>
+        <DialogTitle>Occasion Info</DialogTitle>
             <DialogContent>
             <Grid container spacing={4}>
                 <Grid item lg={7}>

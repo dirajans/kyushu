@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DialogActions,
   DialogContent,
@@ -9,8 +9,9 @@ import {
   FormControl,
   Select,
   Grid,
+  Typography,
+  CircularProgress,
 } from '@material-ui/core';
-import ColorPicker from './ColorPicker';
 import uuidv4 from 'uuid/v4';
 import {
   MuiPickersUtilsProvider,
@@ -19,6 +20,8 @@ import {
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import { formattedDate } from './../../shared/Utils';
+import { firebase } from './../../../firebaseConfig';
+import { snapshotToArray, snapshotToArr } from './../../shared/Utils';
 
 export default function FormPicker({
   onSubmit, 
@@ -27,40 +30,169 @@ export default function FormPicker({
   data,
 }){
   
-  const [places, setPlaces] = useState(['a','b']);
+  const [places, setPlaces] = useState([]);
   const [place, setPlace] = useState(data ? data.place : '');
   const handleChangePlace = (event) => setPlace(event.target.value);
+
   const [chosenDate, setChosenDate] = useState(formattedDate(new Date()));
-
-  const [color, setColor] = useState('');
-
-  const handleOnGenerate = (selection) => {
-    setColor(selection);
-  }
-
   const handleChangeDate = (chosenDate) => {
     setChosenDate(formattedDate(chosenDate));
   }
+  
+  const [color, setColor] = useState('');
+  const [arrOne, setArrOne] = useState([]);
+  const [arrTwo, setArrTwo] = useState([]);
+  const [activeArr, setActiveArr] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = () => {
+    setLoading(true);
+    // firebase.database().ref('arrOne').set(['red', 'green', 'yellow', 'purple', 'orange', 'black']);
+    
+    firebase.database().ref('places').on('value', snap => {
+      const places = snapshotToArray(snap);
+      setPlaces(places);
+      setLoading(false);
+    });
+
+
+    firebase.database().ref('arrOne').on('value', snap => {
+      const arrOne = snapshotToArr(snap);
+      setArrOne(arrOne);
+      setLoading(false);
+    });
+
+    firebase.database().ref('arrTwo').on('value', snap => {
+      const arrTwo = snapshotToArr(snap);
+      setArrTwo(arrTwo);
+      setLoading(false);
+    });
+
+    firebase.database().ref('color').on('value', snap => {
+      const color = snapshotToArr(snap);
+      setColor(color);
+      setLoading(false);
+    });
+
+    firebase.database().ref('activeArr').on('value', snap => {
+      const active = snapshotToArr(snap);
+      setActiveArr(active[0]);
+      setLoading(false);
+    });
+  }
+
+  useEffect( () => {
+    fetchData();
+  }, []);
+
+  const randomSelector = (array) => {
+    let randNum = Math.floor(Math.random() * array.length);
+    return array[randNum];
+  }
+
+  const filterMachine = (selected, array) => {
+    const filtered = array.filter( arr => arr !== selected );
+    return filtered;
+  }
+
+const generate = () => {
+    let selected;
+    if( activeArr === 'arrTwo' ){
+      // select from arrTwo
+      selected = randomSelector(arrTwo);
+    }
+    
+    if ( activeArr === 'arrOne'){
+      // select from arrOne
+      selected = randomSelector(arrOne);
+    }
+    setColor(selected);
+  }
+
+  const ColorBox = ({ color, key }) => {
+    return (
+      <>
+      <Grid item lg={2} key={key}>
+        <div style={{ height: '170px', width: '170px', backgroundColor: color }} />
+      </Grid>
+      </>
+    )
+  }
 
   const handleOnSubmit = () => {
+    if(!color || !place || !chosenDate) {
+      alert('Check your form');
+      return;
+    }
+
     const newData = {
       id: data ? data.id : uuidv4(),
       place,
       color,
       chosenDate,
       created_at: data ? data.created_at : new Date().toString(),
-      updated_at: data ? data.updated_at : new Date().toString(),
+      updated_at: new Date().toString(),
     }
     onSubmit(newData);
+    
+    let filtered;
+    let newArr;
+    if (activeArr === 'arrOne'){
+      filtered = filterMachine(color, arrOne);
+      setArrOne(filtered);
+      firebase.database().ref('arrOne').set(filtered);
+
+      newArr = [color, ...arrTwo];
+      setArrTwo(newArr);
+      firebase.database().ref('arrTwo').set(newArr);
+
+      if (arrOne.length === 1){
+        setActiveArr('arrTwo');
+        firebase.database().ref('activeArr').set(['arrTwo']);
+      }
+    }
+
+    if (activeArr === 'arrTwo'){
+      filtered = filterMachine(color, arrTwo);
+      setArrTwo(filtered);
+      firebase.database().ref('arrTwo').set(filtered);
+
+      newArr = [color, ...arrOne];
+      setArrOne(newArr);
+      firebase.database().ref('arrOne').set(newArr);
+
+      if (arrTwo.length === 1){
+        setActiveArr('arrOne');
+        firebase.database().ref('activeArr').set(['arrOne']);
+      }
+    }
   }
 
   return (
     <>
-    <DialogTitle>Manage Occasion</DialogTitle>
+    {loading && (
+      <div style={{ height: 200, paddingLeft: '50%', paddingTop: 100 }}>
+        <CircularProgress />
+      </div>
+    )}
+
+    {!loading && (
+      <>
+      <DialogTitle>Manage Occasion</DialogTitle>
       <DialogContent>
+        
         <Grid container spacing={3}>
           <Grid item lg={4}>
-            <ColorPicker onGenerate={handleOnGenerate} />
+
+          <Button variant={'contained'} color={'primary'} onClick={generate}>
+            Generate Color
+          </Button>
+
+          <br/><br/>
+
+          <ColorBox color={color} />
+          <Typography variant={'caption'}>{color}</Typography>
+          
           </Grid>
           <Grid item lg={8}>
             <FormControl
@@ -81,10 +213,10 @@ export default function FormPicker({
               >
               {places.map( (place) => (
                 <MenuItem
-                key={place}
-                value={place}
+                key={place.place}
+                value={place.place}
                 >
-                {place}
+                {place.place}
                 </MenuItem>
               ) )}
               </Select>
@@ -130,5 +262,8 @@ export default function FormPicker({
       </Button>
   </DialogActions>
   </>
+    )}
+    
+    </>
   );
 }

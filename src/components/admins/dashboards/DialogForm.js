@@ -10,11 +10,6 @@ export default function DialogForm({
 }){
 
     const handleFormSubmit = (data) => {
-        if (!data.color || !data.place) {
-          alert('Check your form');
-          return;
-        };
-        
         // register new post to firebase
         firebase.database().ref('occasions/' + data.id).set(data);
     

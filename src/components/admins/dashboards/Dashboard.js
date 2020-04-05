@@ -83,10 +83,21 @@ export default function Dashboard(){
     )
   }
 
+  const ColorBadge = ({ value, style, ...restProps }) => {
+    return (
+      <Table.Cell {...restProps} style={{ ...style }}>
+        <div style={{ height: '20px', width: '60px', backgroundColor: value }} />
+      </Table.Cell>
+    )
+  }
+
   const NameCell = (props) => {
     const { column } = props;
     if (column.name === 'id') {
       return <LinkCell {...props} />
+    }
+    if (column.name === 'color') {
+      return <ColorBadge {...props} />
     }
     return <Table.Cell {...props} />
   }
