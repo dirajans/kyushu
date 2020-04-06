@@ -131,12 +131,12 @@ export default function Settings(){
               created_at: new Date().toString(),
               updated_at: new Date().toString(),
             }
-            placeArr.push(placeObj);
+            return placeArr.push(placeObj);
           })
 
           // send to firebase
           placeArr.map( place => {
-            firebase.database().ref('places/' + place.id).set(place);
+            return firebase.database().ref('places/' + place.id).set(place);
           })
         })
       }

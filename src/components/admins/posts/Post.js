@@ -55,6 +55,7 @@ export default function Post(){
     { name: 'id', title: 'ID'},
     { name: 'title', title: 'Title'},
     { name: 'description', title: 'Description'},
+    { name: 'images', title: 'Images'},
     { name: 'featured', title: 'Featured'},
     { name: 'created_at', title: 'Created At'},
     { name: 'updated_at', title: 'Updated At'},

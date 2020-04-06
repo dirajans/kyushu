@@ -11,6 +11,7 @@ import {
     TextField,
     Chip,
     Avatar,
+    CircularProgress,
 } from '@material-ui/core';
 import uuidv4 from 'uuid/v4';
 import { firebase } from './../../../firebaseConfig';
@@ -26,6 +27,7 @@ export default function FormPost({
     const [description, setDescription] = useState(data ? data.description : '');
     const [featured, setFeatured] = useState(data ? data.featured : 'false');
     const features = ['false', 'true'];
+    const [loading, setLoading] = useState(false);
 
     const handleChangeTitle = (event) => setTitle(event.target.value);
     const handleChangeDescription = (event) => setDescription(event.target.value);
@@ -38,17 +40,21 @@ export default function FormPost({
       [...files].map( file => {
         const type = file.type.split('/')[0];
         
+        let imgObj = {};
         if ( type === 'image') {
-          const imgObj = {
+          imgObj = {
             id: uuidv4(),
             file,
             preview: URL.createObjectURL(file),
           }
-          imgArr.push(imgObj);
         }
+        
+        return imgArr.push(imgObj);
       });
 
-      setImages(imgArr);
+      setImages([...imgArr, ...images]);
+
+      event.target.files = null;
     }
 
     const handleDeleteImage = (id) => {
@@ -62,42 +68,44 @@ export default function FormPost({
         return;
       };
 
+      setLoading(true);
       // send to storage
       let imgArr = [];
-      images.map( img => {
-        const uploadTask = firebase.storage().ref('images/' + img.file.name).put(img.file);
-        
-        uploadTask.on('state_changed', snapshot => {
-          console.log(snapshot.state);
-          
-        }, error => {
-          console.log(error);
-          
-        }, () => {
-          uploadTask.snapshot.ref.getDownloadURL().then( url => {
-            imgArr.push(url);
+      let promises = images.map( async img => {
+        return firebase.storage().ref('images/' + img.id).put(img.file).then( async snapshot => {
+          return snapshot.ref.getDownloadURL().then( async url => {
+            return imgArr.push(url);
           })
         })
-        return imgArr;
       })
-      console.log(imgArr);
 
-      // then modify the object for image url
-      const newData = {
-        id: data ? data.id : uuidv4(),
-        title,
-        description,
-        featured,
-        created_at: data ? data.created_at : new Date().toString(),
-        updated_at: new Date().toString(),
-      }
-      onSubmit(newData);
+      Promise.all(promises).then( () => {
+        const newData = {
+          id: data ? data.id : uuidv4(),
+          title,
+          description,
+          featured,
+          images: imgArr,
+          created_at: data ? data.created_at : new Date().toString(),
+          updated_at: new Date().toString(),
+        }
+        onSubmit(newData);
+        setLoading(false);
+      })
     }
 
     return (
         <>
-        <DialogTitle>Manage Post</DialogTitle>
-        <DialogContent>
+        <DialogTitle>{data ? 'Edit Post' : loading ? 'Creating Post...' : 'Create Post'}</DialogTitle>
+        {loading && (
+          <div style={{ height: 200, paddingLeft: '45%', paddingTop: 100 }}>
+            <CircularProgress />
+          </div>
+        )}
+
+        {!loading && (
+          <>
+          <DialogContent>
           <Button
             variant="contained"
             color={'primary'}
@@ -176,7 +184,6 @@ export default function FormPost({
             ) )}
             </Select>
           </FormControl>
-
         </DialogContent>
         <DialogActions>
             <Button 
@@ -197,6 +204,9 @@ export default function FormPost({
                 Cancel
             </Button>
         </DialogActions>
+          </>
+        )}
+        
         </>
     );
 }
