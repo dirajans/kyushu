@@ -56,7 +56,7 @@ export default function Info({
                 <Grid item lg={7}>
                     <Slider {...settings}>
                         {images !== undefined && images.map( img => (
-                            <img src={img.url} alt={''} />
+                            <img src={img.url} alt={''} key={img.id} />
                         ))}
                         {images === undefined && (
                             <Typography variant={'caption'}>

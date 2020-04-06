@@ -40,6 +40,7 @@ export default function ChartItem({ people, header }){
               <CardHeader
                 avatar={<AvatarComponent initial={person.initial} />}
                 title={person.name}
+                key={person.name}
               />
             )
           })}

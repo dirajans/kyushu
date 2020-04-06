@@ -61,7 +61,7 @@ export default function Sidebar() {
     <div className={css(styles.root)}>
       <ExpansionPanelComponent title={'Bahagian Satu'} expanded header>
         {bahagianSatu.map( (bab) => (
-          <ExpansionPanelComponent title={bab.title}>
+          <ExpansionPanelComponent title={bab.title} key={bab.title}>
             <ExpansionPanelDetails>
               <Typography>
                 {bab.ringkasan}
@@ -73,7 +73,7 @@ export default function Sidebar() {
 
       <ExpansionPanelComponent title={'Bahagian Dua'} expanded header>
         {bahagianDua.map( (bab) => (
-          <ExpansionPanelComponent title={bab.title}>
+          <ExpansionPanelComponent title={bab.title} key={bab.title}>
             <ExpansionPanelDetails>
               <Typography>
                 {bab.ringkasan}

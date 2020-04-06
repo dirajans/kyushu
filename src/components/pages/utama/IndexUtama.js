@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Grid,
   Typography
@@ -6,23 +6,29 @@ import {
 import PageContainer from '../../shared/containers/PageContainer';
 import { styles } from './Styles';
 import { css } from 'aphrodite';
+
 import { bg, backdrop, ns } from './../../images/IndexImages';
-import Carousel from './../../shared/Carousel';
-import './galeri.scss';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function IndexUtama() {
-  const tempData = [
-    { title: 'image-3', img: bg, cols: 3, rows: 3 },
-    { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
-    { title: 'image-4', img: ns, cols: 1, rows: 1 },
-  ]
-
-  const [tileData] = useState(tempData);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
 
   return (
     <PageContainer>
-
-      <Carousel src={tileData} />
+      
+      <Slider {...settings}>
+        <img src={ns} alt={''} />
+        <img src={bg} alt={''} />
+        <img src={backdrop} alt={''} />
+      </Slider>
 
       <div className={css(styles.sectionLast)}>
         <Grid

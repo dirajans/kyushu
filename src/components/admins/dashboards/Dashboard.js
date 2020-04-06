@@ -159,7 +159,7 @@ export default function Dashboard(){
       <Paper style={{ padding: '20px'}}>
         <GridUI container spacing={2}>
           {stats.map( stat => (
-          <GridUI item lg={3}>
+          <GridUI item lg={3} key={stat.month}>
             <Card>
               <CardContent style={{ paddingLeft: '50px'}}>
                 <Typography variant={'h6'}>
@@ -178,9 +178,11 @@ export default function Dashboard(){
                       />
                     </Chart>
                   </GridUI>
+
+                  {/* legend */}
                   <GridUI item lg={6}>
                     {stat.data.map( item => (
-                      <GridUI container style={{ paddingBottom: '5px'}}>
+                      <GridUI container style={{ paddingBottom: '5px'}} key={item.color} >
                       <div style={{ height: '15px', width: '50px', backgroundColor: item.color, marginRight: '10px' }} />
                       <Typography variant={'caption'}>{item.value}</Typography>
                       </GridUI>

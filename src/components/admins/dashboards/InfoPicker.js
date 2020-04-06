@@ -7,8 +7,10 @@ import {
     Grid,
     Typography,
 } from '@material-ui/core';
-import Carousel from './../../shared/Carousel';
-import { backdrop } from './../../images/IndexImages';
+
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function InfoPicker({ 
     data: {
@@ -21,11 +23,16 @@ export default function InfoPicker({
     setEdit,
     onClose,
 }){
-    const tempData = [
-        { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
-      ]
-    
-    const [tileData] = useState(tempData);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    }
+
+    const [images, setImages] = useState([]);
 
     const Field = ({ name, value, details }) => {
         return (
@@ -47,7 +54,16 @@ export default function InfoPicker({
             <DialogContent>
             <Grid container spacing={4}>
                 <Grid item lg={7}>
-                    <Carousel src={tileData} />
+                    <Slider {...settings}>
+                        {images !== undefined && images.map( img => (
+                            <img src={img.url} alt={''} key={img.id} />
+                        ))}
+                        {images === undefined && (
+                            <Typography variant={'caption'}>
+                                No images uploaded yet.
+                            </Typography>
+                        )}
+                    </Slider>
                 </Grid>
                 <Grid item lg={5}>
                     <Field name={'Place'} value={place} />
