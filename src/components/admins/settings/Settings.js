@@ -26,6 +26,8 @@ import {
   TableEditColumn,
 } from '@devexpress/dx-react-grid-material-ui';
 import PageContainer from './../../shared/containers/AdminContainer';
+import csv from 'csv';
+import uuidv4 from 'uuid/v4';
 
 export default function Settings(){
   const [rowData, setRowData] = useState([]);
@@ -105,6 +107,44 @@ export default function Settings(){
     firebase.database().ref('places').set(changedRows);
   };
 
+  const handleImportCSV = (event) => {
+    const csvFile = event.target.files[0];
+    const type = csvFile.type.split('/')[1];
+
+    if(type === 'csv'){
+      const reader = new FileReader();
+      reader.onload = () => {
+        csv.parse(reader.result, (error, data) => {
+          
+          if (error){
+            console.log(error);
+            alert('Error: ',error);
+            return;
+          }
+
+          let placeArr = [];
+          data.map( item => {
+            let placeObj = {
+              id: uuidv4(),
+              place: item[0],
+              address: item[1],
+              created_at: new Date().toString(),
+              updated_at: new Date().toString(),
+            }
+            placeArr.push(placeObj);
+          })
+
+          // send to firebase
+          placeArr.map( place => {
+            firebase.database().ref('places/' + place.id).set(place);
+          })
+        })
+      }
+      reader.readAsBinaryString(csvFile);
+    }
+    event.target.value = null;
+  }
+
   return (
     <PageContainer name={'Manage Places'}>
       <Paper>
@@ -126,6 +166,7 @@ export default function Settings(){
               <input
                 type="file"
                 style={{ display: "none" }}
+                onChange={handleImportCSV}
               />
             </Button>
           </div>

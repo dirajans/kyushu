@@ -8,7 +8,11 @@ import {
   CardContent,
   Typography,
 } from '@material-ui/core';
-import { Grid as GridUI } from '@material-ui/core'; 
+import { Grid as GridUI } from '@material-ui/core';
+import {
+  Chart,
+  PieSeries,
+} from '@devexpress/dx-react-chart-material-ui';
 import {
   IntegratedFiltering,
   IntegratedPaging,
@@ -109,16 +113,45 @@ export default function Dashboard(){
   const statArr = [
     {
       month: 'Jan 2020',
-
-      red: '1',
-      green: '2',
-      yellow: '3',
-      purple: '4',
-      orange: '5',
-      black: '6',
+      data: [
+        { color: 'red', value: '1' },
+        { color: 'green', value: '2' },
+        { color: 'yellow', value: '3' },
+        { color: 'purple', value: '4' },
+        { color: 'orange', value: '5' },
+        { color: 'black', value: '6' },
+      ]
+    },
+    {
+      month: 'Feb 2020',
+      data: [
+        { color: 'red', value: '1' },
+        { color: 'green', value: '2' },
+        { color: 'yellow', value: '3' },
+        { color: 'purple', value: '4' },
+        { color: 'orange', value: '5' },
+        { color: 'black', value: '6' },
+      ]
+    },
+    {
+      month: 'March 2020',
+      data: [
+        { color: 'red', value: '0' },
+        { color: 'green', value: '0' },
+        { color: 'yellow', value: '0' },
+        { color: 'purple', value: '0' },
+        { color: 'orange', value: '2' },
+        { color: 'black', value: '1' },
+      ]
     }
   ]
   const [stats, setStats] = useState(statArr);
+
+  const CustomSlice = ({ color, argument, ...props}) => {
+    return (
+      <PieSeries.Point color={argument} {...props} />
+    )
+  }
 
   return (
     <PageContainer name={'Dashboard'}>
@@ -126,20 +159,35 @@ export default function Dashboard(){
       <Paper style={{ padding: '20px'}}>
         <GridUI container spacing={2}>
           {stats.map( stat => (
-          <GridUI item lg={2}>
+          <GridUI item lg={3}>
             <Card>
-              <CardContent>
+              <CardContent style={{ paddingLeft: '50px'}}>
                 <Typography variant={'h6'}>
                   {stat.month}
                 </Typography>
-                <Typography variant={'caption'}>
-                  Red: {stat.red}<br/>
-                  Green: {stat.green}<br/>
-                  Yellow: {stat.yellow}<br/>
-                  Purple: {stat.yellow}<br/>
-                  Orange: {stat.yellow}<br/>
-                  Black: {stat.yellow}<br/>
-                </Typography>
+
+                <GridUI container spacing={2}>
+                  <GridUI item lg={6}>
+                    <Chart data={stat.data} width={70} height={130}>
+                      <PieSeries 
+                      valueField={'value'} 
+                      argumentField={'color'} 
+                      innerRadius={1}
+                      outerRadius={2}
+                      pointComponent={CustomSlice}
+                      />
+                    </Chart>
+                  </GridUI>
+                  <GridUI item lg={6}>
+                    {stat.data.map( item => (
+                      <GridUI container style={{ paddingBottom: '5px'}}>
+                      <div style={{ height: '15px', width: '50px', backgroundColor: item.color, marginRight: '10px' }} />
+                      <Typography variant={'caption'}>{item.value}</Typography>
+                      </GridUI>
+                    ))}
+                  </GridUI>
+                </GridUI>
+
               </CardContent>
             </Card>
           </GridUI>

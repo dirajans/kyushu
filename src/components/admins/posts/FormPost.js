@@ -9,8 +9,11 @@ import {
     FormControl,
     Select,
     TextField,
+    Chip,
+    Avatar,
 } from '@material-ui/core';
 import uuidv4 from 'uuid/v4';
+import { firebase } from './../../../firebaseConfig';
 
 export default function FormPost({ 
     onSubmit, 
@@ -18,6 +21,7 @@ export default function FormPost({
     onDelete, 
     data,
 }){
+    const [images, setImages] = useState([]);
     const [title, setTitle] = useState(data ? data.title : '');
     const [description, setDescription] = useState(data ? data.description : '');
     const [featured, setFeatured] = useState(data ? data.featured : 'false');
@@ -27,7 +31,58 @@ export default function FormPost({
     const handleChangeDescription = (event) => setDescription(event.target.value);
     const handleChangeFeatured = (event) => setFeatured(event.target.value);
 
-    const handleOnSubmit = () => {
+    const handleFileUpload = (event) => {
+      const files = event.target.files;
+      let imgArr = [];
+
+      [...files].map( file => {
+        const type = file.type.split('/')[0];
+        
+        if ( type === 'image') {
+          const imgObj = {
+            id: uuidv4(),
+            file,
+            preview: URL.createObjectURL(file),
+          }
+          imgArr.push(imgObj);
+        }
+      });
+
+      setImages(imgArr);
+    }
+
+    const handleDeleteImage = (id) => {
+      const filtered = images.filter( img => img.id !== id);
+      setImages(filtered);
+    }
+
+    const handleOnSubmit = async () => {
+      if (!title || !description) {
+        alert('Check your form');
+        return;
+      };
+
+      // send to storage
+      let imgArr = [];
+      images.map( img => {
+        const uploadTask = firebase.storage().ref('images/' + img.file.name).put(img.file);
+        
+        uploadTask.on('state_changed', snapshot => {
+          console.log(snapshot.state);
+          
+        }, error => {
+          console.log(error);
+          
+        }, () => {
+          uploadTask.snapshot.ref.getDownloadURL().then( url => {
+            imgArr.push(url);
+          })
+        })
+        return imgArr;
+      })
+      console.log(imgArr);
+
+      // then modify the object for image url
       const newData = {
         id: data ? data.id : uuidv4(),
         title,
@@ -51,9 +106,23 @@ export default function FormPost({
             Upload Images
             <input
               type="file"
+              multiple
               style={{ display: "none" }}
+              onChange={handleFileUpload}
             />
           </Button>
+
+          <br/><br/>
+          
+          {images.map( img => (
+            <Chip
+            avatar={<Avatar src={img.preview} alt={''} />}
+            key={img.id}
+            size="small"
+            label={img.file.name} 
+            onDelete={() => handleDeleteImage(img.id)} 
+            />
+          ))}
 
           <br/><br/>
 
@@ -111,7 +180,7 @@ export default function FormPost({
         </DialogContent>
         <DialogActions>
             <Button 
-            onClick={handleOnSubmit} 
+            onClick={handleOnSubmit}
             color="primary"
             variant={'contained'}
             >

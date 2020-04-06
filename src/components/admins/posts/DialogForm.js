@@ -12,14 +12,8 @@ export default function DialogForm({
 }){
 
     const handleFormSubmit = (data) => {
-        if (!data.title || !data.description) {
-          alert('Check your form');
-          return;
-        };
-        
         // register new post to firebase
         firebase.database().ref('posts/' + data.id).set(data);
-    
         onSubmit();
       }
 
