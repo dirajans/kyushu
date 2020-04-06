@@ -21,7 +21,7 @@ export default function DialogForm({
         <Dialog
             open={openStatus}
             fullWidth={true}
-            maxWidth={'sm'}
+            maxWidth={'md'}
         >
            <FormPost onCancel={onCancel} onSubmit={handleFormSubmit} />
         </Dialog>

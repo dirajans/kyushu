@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     DialogActions,
     DialogContent,
@@ -7,8 +7,10 @@ import {
     Grid,
     Typography,
 } from '@material-ui/core';
-import Carousel from './../../shared/Carousel';
-import { bg, backdrop, ns } from './../../images/IndexImages';
+
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Info({ 
     data: {
@@ -16,19 +18,20 @@ export default function Info({
         title,
         description,
         featured,
+        images,
         created_at,
         updated_at,
     },
     setEdit,
     onClose,
 }){
-    const tempData = [
-        { title: 'image-3', img: bg, cols: 3, rows: 3 },
-        { title: 'image-1', img: backdrop, cols: 1, rows: 1 },
-        { title: 'image-4', img: ns, cols: 1, rows: 1 },
-      ]
-    
-    const [tileData] = useState(tempData);
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    }
 
     const Field = ({ name, value, details }) => {
         return (
@@ -36,7 +39,8 @@ export default function Info({
             <Typography variant={ details ? 'caption' : 'subtitle2'} style={{ color: 'grey' }}>
                 {name}
             </Typography>
-            <Typography variant={details ? 'caption' : 'body2'}>
+            <br/>
+            <Typography variant={ details ? 'caption' : 'body2'}>
                 {value}
             </Typography>
             <br />
@@ -50,7 +54,16 @@ export default function Info({
             <DialogContent>
             <Grid container spacing={4}>
                 <Grid item lg={7}>
-                    <Carousel src={tileData} />
+                    <Slider {...settings}>
+                        {images !== undefined && images.map( img => (
+                            <img src={img.url} alt={''} />
+                        ))}
+                        {images === undefined && (
+                            <Typography variant={'caption'}>
+                                No images uploaded yet.
+                            </Typography>
+                        )}
+                    </Slider>
                 </Grid>
                 <Grid item lg={5}>
                     <Field name={'Title'} value={title} />

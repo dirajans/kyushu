@@ -12,9 +12,14 @@ import {
     Chip,
     Avatar,
     CircularProgress,
+    Grid,
+    Typography,
 } from '@material-ui/core';
 import uuidv4 from 'uuid/v4';
 import { firebase } from './../../../firebaseConfig';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function FormPost({ 
     onSubmit, 
@@ -22,7 +27,15 @@ export default function FormPost({
     onDelete, 
     data,
 }){
-    const [images, setImages] = useState([]);
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+    const [readyToDelete, setReadyToDelete] = useState([]);
+    const [images, setImages] = useState( data ? data.images !== undefined ? data.images : [] : []);
     const [title, setTitle] = useState(data ? data.title : '');
     const [description, setDescription] = useState(data ? data.description : '');
     const [featured, setFeatured] = useState(data ? data.featured : 'false');
@@ -44,11 +57,12 @@ export default function FormPost({
         if ( type === 'image') {
           imgObj = {
             id: uuidv4(),
+            name: file.name,
             file,
             preview: URL.createObjectURL(file),
           }
         }
-        
+
         return imgArr.push(imgObj);
       });
 
@@ -59,6 +73,7 @@ export default function FormPost({
 
     const handleDeleteImage = (id) => {
       const filtered = images.filter( img => img.id !== id);
+      setReadyToDelete([id, ...readyToDelete]);
       setImages(filtered);
     }
 
@@ -74,7 +89,12 @@ export default function FormPost({
       let promises = images.map( async img => {
         return firebase.storage().ref('images/' + img.id).put(img.file).then( async snapshot => {
           return snapshot.ref.getDownloadURL().then( async url => {
-            return imgArr.push(url);
+            let item = {
+              id: img.id,
+              name: img.file.name,
+              url,
+            }
+            return imgArr.push(item);
           })
         })
       })
@@ -92,6 +112,18 @@ export default function FormPost({
         onSubmit(newData);
         setLoading(false);
       })
+      
+      if(readyToDelete.length > 0){
+        readyToDelete.map(id => {
+          return firebase.storage().ref('images/' + id).delete();
+        })
+      }
+    }
+
+    const handleOnCancel = () => {
+      // clear
+      setReadyToDelete([]);
+      onCancel();
     }
 
     return (
@@ -106,84 +138,105 @@ export default function FormPost({
         {!loading && (
           <>
           <DialogContent>
-          <Button
-            variant="contained"
-            color={'primary'}
-            component="label"
-          >
-            Upload Images
-            <input
-              type="file"
-              multiple
-              style={{ display: "none" }}
-              onChange={handleFileUpload}
-            />
-          </Button>
 
-          <br/><br/>
-          
-          {images.map( img => (
-            <Chip
-            avatar={<Avatar src={img.preview} alt={''} />}
-            key={img.id}
-            size="small"
-            label={img.file.name} 
-            onDelete={() => handleDeleteImage(img.id)} 
-            />
-          ))}
+          <Grid container spacing={2}>
+            <Grid item lg={7}>
 
-          <br/><br/>
+              <Slider {...settings}>
+                {!data && images.length === 0 && (
+                  <Typography variant={'caption'}>
+                    No images uploaded yet.
+                  </Typography>
+                )}
+                
+                {images.map( img => (
+                    <img src={img.preview || img.url} alt={''} key={img.id} />
+                ))}
+              </Slider>
 
-          <TextField
-            required
-            fullWidth
-            variant={'outlined'}
-            name={'title'}
-            value={title}
-            label={'Title'}
-            onChange={handleChangeTitle}
-          />
-
-          <br/><br/>
-
-          <TextField
-            required
-            fullWidth
-            variant={'outlined'}
-            name={'description'}
-            value={description}
-            label={'Description'}
-            onChange={handleChangeDescription}
-            multiline
-            rows={8}
-          />
-          
-          <FormControl
-          fullWidth
-          variant={'outlined'}
-          margin={'normal'}
-          required
-          >
-            <InputLabel id={'urgency'}>
-              Featured
-            </InputLabel>
-            <Select
-              id={'featured'}
-              name={'featured'}
-              value={featured}
-              onChange={handleChangeFeatured}
-              labelWidth={60}
-            >
-            {features.map( (feature) => (
-              <MenuItem
-              key={feature}
-              value={feature}
+            </Grid>
+            <Grid item lg={5}>
+              <Button
+                variant="contained"
+                color={'primary'}
+                component="label"
               >
-              {feature}
-              </MenuItem>
-            ) )}
-            </Select>
-          </FormControl>
+                Upload Images
+                <input
+                  type="file"
+                  multiple
+                  style={{ display: "none" }}
+                  onChange={handleFileUpload}
+                />
+              </Button>
+
+              <br/><br/>
+
+              {images.map( img => (
+                <Chip
+                avatar={<Avatar src={img.preview || img.url} alt={''} />}
+                key={img.id}
+                size="small"
+                label={img.name} 
+                onDelete={() => handleDeleteImage(img.id)} 
+                />
+              ))}
+
+              <br/><br/>
+
+              <TextField
+                required
+                fullWidth
+                variant={'outlined'}
+                name={'title'}
+                value={title}
+                label={'Title'}
+                onChange={handleChangeTitle}
+              />
+
+              <br/><br/>
+
+              <TextField
+                required
+                fullWidth
+                variant={'outlined'}
+                name={'description'}
+                value={description}
+                label={'Description'}
+                onChange={handleChangeDescription}
+                multiline
+                rows={8}
+              />
+              
+              <FormControl
+              fullWidth
+              variant={'outlined'}
+              margin={'normal'}
+              required
+              >
+                <InputLabel id={'urgency'}>
+                  Featured
+                </InputLabel>
+                <Select
+                  id={'featured'}
+                  name={'featured'}
+                  value={featured}
+                  onChange={handleChangeFeatured}
+                  labelWidth={60}
+                >
+                {features.map( (feature) => (
+                  <MenuItem
+                  key={feature}
+                  value={feature}
+                  >
+                  {feature}
+                  </MenuItem>
+                ) )}
+                </Select>
+              </FormControl>
+            </Grid>
+          </Grid>
+
         </DialogContent>
         <DialogActions>
             <Button 
@@ -200,7 +253,7 @@ export default function FormPost({
                 </Button>
             )}
             
-            <Button onClick={onCancel} color="primary" variant={'outlined'}>
+            <Button onClick={handleOnCancel} color="primary" variant={'outlined'}>
                 Cancel
             </Button>
         </DialogActions>
