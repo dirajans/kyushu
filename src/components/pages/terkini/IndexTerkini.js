@@ -16,28 +16,34 @@ import EmptyMessage from './../../shared/EmptyMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
-import { ns } from './../../images/IndexImages';
 import { firebase } from './../../../firebaseConfig';
 import { snapshotToArray } from './../../shared/Utils';
 
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 export default function IndexTerkini() {
-  const [tileData, setTileData] = useState([]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});
 
-  const fetchPosts = async () => {
+  const fetchPosts = () => {
     setLoading(true);
-    await firebase.database().ref('posts').once('value', snap => {
+    firebase.database().ref('posts').on('value', snap => {
       const posts = snapshotToArray(snap);
-      setTileData(posts);
-      setLoading(false);
-    })
-    .catch( error => {
-      console.log(error);
-      setError(error);
+      setData(posts);
       setLoading(false);
     })
   }
@@ -46,8 +52,8 @@ export default function IndexTerkini() {
     fetchPosts();
   }, []);
 
-  const handleClickOpen = (data) => {
-    setDialogData(data);
+  const handleClickOpen = (item) => {
+    setDialogData(item);
     setOpen(true);
   }
 
@@ -56,6 +62,7 @@ export default function IndexTerkini() {
   }
 
   const ModalDialog = () => {
+    const { id, title, description, images, created_at, updated_at } = dialogData;
     return (
       <Dialog
         onClose={handleClose}
@@ -65,25 +72,29 @@ export default function IndexTerkini() {
         maxWidth={'lg'}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {dialogData.title}
+          {title}
         </DialogTitle>
 
         <DialogContent dividers>
-        {dialogData.images.length !== 0 && dialogData.images.map( (image) => (
-          <img
-            key={image.hash}
-            src={image.url}
-            alt={''}
-            style={{ maxWidth: '100%', margin: 'auto' }}
-          />
-        ))}
-        <br/><br/>
-        <Typography variant={'caption'} gutterBottom>
-        Posted by {dialogData.user.username} at {dialogData.created_at}
-        </Typography>
-        <br/><br/>
+          <Slider {...settings}>
+            {images !== undefined && images.map( img => (
+              <img src={img.url} alt={''} key={img.id} />
+            ))}
+            {images === undefined && (
+              <Typography variant={'caption'}>
+                  No images uploaded yet.
+              </Typography>
+            )}
+          </Slider>
+          <br/><br/>
+          <Typography variant={'caption'} gutterBottom>
+          Posted by {''} at {created_at}
+          <br/>
+          Last updated at {updated_at}
+          </Typography>
+          <br/><br/>
           <Typography gutterBottom style={{ textAlign: 'justify' }}>
-            {dialogData.description}
+            {description}
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -103,14 +114,23 @@ export default function IndexTerkini() {
 
     {!loading && !error && (
       <>
-      {tileData.length > 0 && (
-        <GridList cellHeight={500} spacing={1} cols={4}>
-          {tileData.map(tile => (
-            <GridListTile key={tile.title} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
-              <img src={ ns } alt={tile.title} />
+      {data.length > 0 && (
+        <GridList cellHeight={300} spacing={1} cols={4}>
+          {data.map(item => (
+            <GridListTile key={item.title} cols={item.featured === 'true' ? 2 : 1} onClick={() => { handleClickOpen(item) }}>
+              <Slider {...settings}>
+                {item.images !== undefined && item.images.map( img => (
+                  <img src={img.url} alt={''} key={img.id} />
+                ))}
+                {item.images === undefined && (
+                  <Typography variant={'caption'}>
+                      No images uploaded yet.
+                  </Typography>
+                )}
+              </Slider>
               <GridListTileBar
-                title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
-                subtitle={tile.created_at}
+                title={<span style={{ fontSize: 30 }}>{item.title}</span>}
+                subtitle={item.created_at}
                 titlePosition={'bottom'}
                 className={css(styles.titleBar)}
               />
@@ -118,7 +138,7 @@ export default function IndexTerkini() {
           ))}
         </GridList>
       )}
-      {tileData.length === 0 && (
+      {data.length === 0 && (
         <EmptyMessage />
       )}
       </>
