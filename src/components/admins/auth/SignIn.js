@@ -38,7 +38,7 @@ export default function SignIn() {
       .then( (result) => {
         localStorage.setItem('currentUser', JSON.stringify(result.user));
         setLoading(false);
-        window.open('/admin/dashboard', '_self');
+        window.open( process.env.PUBLIC_URL + '/#' + ROUTES.DASHBOARD, '_self');
       })
       .catch( (error) => {
         setLoading(false);
@@ -48,7 +48,7 @@ export default function SignIn() {
   }
 
   const goToHome = () => {
-    window.open('/', '_self');
+    window.open( process.env.PUBLIC_URL , '_self');
   }
 
   return (

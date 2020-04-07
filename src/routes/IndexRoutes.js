@@ -91,7 +91,7 @@ export default function IndexRoutes(){
         {...rest}
         render={(props) => authed === false
           ? <Component {...props} />
-          : <Redirect to={ROUTES.DASHBOARD} />}
+          : <Redirect to={{ pathname: ROUTES.DASHBOARD, state: {from: props.location}}} />}
       />
     )
   }
@@ -120,8 +120,8 @@ export default function IndexRoutes(){
   } else {
     return (
       <>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {/* <HashRouter> */}
+      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+      <HashRouter>
         <Switch>
           <Route exact path={ROUTES.UTAMA} component={Utama} />
           
@@ -174,8 +174,8 @@ export default function IndexRoutes(){
   
           <Route component={PageNotFound} />
         </Switch>
-      {/* </HashRouter> */}
-      </BrowserRouter>
+      </HashRouter>
+      {/* </BrowserRouter> */}
       </>
     )
   }

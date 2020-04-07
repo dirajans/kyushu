@@ -8,10 +8,12 @@ import {
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { Link as RouterLink } from 'react-router-dom';
+import * as ROUTES from './../../../routes/Pages';
 
 const ListItemChild = ({ children, route, title }) => {
   return (
-    <ListItem button component={'a'} href={route}>
+    <ListItem button component={RouterLink} to={route}>
       <ListItemIcon>
         {children}
       </ListItemIcon>
@@ -23,8 +25,8 @@ const ListItemChild = ({ children, route, title }) => {
 export const mainListItems = (
   <div>
     <ListSubheader inset>Action</ListSubheader>
-    <ListItemChild title='Dashboard' route='/admin/dashboard'><DashboardIcon /></ListItemChild>
-    <ListItemChild title='Posts' route='/admin/posts'><AssignmentIcon /></ListItemChild>
-    <ListItemChild title='Settings' route='/admin/settings'><SettingsIcon /></ListItemChild>
+    <ListItemChild title='Dashboard' route={ROUTES.DASHBOARD}><DashboardIcon /></ListItemChild>
+    <ListItemChild title='Posts' route={ROUTES.POST}><AssignmentIcon /></ListItemChild>
+    <ListItemChild title='Settings' route={ROUTES.SETTINGS}><SettingsIcon /></ListItemChild>
   </div>
 );

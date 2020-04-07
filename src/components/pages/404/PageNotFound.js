@@ -8,12 +8,13 @@ import {
 import Copyright from './../../shared/Copyright';
 import { ns } from './../../images/IndexImages';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function SignIn() {
   const classes = useStyles();
 
   const goToHome = () => {
-    window.open('/', '_self');
+    window.open(process.env.PUBLIC_URL, '_self');
   }
 
   return (
@@ -34,7 +35,7 @@ export default function SignIn() {
         </Typography>
 
         <br /><br />
-        <Link href="/" variant="body2">
+        <Link component={RouterLink} to={process.env.PUBLIC_URL} variant="body2">
           Kembali ke halaman utama
         </Link>
         

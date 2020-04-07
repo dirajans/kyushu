@@ -50,7 +50,7 @@ export default function ForgotPassword() {
   }
 
   const goToHome = () => {
-    window.open('/', '_self');
+    window.open(process.env.PUBLIC_URL, '_self');
   }
 
   return (
