@@ -11,8 +11,7 @@ export default function DialogForm({
 
     const handleFormSubmit = (data) => {
         // register new post to firebase
-        firebase.database().ref('occasions/' + data.id).set(data);
-    
+        firebase.database().ref('occasions/' + data.id).set(data); 
         onSubmit();
       }
 

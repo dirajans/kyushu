@@ -11,6 +11,8 @@ import {
   Grid,
   Typography,
   CircularProgress,
+  Chip,
+  Avatar,
 } from '@material-ui/core';
 import uuidv4 from 'uuid/v4';
 import {
@@ -38,6 +40,9 @@ export default function FormPicker({
   const handleChangeDate = (chosenDate) => {
     setChosenDate(formattedDate(chosenDate));
   }
+  
+  const [readyToDelete, setReadyToDelete] = useState([]);
+  const [images, setImages] = useState( data ? data.images !== undefined ? data.images : [] : []);
   
   const [color, setColor] = useState('');
   const [arrOne, setArrOne] = useState([]);
@@ -85,17 +90,12 @@ export default function FormPicker({
     fetchData();
   }, []);
 
-  const randomSelector = (array) => {
-    let randNum = Math.floor(Math.random() * array.length);
-    return array[randNum];
-  }
+  const generate = () => {
+    const randomSelector = (array) => {
+      let randNum = Math.floor(Math.random() * array.length);
+      return array[randNum];
+    }
 
-  const filterMachine = (selected, array) => {
-    const filtered = array.filter( arr => arr !== selected );
-    return filtered;
-  }
-
-const generate = () => {
     let selected;
     if( activeArr === 'arrTwo' ){
       // select from arrTwo
@@ -119,21 +119,93 @@ const generate = () => {
     )
   }
 
-  const handleOnSubmit = () => {
-    if(!color || !place || !chosenDate) {
-      alert('Check your form');
-      return;
-    }
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+    let imgArr = [];
 
-    const newData = {
-      id: data ? data.id : uuidv4(),
-      place,
-      color,
-      chosenDate,
-      created_at: data ? data.created_at : new Date().toString(),
-      updated_at: new Date().toString(),
+    [...files].map( file => {
+      const type = file.type.split('/')[0];
+      
+      let imgObj = {};
+      if ( type === 'image') {
+        imgObj = {
+          id: uuidv4(),
+          name: file.name,
+          file,
+          preview: URL.createObjectURL(file),
+        }
+      }
+
+      return imgArr.push(imgObj);
+    });
+
+    setImages([...imgArr, ...images]);
+
+    event.target.files = null;
+  }
+
+  const handleDeleteImage = (id) => {
+    const filtered = images.filter( img => img.id !== id);
+    setReadyToDelete([id, ...readyToDelete]);
+    setImages(filtered);
+  }
+
+  const handleSendStorage = () => {
+    setLoading(true);
+      // send to storage
+      let imgArr = [];
+      let promises = images.map( async img => {
+        // if new addition images
+        if(img.file){
+          return firebase.storage().ref('images/' + img.id).put(img.file).then( async snapshot => {
+            return snapshot.ref.getDownloadURL().then( async url => {
+              let item = {
+                id: img.id,
+                name: img.file.name,
+                url,
+              }
+              return imgArr.push(item);
+            })
+          })
+        }
+
+        // if already present images
+        if(img.file === undefined){
+          let item = {
+            id: img.id,
+            name: img.name,
+            url: img.url,
+          }
+          return imgArr.push(item);
+        }
+      })
+
+      Promise.all(promises).then( () => {
+        const newData = {
+          id: data ? data.id : uuidv4(),
+          place,
+          color,
+          chosenDate,
+          images: imgArr,
+          created_at: data ? data.created_at : new Date().toString(),
+          updated_at: new Date().toString(),
+        }
+        onSubmit(newData);
+        setLoading(false);
+      })
+      
+      if(readyToDelete.length > 0){
+        readyToDelete.map(id => {
+          return firebase.storage().ref('images/' + id).delete();
+        })
+      }
+  }
+
+  const handleFinalizePicker = () => {
+    const filterMachine = (selected, array) => {
+      const filtered = array.filter( arr => arr !== selected );
+      return filtered;
     }
-    onSubmit(newData);
     
     let filtered;
     let newArr;
@@ -168,6 +240,23 @@ const generate = () => {
     }
   }
 
+  const handleOnSubmit = () => {
+    if(!color || !place || !chosenDate) {
+      alert('Check your form');
+      return;
+    }
+
+    handleSendStorage();
+
+    handleFinalizePicker();
+  }
+
+  const handleOnCancel = () => {
+    // clear
+    setReadyToDelete([]);
+    onCancel();
+  }
+
   return (
     <>
     {loading && (
@@ -182,7 +271,7 @@ const generate = () => {
       <DialogContent>
         
         <Grid container spacing={3}>
-          <Grid item lg={4}>
+          <Grid item lg={4} md={4} sm={12} xs={12}>
 
           <Button variant={'contained'} color={'primary'} onClick={generate}>
             Generate Color
@@ -194,7 +283,35 @@ const generate = () => {
           <Typography variant={'caption'}>{color}</Typography>
           
           </Grid>
-          <Grid item lg={8}>
+          <Grid item lg={8} md={8} sm={12} xs={12}>
+            <Button
+              variant="contained"
+              color={'primary'}
+              component="label"
+            >
+              Upload Images
+              <input
+                type="file"
+                multiple
+                style={{ display: "none" }}
+                onChange={handleFileUpload}
+              />
+            </Button>
+
+            <br/><br/>
+
+            {images.map( img => (
+              <Chip
+              avatar={<Avatar src={img.preview || img.url} alt={''} />}
+              key={img.id}
+              size="small"
+              label={img.name} 
+              onDelete={() => handleDeleteImage(img.id)} 
+              />
+            ))}
+
+            <br/><br/>
+
             <FormControl
             fullWidth
             variant={'outlined'}
@@ -257,7 +374,7 @@ const generate = () => {
           </Button>
       )}
       
-      <Button onClick={onCancel} color="primary" variant={'outlined'}>
+      <Button onClick={handleOnCancel} color="primary" variant={'outlined'}>
           Cancel
       </Button>
   </DialogActions>

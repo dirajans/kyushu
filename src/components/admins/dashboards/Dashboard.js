@@ -167,7 +167,7 @@ export default function Dashboard(){
                 </Typography>
 
                 <GridUI container spacing={2}>
-                  <GridUI item lg={6}>
+                  <GridUI item lg={6} md={6} sm={12} xs={12}>
                     <Chart data={stat.data} width={70} height={130}>
                       <PieSeries 
                       valueField={'value'} 
@@ -180,7 +180,7 @@ export default function Dashboard(){
                   </GridUI>
 
                   {/* legend */}
-                  <GridUI item lg={6}>
+                  <GridUI item lg={6} md={6} sm={12} xs={12}>
                     {stat.data.map( item => (
                       <GridUI container style={{ paddingBottom: '5px'}} key={item.color} >
                       <div style={{ height: '15px', width: '50px', backgroundColor: item.color, marginRight: '10px' }} />

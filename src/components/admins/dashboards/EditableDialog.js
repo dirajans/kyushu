@@ -31,6 +31,13 @@ export default function EditableDialog({
     const handleOnDelete = () => {
         if(window.confirm('Are you sure?')){
             firebase.database().ref('occasions/' + data.id).remove();
+            
+            if(data.images !== undefined && data.images.length > 0){
+                data.images.map( img => {
+                    return firebase.storage().ref('images/' + img.id).delete();
+                })
+            }
+            
             setIsEdit(false);
             onClose();
         }

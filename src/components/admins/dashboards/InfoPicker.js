@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     DialogActions,
     DialogContent,
@@ -17,6 +17,7 @@ export default function InfoPicker({
         id,
         place,
         color,
+        images,
         created_at,
         updated_at,
     },
@@ -31,8 +32,6 @@ export default function InfoPicker({
         slidesToShow: 1,
         slidesToScroll: 1
     }
-
-    const [images, setImages] = useState([]);
 
     const Field = ({ name, value, details }) => {
         return (
@@ -53,7 +52,7 @@ export default function InfoPicker({
         <DialogTitle>Occasion Info</DialogTitle>
             <DialogContent>
             <Grid container spacing={4}>
-                <Grid item lg={7}>
+                <Grid item lg={7} md={7} sm={12} xs={12}>
                     <Slider {...settings}>
                         {images !== undefined && images.map( img => (
                             <img src={img.url} alt={''} key={img.id} />
@@ -65,7 +64,7 @@ export default function InfoPicker({
                         )}
                     </Slider>
                 </Grid>
-                <Grid item lg={5}>
+                <Grid item lg={5} md={5} sm={12} xs={12}>
                     <Field name={'Place'} value={place} />
                     <Field name={'Color'} value={color} />
 
