@@ -6,8 +6,7 @@ import {
   Redirect,
   HashRouter,
 } from 'react-router-dom';
-// import * as ROUTES from './Pages';
-import * as ROUTES from './Pages_hash';
+import * as ROUTES from './Pages';
 import { firebase } from './../firebaseConfig';
 
 // utama import
@@ -81,7 +80,7 @@ export default function IndexRoutes(){
         {...rest}
         render={(props) => authed === true
           ? <Component {...props} />
-          : <Redirect to={{pathname: '/', state: {from: props.location}}} />}
+          : <Redirect to={{pathname: ROUTES.UTAMA, state: {from: props.location}}} />}
       />
     )
   }
@@ -121,11 +120,11 @@ export default function IndexRoutes(){
   } else {
     return (
       <>
-      {/* <BrowserRouter> */}
-      <HashRouter basename={'/'}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {/* <HashRouter> */}
         <Switch>
           <Route exact path={ROUTES.UTAMA} component={Utama} />
-  
+          
           {/* Admin routes */}
           <PublicRoute authed={authed} exact path={ROUTES.SIGNIN} component={SignIn} />
           <PublicRoute authed={authed} exact path={ROUTES.FORGOTPASSWORD} component={ForgotPassword} />
@@ -134,49 +133,49 @@ export default function IndexRoutes(){
           <PrivateRoute authed={authed} exact path={ROUTES.SETTINGS} component={Settings} />
 
           {/* Site routes */}
-          <Route path={ROUTES.SEJARAH} component={Sejarah} />
-          <Route path={ROUTES.PENUBUHAN} component={Penubuhan} />
-          <Route path={ROUTES.PERISTIWA} component={Peristiwa} />
+          <Route exact path={ROUTES.SEJARAH} component={Sejarah} />
+          <Route exact path={ROUTES.PENUBUHAN} component={Penubuhan} />
+          <Route exact path={ROUTES.PERISTIWA} component={Peristiwa} />
   
-          <Route path={ROUTES.UNDANGTUBUH} component={UndangTubuh} />
+          <Route exact path={ROUTES.UNDANGTUBUH} component={UndangTubuh} />
   
-          <Route path={ROUTES.INSTITUSI} component={Institusi} />
-          <Route path={ROUTES.DIRAJA} component={Diraja} />
-          <Route path={ROUTES.ADAT} component={Adat} />
-          <Route path={ROUTES.UNDANGLEMBAGA} component={UndangLembaga} />
-          <Route path={ROUTES.ISTANA} component={Istana} />
-          <Route path={ROUTES.ALATKEBESARAN} component={AlatKebesaran} />
+          <Route exact path={ROUTES.INSTITUSI} component={Institusi} />
+          <Route exact path={ROUTES.DIRAJA} component={Diraja} />
+          <Route exact path={ROUTES.ADAT} component={Adat} />
+          <Route exact path={ROUTES.UNDANGLEMBAGA} component={UndangLembaga} />
+          <Route exact path={ROUTES.ISTANA} component={Istana} />
+          <Route exact path={ROUTES.ALATKEBESARAN} component={AlatKebesaran} />
   
-          <Route path={ROUTES.NEGERI} component={Negeri} />
-          <Route path={ROUTES.LOKASI} component={Lokasi} />
-          <Route path={ROUTES.BENDERA} component={Bendera} />
-          <Route path={ROUTES.LAGU} component={Lagu} />
+          <Route exact path={ROUTES.NEGERI} component={Negeri} />
+          <Route exact path={ROUTES.LOKASI} component={Lokasi} />
+          <Route exact path={ROUTES.BENDERA} component={Bendera} />
+          <Route exact path={ROUTES.LAGU} component={Lagu} />
   
-          <Route path={ROUTES.YAMTUAN} component={Yamtuan} />
-          <Route path={ROUTES.ABDULRAHMAN} component={AbdulRahman} />
-          <Route path={ROUTES.ANTAH} component={Antah} />
-          <Route path={ROUTES.IMAM} component={Imam} />
-          <Route path={ROUTES.JAAFAR} component={Jaafar} />
-          <Route path={ROUTES.MUHAMMAD} component={Muhammad} />
-          <Route path={ROUTES.MUHRIZ} component={Muhriz} />
-          <Route path={ROUTES.MUNAWIR} component={Munawir} />
-          <Route path={ROUTES.RADIN} component={Radin} />
-          <Route path={ROUTES.RAJAHITAM} component={RajaHitam} />
-          <Route path={ROUTES.RAJALENGGANG} component={RajaLenggang} />
-          <Route path={ROUTES.RAJAMELEWAR} component={RajaMelewar} />
+          <Route exact path={ROUTES.YAMTUAN} component={Yamtuan} />
+          <Route exact path={ROUTES.ABDULRAHMAN} component={AbdulRahman} />
+          <Route exact path={ROUTES.ANTAH} component={Antah} />
+          <Route exact path={ROUTES.IMAM} component={Imam} />
+          <Route exact path={ROUTES.JAAFAR} component={Jaafar} />
+          <Route exact path={ROUTES.MUHAMMAD} component={Muhammad} />
+          <Route exact path={ROUTES.MUHRIZ} component={Muhriz} />
+          <Route exact path={ROUTES.MUNAWIR} component={Munawir} />
+          <Route exact path={ROUTES.RADIN} component={Radin} />
+          <Route exact path={ROUTES.RAJAHITAM} component={RajaHitam} />
+          <Route exact path={ROUTES.RAJALENGGANG} component={RajaLenggang} />
+          <Route exact path={ROUTES.RAJAMELEWAR} component={RajaMelewar} />
   
-          <Route path={ROUTES.PENTADBIRAN} component={Pentadbiran} />
+          <Route exact path={ROUTES.PENTADBIRAN} component={Pentadbiran} />
   
-          <Route path={ROUTES.TERKINI} component={Terkini} />
+          <Route exact path={ROUTES.TERKINI} component={Terkini} />
   
-          <Route path={ROUTES.GALERI} component={Galeri} />
+          <Route exact path={ROUTES.GALERI} component={Galeri} />
   
-          <Route path={ROUTES.PERTANYAAN} component={Pertanyaan} />
+          <Route exact path={ROUTES.PERTANYAAN} component={Pertanyaan} />
   
           <Route component={PageNotFound} />
         </Switch>
-      </HashRouter>
-      {/* </BrowserRouter> */}
+      {/* </HashRouter> */}
+      </BrowserRouter>
       </>
     )
   }

@@ -13,6 +13,8 @@ import { useStyles } from './Styles';
 import { firebase } from './../../../firebaseConfig';
 import Copyright from './../../shared/Copyright';
 import { ns } from './../../images/IndexImages';
+import { Link as RouterLink } from 'react-router-dom';
+import * as ROUTES from './../../../routes/Pages';
 
 export default function SignIn() {
   const classes = useStyles();
@@ -109,7 +111,7 @@ export default function SignIn() {
             justify="center"
           >
             <Grid item xs>
-              <Link href="/admin/forgotpassword" variant="body2">
+              <Link component={RouterLink} to={ROUTES.FORGOTPASSWORD} variant="body2">
                 Terlupa kata laluan?
               </Link>
             </Grid>

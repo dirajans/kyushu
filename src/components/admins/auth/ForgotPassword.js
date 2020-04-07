@@ -15,6 +15,8 @@ import CheckIcon from '@material-ui/icons/Check';
 import { firebase } from './../../../firebaseConfig';
 import Copyright from './../../shared/Copyright';
 import { ns } from './../../images/IndexImages';
+import { Link as RouterLink } from 'react-router-dom';
+import * as ROUTES from './../../../routes/Pages';
 
 export default function ForgotPassword() {
   const classes = useStyles();
@@ -125,7 +127,7 @@ export default function ForgotPassword() {
           justify="center"
         >
           <Grid item xs>
-            <Link href="/admin/signin" variant="body2">
+            <Link component={RouterLink} to={ROUTES.SIGNIN} variant="body2">
               Pergi ke halaman Log Masuk
             </Link>
           </Grid>

@@ -29,7 +29,6 @@ export default function IndexUtama() {
         <img src={bg} alt={''} />
         <img src={backdrop} alt={''} />
       </Slider>
-
       <div className={css(styles.sectionLast)}>
         <Grid
           container
