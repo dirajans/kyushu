@@ -54,6 +54,10 @@ export default function MenuPengenalan({ onMouseLeave }){
                   url={ROUTES.UNDANGLEMBAGA}
                 />
                 <DesktopLink
+                  title={"Pembesar - Pembesar"}
+                  url={ROUTES.PEMBESAR}
+                />
+                <DesktopLink
                   title={'Alat Kebesaran'}
                   url={ROUTES.ALATKEBESARAN}
                 />

@@ -46,7 +46,7 @@ export default function Dashboard(){
 
   const fetchData = () => {
     setLoading(true);
-    firebase.database().ref('occasions/').on('value', (snapshot) => {
+    firebase.database().ref('occasions').on('value', (snapshot) => {
       const occasions = snapshotToArray(snapshot);
       setRowData(occasions);
       setLoading(false);

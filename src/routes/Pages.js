@@ -12,6 +12,7 @@ export const ADAT = '/adat';
 export const UNDANGLEMBAGA = '/undanglembaga';
 export const ALATKEBESARAN = '/alatkebesaran';
 export const ISTANA = '/istana';
+export const PEMBESAR = '/pembesar';
 
 export const NEGERI = '/negeri';
 export const LOKASI = '/lokasi';

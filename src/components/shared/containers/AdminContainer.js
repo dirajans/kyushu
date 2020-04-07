@@ -59,7 +59,7 @@ export default function PageContainer({ children, name }) {
       onClose={handleProfileClose}
     >
       {/* <MenuItem onClick={handleProfileOpenPage} >My Profile</MenuItem> */}
-      <MenuItem onClick={ () => window.open(process.env.PUBLIC_URL) } >Website Utama</MenuItem>
+      <MenuItem onClick={ () => window.open(process.env.PUBLIC_URL + ROUTES.UTAMA) } >Website Utama</MenuItem>
       <MenuItem onClick={ () => handleSignOutPress() } >Sign Out</MenuItem>
     </Menu>
   );

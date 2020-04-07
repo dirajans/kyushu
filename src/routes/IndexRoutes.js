@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter,
   Switch,
   Route,
   Redirect,
@@ -26,6 +25,7 @@ import Adat from './../components/pages/pengenalan/institusi/adat/IndexAdat';
 import UndangLembaga from './../components/pages/pengenalan/institusi/undang/UndangLembaga';
 import AlatKebesaran from './../components/pages/pengenalan/institusi/alat/AlatKebesaran';
 import Istana from './../components/pages/pengenalan/institusi/istana/IndexIstana';
+import Pembesar from './../components/pages/pengenalan/institusi/pembesar/Pembesar';
 
 // negeri
 import Negeri from './../components/pages/pengenalan/negeri/Negeri';
@@ -120,7 +120,6 @@ export default function IndexRoutes(){
   } else {
     return (
       <>
-      {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
       <HashRouter>
         <Switch>
           <Route exact path={ROUTES.UTAMA} component={Utama} />
@@ -145,6 +144,7 @@ export default function IndexRoutes(){
           <Route exact path={ROUTES.UNDANGLEMBAGA} component={UndangLembaga} />
           <Route exact path={ROUTES.ISTANA} component={Istana} />
           <Route exact path={ROUTES.ALATKEBESARAN} component={AlatKebesaran} />
+          <Route exact path={ROUTES.PEMBESAR} component={Pembesar} />
   
           <Route exact path={ROUTES.NEGERI} component={Negeri} />
           <Route exact path={ROUTES.LOKASI} component={Lokasi} />
@@ -175,7 +175,6 @@ export default function IndexRoutes(){
           <Route component={PageNotFound} />
         </Switch>
       </HashRouter>
-      {/* </BrowserRouter> */}
       </>
     )
   }

@@ -11,7 +11,6 @@ import {
   Button,
 } from '@material-ui/core';
 import PageContainer from '../../shared/containers/PageContainer';
-import ErrorMessage from './../../shared/ErrorMessage';
 import EmptyMessage from './../../shared/EmptyMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
@@ -34,7 +33,6 @@ export default function IndexTerkini() {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
 
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});
@@ -117,7 +115,7 @@ export default function IndexTerkini() {
       <Loading />
     )}
 
-    {!loading && !error && (
+    {!loading && (
       <>
       {data.length > 0 && (
         <GridList cellHeight={300} spacing={1} cols={4}>
@@ -147,10 +145,6 @@ export default function IndexTerkini() {
         <EmptyMessage />
       )}
       </>
-    )}
-
-    {!loading && error && (
-      <ErrorMessage />
     )}
 
     {open && (

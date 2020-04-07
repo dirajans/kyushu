@@ -4,7 +4,6 @@ import {
   GridListTile,
 } from '@material-ui/core';
 import PageContainer from '../../shared/containers/PageContainer';
-import ErrorMessage from './../../shared/ErrorMessage';
 import EmptyMessage from './../../shared/EmptyMessage';
 import Loading from './../../shared/Loading';
 import { firebase } from './../../../firebaseConfig';
@@ -13,18 +12,12 @@ import { snapshotToArray } from './../../shared/Utils';
 export default function IndexGaleri(){
     const [tileData, setTileData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
 
-    const fetchGaleri = async () => {
+    const fetchGaleri = () => {
       setLoading(true);
-      await firebase.database().ref('galeri').once('value', snap => {
+      firebase.database().ref('galeri').on('value', snap => {
         const galeri = snapshotToArray(snap);
         setTileData(galeri);
-        setLoading(false);
-      })
-      .catch( error => {
-        console.log(error);
-        setError(error);
         setLoading(false);
       })
     }
@@ -39,7 +32,7 @@ export default function IndexGaleri(){
           <Loading />
         )}
 
-        {!loading && !error && (
+        {!loading && (
           <>
           {tileData.length > 0 && (
             <GridList
@@ -61,11 +54,6 @@ export default function IndexGaleri(){
           
           </>
         )}
-
-        {!loading && error && (
-          <ErrorMessage />
-        )}
-
         </PageContainer>
     )
 }
