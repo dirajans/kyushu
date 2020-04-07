@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8bdbc2879b5bf04311d89b2bf0fef93e",
+    "revision": "49ce7aade1c208db18c9751bc925909f",
     "url": "/kyushu/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kyushu/static/css/2.c43dd92d.chunk.css"
   },
   {
-    "revision": "a1b893b0b14f1f1005b6",
+    "revision": "caad8bd819160f4d6743",
     "url": "/kyushu/static/css/main.f35c36ad.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kyushu/static/js/2.e5a76c86.chunk.js"
   },
   {
-    "revision": "a1b893b0b14f1f1005b6",
-    "url": "/kyushu/static/js/main.6f52b8e8.chunk.js"
+    "revision": "caad8bd819160f4d6743",
+    "url": "/kyushu/static/js/main.5eaf9ecf.chunk.js"
   },
   {
     "revision": "8ae5add66ec106fe458f",
