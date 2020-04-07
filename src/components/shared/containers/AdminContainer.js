@@ -18,6 +18,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { firebase } from '../../../firebaseConfig';
 import { mainListItems } from './ListItems';
 import { useStyles } from './AdminStyles';
+import * as ROUTES from './../../../routes/Pages';
 
 export default function PageContainer({ children, name }) {
   const classes = useStyles();
@@ -39,7 +40,7 @@ export default function PageContainer({ children, name }) {
     await firebase.auth().signOut()
     .then( () => {
       localStorage.setItem('currentUser', null);
-      window.open('/admin/signin', '_self');
+      window.open( process.env.PUBLIC_URL + '/#' + ROUTES.SIGNIN, '_self');
     })
     .catch( (error) => {
       alert(error.toString());
