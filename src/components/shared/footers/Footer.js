@@ -11,7 +11,7 @@ import * as ROUTES from './../../../routes/Pages';
 const ns = require('./../../images/ns.png');
 
 const goToAdmin = () => {
-  window.open('/admin/signin', '_self');
+  window.open(ROUTES.SIGNIN, '_self');
 }
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
     <footer style={styles.container}>
     <Container maxWidth = "lg" >
       <Grid container spacing={2}>
-        <Grid item lg={3} xs={12}>
+        <Grid item lg={3} md={3} sm={12} xs={12}>
           <FooterTitle title={'Pautan'} />
 
           <FooterLink title={'Utama'} url={ROUTES.UTAMA} />
@@ -30,18 +30,18 @@ export default function Footer() {
           <FooterLink title={'Pertanyaan'} url={ROUTES.PERTANYAAN} />
 
         </Grid>
-        <Grid item lg={3} xs={12}>
+        <Grid item lg={3} md={3} sm={12} xs={12}>
           <FooterTitle title={'Portal Berkenaan'} />
           <FooterLink title={'Portal Daerah'} url={'#'} />
           <FooterLink title={'Portal Info'} url={'#'} />
         </Grid>
-        <Grid item lg={3} xs={12}>
+        <Grid item lg={3} md={3} sm={12} xs={12}>
           <FooterTitle title={'Media Sosial'} />
           <FooterLink title={'Facebook'} url={'http://www.facebook.com'} newTab/>
           <FooterLink title={'Twitter'} url={'http://www.twitter.com'}  newTab/>
           <FooterLink title={'Instagram'} url={'http://www.instagram.com'}  newTab/>
         </Grid>
-        <Grid item lg={3} xs={12} align={'center'}>
+        <Grid item lg={3} md={3} sm={12} xs={12} align={'center'}>
           <img src={ns} width={300} alt={''} onClick={goToAdmin} />
         </Grid>
       </Grid>

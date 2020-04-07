@@ -4,8 +4,10 @@ import {
   Switch,
   Route,
   Redirect,
+  HashRouter,
 } from 'react-router-dom';
-import * as ROUTES from './Pages';
+// import * as ROUTES from './Pages';
+import * as ROUTES from './Pages_hash';
 import { firebase } from './../firebaseConfig';
 
 // utama import
@@ -90,7 +92,7 @@ export default function IndexRoutes(){
         {...rest}
         render={(props) => authed === false
           ? <Component {...props} />
-          : <Redirect to='/admin/dashboard' />}
+          : <Redirect to={ROUTES.DASHBOARD} />}
       />
     )
   }
@@ -118,7 +120,9 @@ export default function IndexRoutes(){
     )
   } else {
     return (
-      <BrowserRouter>
+      <>
+      {/* <BrowserRouter> */}
+      <HashRouter basename={'/'}>
         <Switch>
           <Route exact path={ROUTES.UTAMA} component={Utama} />
   
@@ -171,7 +175,9 @@ export default function IndexRoutes(){
   
           <Route component={PageNotFound} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
+      {/* </BrowserRouter> */}
+      </>
     )
   }
 }

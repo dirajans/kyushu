@@ -62,7 +62,12 @@ export default function IndexTerkini() {
   }
 
   const ModalDialog = () => {
-    const { id, title, description, images, created_at, updated_at } = dialogData;
+    const { 
+      title, 
+      description, 
+      images, 
+      created_at, 
+      updated_at } = dialogData;
     return (
       <Dialog
         onClose={handleClose}
