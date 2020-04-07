@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kyushu/static/css/main.f35c36ad.chunk.css",
-    "main.js": "/kyushu/static/js/main.82090b4e.chunk.js",
-    "main.js.map": "/kyushu/static/js/main.82090b4e.chunk.js.map",
+    "main.js": "/kyushu/static/js/main.8d500d54.chunk.js",
+    "main.js.map": "/kyushu/static/js/main.8d500d54.chunk.js.map",
     "runtime-main.js": "/kyushu/static/js/runtime-main.a049b12a.js",
     "runtime-main.js.map": "/kyushu/static/js/runtime-main.a049b12a.js.map",
     "static/css/2.c43dd92d.chunk.css": "/kyushu/static/css/2.c43dd92d.chunk.css",
     "static/js/2.c07385ad.chunk.js": "/kyushu/static/js/2.c07385ad.chunk.js",
     "static/js/2.c07385ad.chunk.js.map": "/kyushu/static/js/2.c07385ad.chunk.js.map",
     "index.html": "/kyushu/index.html",
-    "precache-manifest.240c1089f312772cb2292aad37946aa9.js": "/kyushu/precache-manifest.240c1089f312772cb2292aad37946aa9.js",
+    "precache-manifest.0d7a66a7a9f3d805da3958fa677c46ce.js": "/kyushu/precache-manifest.0d7a66a7a9f3d805da3958fa677c46ce.js",
     "service-worker.js": "/kyushu/service-worker.js",
     "static/css/2.c43dd92d.chunk.css.map": "/kyushu/static/css/2.c43dd92d.chunk.css.map",
     "static/css/main.f35c36ad.chunk.css.map": "/kyushu/static/css/main.f35c36ad.chunk.css.map",
@@ -34,6 +34,6 @@
     "static/css/2.c43dd92d.chunk.css",
     "static/js/2.c07385ad.chunk.js",
     "static/css/main.f35c36ad.chunk.css",
-    "static/js/main.82090b4e.chunk.js"
+    "static/js/main.8d500d54.chunk.js"
   ]
 }
