@@ -11,7 +11,7 @@ import * as ROUTES from './../../../routes/Pages';
 const ns = require('./../../images/ns.png');
 
 const goToAdmin = () => {
-  window.open( process.env.PUBLIC_URL + ROUTES.SIGNIN, '_self');
+  window.open( process.env.PUBLIC_URL + ROUTES.SIGNIN, '_blank');
 }
 
 export default function Footer() {
