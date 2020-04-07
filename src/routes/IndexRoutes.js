@@ -90,7 +90,7 @@ export default function IndexRoutes(){
         {...rest}
         render={(props) => authed === false
           ? <Component {...props} />
-          : <Redirect to='/' />}
+          : <Redirect to='/admin/dashboard' />}
       />
     )
   }

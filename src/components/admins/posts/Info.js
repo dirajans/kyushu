@@ -53,7 +53,7 @@ export default function Info({
         <DialogTitle>Post Info</DialogTitle>
             <DialogContent>
             <Grid container spacing={4}>
-                <Grid item lg={7}>
+                <Grid item lg={7} md={7} sm={12} xs={12}>
                     <Slider {...settings}>
                         {images !== undefined && images.map( img => (
                             <img src={img.url} alt={''} key={img.id} />
@@ -65,7 +65,7 @@ export default function Info({
                         )}
                     </Slider>
                 </Grid>
-                <Grid item lg={5}>
+                <Grid item lg={5} md={5} sm={12} xs={12}>
                     <Field name={'Title'} value={title} />
                     <Field name={'Description'} value={description} />
 

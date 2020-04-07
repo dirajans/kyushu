@@ -87,16 +87,29 @@ export default function FormPost({
       // send to storage
       let imgArr = [];
       let promises = images.map( async img => {
-        return firebase.storage().ref('images/' + img.id).put(img.file).then( async snapshot => {
-          return snapshot.ref.getDownloadURL().then( async url => {
-            let item = {
-              id: img.id,
-              name: img.file.name,
-              url,
-            }
-            return imgArr.push(item);
+        // if new addition images
+        if(img.file){
+          return firebase.storage().ref('images/' + img.id).put(img.file).then( async snapshot => {
+            return snapshot.ref.getDownloadURL().then( async url => {
+              let item = {
+                id: img.id,
+                name: img.file.name,
+                url,
+              }
+              return imgArr.push(item);
+            })
           })
-        })
+        }
+
+        // if already present images
+        if(img.file === undefined){
+          let item = {
+            id: img.id,
+            name: img.name,
+            url: img.url,
+          }
+          return imgArr.push(item);
+        }
       })
 
       Promise.all(promises).then( () => {
@@ -140,7 +153,7 @@ export default function FormPost({
           <DialogContent>
 
           <Grid container spacing={2}>
-            <Grid item lg={7}>
+            <Grid item lg={7} md={7} sm={12} xs={12}>
 
               <Slider {...settings}>
                 {!data && images.length === 0 && (
@@ -155,7 +168,7 @@ export default function FormPost({
               </Slider>
 
             </Grid>
-            <Grid item lg={5}>
+            <Grid item lg={5} md={5} sm={12} xs={12}>
               <Button
                 variant="contained"
                 color={'primary'}
