@@ -259,6 +259,7 @@ export default function FormPicker({
 
   return (
     <>
+    <DialogTitle>{data ? 'Edit Occasion' : loading ? 'Creating Occasion...' : 'Create Occasion'}</DialogTitle>
     {loading && (
       <div style={{ height: 200, paddingLeft: '50%', paddingTop: 100 }}>
         <CircularProgress />
@@ -267,7 +268,6 @@ export default function FormPicker({
 
     {!loading && (
       <>
-      <DialogTitle>Manage Occasion</DialogTitle>
       <DialogContent>
         
         <Grid container spacing={3}>

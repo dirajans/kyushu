@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import PageContainer from '../../shared/containers/PageContainer';
 import ErrorMessage from './../../shared/ErrorMessage';
+import EmptyMessage from './../../shared/EmptyMessage';
 import Loading from './../../shared/Loading';
 import { css } from 'aphrodite';
 import { styles } from './Styles';
@@ -101,19 +102,26 @@ export default function IndexTerkini() {
     )}
 
     {!loading && !error && (
-      <GridList cellHeight={500} spacing={1} cols={4}>
-        {tileData.map(tile => (
-          <GridListTile key={tile.title} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
-            <img src={ ns } alt={tile.title} />
-            <GridListTileBar
-              title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
-              subtitle={tile.created_at}
-              titlePosition={'bottom'}
-              className={css(styles.titleBar)}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+      <>
+      {tileData.length > 0 && (
+        <GridList cellHeight={500} spacing={1} cols={4}>
+          {tileData.map(tile => (
+            <GridListTile key={tile.title} cols={tile.featured ? 2 : 1} onClick={() => { handleClickOpen(tile) }}>
+              <img src={ ns } alt={tile.title} />
+              <GridListTileBar
+                title={<span style={{ fontSize: 30 }}>{tile.title}</span>}
+                subtitle={tile.created_at}
+                titlePosition={'bottom'}
+                className={css(styles.titleBar)}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      )}
+      {tileData.length === 0 && (
+        <EmptyMessage />
+      )}
+      </>
     )}
 
     {!loading && error && (
