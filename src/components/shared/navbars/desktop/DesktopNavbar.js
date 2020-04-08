@@ -63,6 +63,7 @@ export default function DesktopNavbar(){
               <DesktopLink
                 title={'Pengenalan'}
                 url={'#'}
+                openMenu={openMenuPengenalan}
                 onMouseOver={onMouseOverPengenalan}
                 onMouseLeave={closeMenu}
               />
@@ -72,6 +73,7 @@ export default function DesktopNavbar(){
               <DesktopLink
                 title={'Pentadbiran'}
                 url={'#'}
+                openMenu={openMenuPentadbiran}
                 onMouseOver={onMouseOverPentadbiran}
                 onMouseLeave={closeMenu}
               />

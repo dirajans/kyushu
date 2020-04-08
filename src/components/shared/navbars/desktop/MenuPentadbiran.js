@@ -7,7 +7,7 @@ import {
 import * as ROUTES from './../../../../routes/Pages';
 import DesktopLink from './DesktopLink';
 
-export default function MenuPentadbiran({ onMouseLeave}){
+export default function MenuPentadbiran({ onMouseLeave, onClick }){
     return (
         <div onMouseLeave={onMouseLeave}>
         <Divider />
@@ -18,22 +18,27 @@ export default function MenuPentadbiran({ onMouseLeave}){
                       header
                       title={'Struktur Pentadbiran Istana'}
                       url={ROUTES.PENTADBIRAN}
+                      onClick={onClick}
                     />
                     <DesktopLink
                       title={'Pengelolaan Istana'}
                       url={ROUTES.PENTADBIRAN}
+                      onClick={onClick}
                     />
                     <DesktopLink
                       title={'Juruiring'}
                       url={ROUTES.PENTADBIRAN}
+                      onClick={onClick}
                     />
                     <DesktopLink
                       title={'Khidmat Pengurusan'}
                       url={ROUTES.PENTADBIRAN}
+                      onClick={onClick}
                     />
                     <DesktopLink
                       title={'Protokol'}
                       url={ROUTES.PENTADBIRAN}
+                      onClick={onClick}
                     />
                 </Grid>
                 <Grid item lg={3}>
