@@ -19,7 +19,7 @@ export default function Imam(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Yamtuan Imam ibni Almarhum Raja Lenggang
+                        Yamtuan Imam ibni Almarhum Raja Lenggang ( 1861 – 1869 )
                     </Typography>
                     <br/>
                     <Divider />

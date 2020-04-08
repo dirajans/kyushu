@@ -19,7 +19,7 @@ export default function Muhriz(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Tuanku Muhriz ibni Almarhum Tuanku Munawir
+                    Duli Yang Maha Mulia Tuanku Muhriz ibni Almarhum Tuanku Munawir ( 2008 - kini )
                     </Typography>
                     <br/>
                     <Divider />

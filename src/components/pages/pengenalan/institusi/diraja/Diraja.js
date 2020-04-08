@@ -16,6 +16,9 @@ export default function Diraja(){
           <Grid item lg={3}>
           </Grid>
           <Grid item lg={6}>
+            <Typography variant={'h6'} style={{ color: 'grey'}}>
+              Pengenalan
+            </Typography>
             <Typography variant={'h4'}>
               Institusi Diraja
             </Typography>

@@ -18,6 +18,9 @@ export default function UndangTubuh(){
           <Sidebar />
         </Grid>
         <Grid item lg={8}>
+          <Typography variant={'h6'} style={{ color: 'grey'}}>
+            Pengenalan
+          </Typography>
           <Typography variant={'h4'}>
             Undang - Undang Tubuh Kerajaan Negeri Sembilan 1959
           </Typography>

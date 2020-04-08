@@ -19,7 +19,7 @@ export default function RajaMelewar(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Raja Melewar
+                        Raja Melewar ( 1773 - 1795 )
                     </Typography>
                     <br/>
                     <Divider />

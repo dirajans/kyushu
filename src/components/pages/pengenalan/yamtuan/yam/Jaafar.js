@@ -19,7 +19,7 @@ export default function Jaafar(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Tuanku Jaafar ibni Almarhum Tuanku Abdul Rahman
+                    Duli Yang Maha Mulia Tuanku Jaafar ibni Almarhum Tuanku Abdul Rahman ( 1967 - 2008 )
                     </Typography>
                     <br/>
                     <Divider />

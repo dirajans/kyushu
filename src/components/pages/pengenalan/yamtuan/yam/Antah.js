@@ -19,7 +19,7 @@ export default function Antah(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Yamtuan Antah ibni Almarhum Yamtuan Radin
+                        Yamtuan Antah ibni Almarhum Yamtuan Radin ( 1872 – 1888 )
                     </Typography>
                     <br/>
                     <Divider />

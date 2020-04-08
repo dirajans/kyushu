@@ -1,9 +1,7 @@
 export const UTAMA = '/';
 
-export const SEJARAH = '/sejarah';
 export const PENUBUHAN = '/penubuhan';
 export const PERISTIWA = '/peristiwa';
-
 export const UNDANGTUBUH = '/undangtubuh';
 
 export const INSTITUSI = '/institusi';

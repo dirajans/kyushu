@@ -13,7 +13,6 @@ import Utama from './../components/pages/utama/IndexUtama';
 
 // pengenalan import
 // sejarah
-import Sejarah from './../components/pages/pengenalan/sejarah/Sejarah';
 import Penubuhan from './../components/pages/pengenalan/sejarah/penubuhan/Penubuhan';
 import Peristiwa from './../components/pages/pengenalan/sejarah/peristiwa/PeristiwaPenting';
 import UndangTubuh from './../components/pages/pengenalan/sejarah/undangtubuh/UndangTubuh';
@@ -132,10 +131,8 @@ export default function IndexRoutes(){
           <PrivateRoute authed={authed} exact path={ROUTES.SETTINGS} component={Settings} />
 
           {/* Site routes */}
-          <Route exact path={ROUTES.SEJARAH} component={Sejarah} />
           <Route exact path={ROUTES.PENUBUHAN} component={Penubuhan} />
           <Route exact path={ROUTES.PERISTIWA} component={Peristiwa} />
-  
           <Route exact path={ROUTES.UNDANGTUBUH} component={UndangTubuh} />
   
           <Route exact path={ROUTES.INSTITUSI} component={Institusi} />

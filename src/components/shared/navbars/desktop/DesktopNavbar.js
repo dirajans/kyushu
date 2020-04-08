@@ -109,11 +109,11 @@ export default function DesktopNavbar(){
       </Container>
 
       {openMenuPengenalan && (
-        <MenuPengenalan onMouseLeave={closeMenu} />
+        <MenuPengenalan onMouseLeave={closeMenu} onClick={closeMenu} />
       )}
 
       {openMenuPentadbiran && (
-        <MenuPentadbiran onMouseLeave={closeMenu} />
+        <MenuPentadbiran onMouseLeave={closeMenu} onClick={closeMenu}/>
       )}
 
     </div>

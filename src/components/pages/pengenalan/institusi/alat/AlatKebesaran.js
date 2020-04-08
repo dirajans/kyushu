@@ -18,7 +18,9 @@ export default function AlatKebesaran(){
           </Grid>
 
           <Grid item lg={6}>
-
+            <Typography variant={'h6'} style={{ color: 'grey'}}>
+              Pengenalan
+            </Typography>
             <Typography variant={'h4'}>
               Alat Kebesaran
             </Typography>

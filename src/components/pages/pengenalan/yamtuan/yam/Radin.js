@@ -19,7 +19,7 @@ export default function Radin(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Yamtuan Radin ibni Almarhum Raja Lenggang
+                        Yamtuan Radin ibni Almarhum Raja Lenggang ( 1824 – 1861 )
                     </Typography>
                     <br/>
                     <Divider />

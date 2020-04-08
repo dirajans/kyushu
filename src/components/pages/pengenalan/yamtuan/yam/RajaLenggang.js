@@ -19,7 +19,7 @@ export default function RajaLenggang(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Raja Lenggang
+                        Raja Lenggang ( 1808 – 1824 )
                     </Typography>
                     <br/>
                     <Divider />

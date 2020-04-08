@@ -19,7 +19,7 @@ export default function RajaHitam(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Raja Hitam
+                        Raja Hitam ( 1795 - 1808 )
                     </Typography>
                     <br/>
                     <Divider />

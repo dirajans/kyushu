@@ -19,7 +19,7 @@ export default function AbdulRahman(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Tuanku Abdul Rahman ibni Almarhum Tuanku Muhammad
+                    Duli Yang Maha Mulia Tuanku Abdul Rahman ibni Almarhum Tuanku Muhammad ( 1933 - 1960 )
                     </Typography>
                     <br/>
                     <Divider />

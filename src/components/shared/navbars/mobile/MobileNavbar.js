@@ -37,7 +37,7 @@ export default function MobileNavbar(){
       <List>
         <MobileLink onClick={toggleDrawer} href={ROUTES.UTAMA} title={'Utama'} />
 
-        <MobileLink onClick={toggleDrawer} href={ROUTES.SEJARAH} title={'Sejarah Penubuhan'} />
+        <MobileLink onClick={toggleDrawer} href={''} title={'Sejarah Penubuhan'} />
         <MobileLink onClick={toggleDrawer} href={ROUTES.INSTITUSI} title={'Institusi Diraja & Undang'} />
         <MobileLink onClick={toggleDrawer} href={ROUTES.ADAT} title={'Adat Perpatih'} />
         <MobileLink onClick={toggleDrawer} href={ROUTES.BENDERA} title={'Bendera & Jata'} />

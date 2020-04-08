@@ -19,7 +19,7 @@ export default function Munawir(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Tuanku Munawir ibni Almarhum Tuanku Abdul Rahman
+                    Duli Yang Maha Mulia Tuanku Munawir ibni Almarhum Tuanku Abdul Rahman ( 1960 – 1967 )
                     </Typography>
                     <br/>
                     <Divider />

@@ -15,9 +15,13 @@ export default function UndangLembaga(){
         <Grid container>
           <Grid item lg={3}>
           </Grid>
+    
           <Grid item lg={6}>
+            <Typography variant={'h6'} style={{ color: 'grey'}}>
+              Pengenalan
+            </Typography>
             <Typography variant={'h4'}>
-              Dato' Undang dan Lembaga
+              Luak Berundang dan Lembaga
             </Typography>
             <br/>
             <Divider />

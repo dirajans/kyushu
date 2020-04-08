@@ -17,6 +17,9 @@ export default function Pembesar(){
                     </Grid>
 
                     <Grid item lg={6}>
+                        <Typography variant={'h6'} style={{ color: 'grey'}}>
+                            Pengenalan
+                        </Typography>
                         <Typography variant={'h4'}>
                             Pembesar - Pembesar Negeri Sembilan
                         </Typography>

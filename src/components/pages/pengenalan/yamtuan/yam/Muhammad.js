@@ -19,7 +19,7 @@ export default function Muhriz(){
                 </Grid>
                 <Grid item lg={7}>
                     <Typography variant={'h4'}>
-                        Tuanku Muhammad ibni Almarhum Tuanku Antah
+                    Duli Yang Maha Mulia Tuanku Muhammad ibni Almarhum Tuanku Antah ( 1888 - 1933 )
                     </Typography>
                     <br/>
                     <Divider />
