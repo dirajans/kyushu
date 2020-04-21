@@ -39,8 +39,8 @@ export default function DesktopComponents(){
         
         <br/>
         <div style={{ textAlign: 'center', fontStyle: 'italic' }}>
-        nasab bapa (patrilineal) yang dikaitkan dengan Datuk Ketemenggungan.<br/>
-        nasab ibu (matrilineal) yang dikaitan dengan Datuk Perpatih Nan Sebatang<br/>
+        Nasab bapa (patrilineal) yang dikaitkan dengan Datuk Ketemenggungan.<br/>
+        Nasab ibu (matrilineal) yang dikaitan dengan Datuk Perpatih Nan Sebatang<br/>
         </div>
         <br/>
 
@@ -88,13 +88,16 @@ export default function DesktopComponents(){
       diikuti oleh kelompok ruang dan yang paling kecil adalah kelompok kekeluargaan rumpun. Setiap kelompok ini mempunyai 
       pemimpinnya tersendiri:<br/>
       <br/>
-      Kodim iaitu ketua kelompok kekeluargaan rumpun (sublineage)<br/>
-      Besar iaitu ketua kelompok kekeluargaan ruang (lineage)<br/>
-      Buapak - ketua kelompok kekeluargaan perut (subclan)<br/>
-      Lembaga iaitu ketua kelompok kekeluargaan suku (clan)<br/>
+      <div style={{ textAlign: 'center', fontStyle: 'italic' }}>
+      Kodim - Ketua kelompok kekeluargaan rumpun (sublineage)<br/>
+      Besar - Ketua kelompok kekeluargaan ruang (lineage)<br/>
+      Buapak - Ketua kelompok kekeluargaan perut (subclan)<br/>
+      Lembaga - Ketua kelompok kekeluargaan suku (clan)<br/>
+      </div>
       <br/>
       Suku-suku di Negeri Sembilan:<br/>
       <br/>
+      <div style={{ textAlign: 'center', fontStyle: 'italic' }}>
       Biduanda<br/>
       Paya Kumboh<br/>
       Tanah Datar<br/>
@@ -106,6 +109,7 @@ export default function DesktopComponents(){
       Sri Lemak<br/>
       Batu Belang<br/>
       Tiga Batu<br/>
+      </div>
       </Typography>
         </Grid>
         <Grid item lg={3}>

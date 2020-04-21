@@ -4,6 +4,7 @@ import { snapshotToArray } from './../../shared/Utils';
 import {
   Paper,
   CircularProgress,
+  Link,
 } from '@material-ui/core';
 import {
   IntegratedFiltering,
@@ -50,8 +51,9 @@ export default function Settings(){
   const getRowId = row => row.id;
 
   const [columns] = useState([
-    { name: 'name', title: 'name'},
-    { name: 'email', title: 'email'},
+    { name: 'name', title: 'Name'},
+    { name: 'email', title: 'Email'},
+    { name: 'description', title: 'Description'},
     { name: 'created_at', title: 'Created At'},
     { name: 'updated_at', title: 'Updated At'},
   ]);
@@ -101,8 +103,28 @@ export default function Settings(){
     setRowData(changedRows);
 
     // save to firebase
-    firebase.database().ref('places').set(changedRows);
+    firebase.database().ref('pertanyaan').set(changedRows);
   };
+
+  const handleOnClickId = (value) => {
+    window.location.href = `mailto:${value}`;
+  }
+
+  const LinkCell = ({ value, style, ...restProps }) => {
+    return (
+      <Table.Cell {...restProps} style={{ ...style }}>
+        <Link onClick={ () => { handleOnClickId(value) }}>{value}</Link>
+      </Table.Cell>
+    )
+  }
+
+  const NameCell = (props) => {
+    const { column } = props;
+    if (column.name === 'email') {
+      return <LinkCell {...props} />
+    }
+    return <Table.Cell {...props} />
+  }
 
   return (
     <PageContainer name={'Manage Pertanyaan'}>
@@ -142,7 +164,7 @@ export default function Settings(){
           <IntegratedSorting />
           <IntegratedPaging />
 
-          <Table />
+          <Table cellComponent={NameCell} />
           <TableHeaderRow showSortingControls={true} />
           <TableEditRow />
           <TableEditColumn
