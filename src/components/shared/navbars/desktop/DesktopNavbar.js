@@ -8,28 +8,29 @@ import {
 } from '@material-ui/core';
 import DesktopLink from './DesktopLink';
 import MenuPengenalan from './MenuPengenalan';
-import MenuPentadbiran from './MenuPentadbiran';
+// import MenuPentadbiran from './MenuPentadbiran';
 import * as ROUTES from './../../../../routes/Pages';
 import { ns } from './../../../images/IndexImages';
 
 export default function DesktopNavbar(){
   const [openMenuPengenalan, setOpenMenuPengenalan] = useState(false);
-  const [openMenuPentadbiran, setOpenMenuPentadbiran] = useState(false);
+  // const [openMenuPentadbiran, setOpenMenuPentadbiran] = useState(false);
 
   // pengenalan menu
   const onMouseOverPengenalan = () => {
     setOpenMenuPengenalan(true)
-    setOpenMenuPentadbiran(false)
+    // setOpenMenuPentadbiran(false)
   }
 
   // pentadbiran menu
-  const onMouseOverPentadbiran = () => {
-    setOpenMenuPentadbiran(true)
-    setOpenMenuPengenalan(false)
-  }
+  // const onMouseOverPentadbiran = () => {
+  //   setOpenMenuPentadbiran(true)
+  //   setOpenMenuPengenalan(false)
+  // }
+  
   const closeMenu = () => {
     setOpenMenuPengenalan(false)
-    setOpenMenuPentadbiran(false)
+    // setOpenMenuPentadbiran(false)
   }
 
   return (
@@ -69,7 +70,7 @@ export default function DesktopNavbar(){
               />
             </Grid>
 
-            <Grid item>
+            {/* <Grid item>
               <DesktopLink
                 title={'Pentadbiran'}
                 url={'#'}
@@ -77,7 +78,7 @@ export default function DesktopNavbar(){
                 onMouseOver={onMouseOverPentadbiran}
                 onMouseLeave={closeMenu}
               />
-            </Grid>
+            </Grid> */}
 
             <Grid item>
               <DesktopLink
@@ -114,9 +115,9 @@ export default function DesktopNavbar(){
         <MenuPengenalan onMouseLeave={closeMenu} onClick={closeMenu} />
       )}
 
-      {openMenuPentadbiran && (
+      {/* {openMenuPentadbiran && (
         <MenuPentadbiran onMouseLeave={closeMenu} onClick={closeMenu}/>
-      )}
+      )} */}
 
     </div>
   )

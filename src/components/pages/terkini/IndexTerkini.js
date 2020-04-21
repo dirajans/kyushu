@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  GridList,
-  GridListTile,
-  GridListTileBar,
   Dialog,
   DialogTitle,
   DialogActions,
@@ -17,15 +14,12 @@ import {
 import PageContainer from '../../shared/containers/PageContainer';
 import EmptyMessage from './../../shared/EmptyMessage';
 import Loading from './../../shared/Loading';
-import { css } from 'aphrodite';
-import { styles } from './Styles';
 import { firebase } from './../../../firebaseConfig';
 import { snapshotToArray } from './../../shared/Utils';
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { ns } from '../../images/IndexImages';
 
 export default function IndexTerkini() {
   const settings = {
@@ -123,30 +117,6 @@ export default function IndexTerkini() {
 
     {!loading && (
       <>
-      {/* {data.length > 0 && (
-        <GridList cellHeight={300} spacing={1} cols={4}>
-          {data.map(item => (
-            <GridListTile key={item.title} cols={item.featured === 'true' ? 2 : 1} onClick={() => { handleClickOpen(item) }}>
-              <Slider {...settings}>
-                {item.images !== undefined && item.images.map( img => (
-                  <img src={img.url} alt={''} key={img.id} />
-                ))}
-                {item.images === undefined && (
-                  <Typography variant={'caption'}>
-                      No images uploaded yet.
-                  </Typography>
-                )}
-              </Slider>
-              <GridListTileBar
-                title={<span style={{ fontSize: 30 }}>{item.title}</span>}
-                subtitle={item.created_at}
-                titlePosition={'bottom'}
-                className={css(styles.titleBar)}
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      )} */}
       <Container>
       <br/><br/><br/><br/>
         <Typography variant={'h4'}>
@@ -160,35 +130,35 @@ export default function IndexTerkini() {
         <Typography variant={'h6'} style={{ color: 'grey' }}>
           April 2020
         </Typography>
-      <Grid container spacing={1}>
-      {data.length > 0 && data.map( item => (
-        <Grid item lg={3} onClick={ () => handleClickOpen(item)}>
-        <Box key={item.id} width={210} marginRight={0.5} my={5}>
-          <Slider {...settings}>
-            {item.images !== undefined && item.images.map( img => (
-              <img src={img.url} alt={''} key={img.id} />
-            ))}
-            {item.images === undefined && (
-              <Typography variant={'caption'}>
-                  No images uploaded yet.
+        <Grid container spacing={1}>
+        {data.length > 0 && data.map( item => (
+          <Grid item lg={3} onClick={ () => handleClickOpen(item)} key={item.id}>
+            <Box key={item.id} width={210} marginRight={0.5} my={5}>
+              <Slider {...settings}>
+                {item.images !== undefined && item.images.map( img => (
+                  <img src={img.url} alt={''} key={img.id} />
+                ))}
+                {item.images === undefined && (
+                  <Typography variant={'caption'}>
+                      No images uploaded yet.
+                  </Typography>
+                )}
+              </Slider>
+            </Box>
+            <Box pr={2}>
+              <Typography gutterBottom variant="body2">
+                {item.title}
               </Typography>
-            )}
-          </Slider>
-        </Box>
-        <Box pr={2}>
-        <Typography gutterBottom variant="body2">
-          {item.title}
-        </Typography>
-        <Typography display="block" variant="caption" color="textSecondary">
-          {item.description}
-        </Typography>
-        <Typography variant="caption" color="textSecondary">
-          {`${item.featured} • ${item.featured}`}
-        </Typography>
-        </Box>
+              <Typography display="block" variant="caption" color="textSecondary">
+                {item.description}
+              </Typography>
+              <Typography variant="caption" color="textSecondary">
+                {`${item.featured} • ${item.featured}`}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
         </Grid>
-      ))}
-      </Grid>
 
 
       <br/>
