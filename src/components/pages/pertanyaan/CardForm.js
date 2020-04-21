@@ -29,6 +29,8 @@ export default function CardForm({ onSubmit }) {
       name,
       email,
       description,
+      created_at: new Date().toString(),
+      updated_at: new Date().toString(),
     }
 
     onSubmit(data);
